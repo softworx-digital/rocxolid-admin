@@ -1,0 +1,1 @@
+<i class="fa fa-remove text-error" data-timeout-remove="1000"></i>

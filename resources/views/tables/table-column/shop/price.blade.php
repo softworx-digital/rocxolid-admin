@@ -1,0 +1,1 @@
+{{ $component->getOption('model')->getFormattedPrice($component->getTableColumn()->getName()) }}

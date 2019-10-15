@@ -1,0 +1,1 @@
+{!! Form::text($component->getTableFilter()->getFieldName(), $component->getTableFilter()->getValue(), $component->getOption('attributes')) !!}

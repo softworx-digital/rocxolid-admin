@@ -1,0 +1,32 @@
+{
+    "name": "softworx/rocxolid-admin",
+    "description": "Laravel Admin Dashboard for rocXolid library",
+    "keywords": [
+        "laravel",
+        "admin"
+    ],
+    "type": "library",
+    "authors": [{
+        "name": "softworx",
+        "email": "hello@softworx.digital"
+    }],
+	"license": "MIT",
+    "require": {
+		"php": "~7.2",
+        "laravel/framework": "5.8.*|^6.0",
+        "softworx/rocxolid": "*",
+        "softworx/rocxolid-design": "*"
+	},
+    "autoload": {
+        "psr-4": {
+            "Softworx\\RocXolid\\Admin\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Softworx\\RocXolid\\Admin\\ServiceProvider"
+            ]
+        }
+    }
+}

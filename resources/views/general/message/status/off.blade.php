@@ -1,0 +1,1 @@
+<span class="text-danger text-shadow-danger" title="{{ $component->translate('text.status.off', false) }}"><i class="fa fa-power-off fa-2x"></i></span>

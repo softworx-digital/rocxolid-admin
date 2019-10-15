@@ -1,0 +1,1 @@
+{{ number_format($component->getModelValue(), 2, ',', ' ') }}@if ($component->getOption('unit', false)){{ $component->getOption('unit', false) }}@endif

@@ -1,0 +1,1 @@
+{{ $component->getOption('model')->formatPrice($component->getOption('model')->{$component->getOption('method')}()) }}

@@ -1,0 +1,1 @@
+{!! Form::button($component->getOption('label.title'), $component->getOption('attributes')) !!}

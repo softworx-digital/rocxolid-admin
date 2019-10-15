@@ -1,0 +1,1 @@
+<span class="text-success text-shadow-success" title="{{ $component->translate('text.status.on', false) }}"><i class="fa fa-power-off fa-2x"></i></span>

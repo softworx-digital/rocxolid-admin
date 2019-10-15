@@ -1,0 +1,1 @@
+<div class="price price-small text-right">{{ $component->getOption('model')->getFormattedPrice($component->getTableColumn()->getName()) }}</div>
