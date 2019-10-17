@@ -17,9 +17,10 @@ class ConfigurationServiceProvider extends IlluminateServiceProvider
      * @var array $config_files Configuration files to be published and loaded.
      */
     protected $config_files = [
-        'rocXolid.admin.general' => '/../config/general.php',
-        'rocXolid.admin.layout' => '/../config/layout.php',
-        'rocXolid.admin.sidebar' => '/../config/sidebar.php',
+        'rocXolid.admin.general' => '/../../config/general.php',
+        'rocXolid.admin.auth' => '/../../config/auth.php',
+        'rocXolid.admin.layout' => '/../../config/layout.php',
+        'rocXolid.admin.sidebar' => '/../../config/sidebar.php',
     ];
 
     /**

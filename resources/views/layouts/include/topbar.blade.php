@@ -9,57 +9,31 @@
 
         @if ($user)
             <ul class="nav navbar-nav navbar-right">
-                <li class="">
+                <li>
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    @if (false)
-                        {{ Html::image('images/img.jpg', 'username') }}
-                    @endif
+                        {{ Html::image('vendor/softworx/rocXolid/images/user-placeholder.svg', $user->name) }}
                         <span>{{ $user->name }}</span>
                         <span class=" fa fa-angle-down margin-left-10"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        <li><a href="{{ $user->getControllerRoute() }}"> {{ $component->translate('text.user.profile', false) }}</a></li>
-                        <li><a href="{{ $user->getControllerRoute('edit') }}"> {{ $component->translate('text.user.settings', false) }}</a></li>
-                        <li><a href="{{ route('rocxolid.logout') }}"><i class="fa fa-sign-out pull-right"></i> {{ $component->translate('text.user.logout', false) }}</a></li>
+                        <li>
+                            <a href="{{ $user->getControllerRoute() }}"><i class="fa fa-id-badge"></i> {{ $component->translate('auth.profile', false) }}</a>
+                        </li>
+                        <li>
+                            <a href="{{ $user->getControllerRoute('edit') }}"><i class="fa fa-cog"></i> {{ $component->translate('auth.settings', false) }}</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('rocXolid.auth.logout') }}"><i class="fa fa-sign-out"></i> {{ $component->translate('auth.logout', false) }}</a>
+                        </li>
                     </ul>
                 </li>
             @if (false)
                 <li role="presentation" class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-envelope-o"></i>
-                        <span class="badge bg-green">6</span>
+                        <span class="badge bg-green">1</span>
                     </a>
                     <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                        <li>
-                            <a>
-                                <span class="image">{{ Html::image('images/img.jpg', 'username') }}</span>
-                                <span>
-                                    <span>John Smith</span>
-                                    <span class="time">3 mins ago</span>
-                                </span>
-                                <span class="message">Film festivals used to be do-or-die moments for movie makers. They were where...</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a>
-                                <span class="image">{{ Html::image('images/img.jpg', 'username') }}</span>
-                                <span>
-                                    <span>John Smith</span>
-                                    <span class="time">3 mins ago</span>
-                                </span>
-                                <span class="message">Film festivals used to be do-or-die moments for movie makers. They were where...</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a>
-                                <span class="image">{{ Html::image('images/img.jpg', 'username') }}</span>
-                                <span>
-                                    <span>John Smith</span>
-                                    <span class="time">3 mins ago</span>
-                                </span>
-                                <span class="message">Film festivals used to be do-or-die moments for movie makers. They were where...</span>
-                            </a>
-                        </li>
                         <li>
                             <a>
                                 <span class="image">{{ Html::image('images/img.jpg', 'username') }}</span>
@@ -84,9 +58,9 @@
             </ul>
         @else
             <ul class="nav navbar-nav navbar-right">
-                <li class="">
+                <li>
                     <a class="user-profile">
-                        <span>{{ $component->translate('text.user.anonymous', false) }}</span>
+                        <span>{{ $component->translate('auth.anonymous', false) }}</span>
                     </a>
                 </li>
             </ul>

@@ -14,15 +14,6 @@ use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 class ServiceProvider extends IlluminateServiceProvider
 {
     /**
-     * @var array $config_files Configuration files to be published and loaded.
-     */
-    protected $config_files = [
-        'rocXolid.admin.general' => '/../config/general.php',
-        'rocXolid.admin.layout' => '/../config/layout.php',
-        'rocXolid.admin.sidebar' => '/../config/sidebar.php',
-    ];
-
-    /**
      * Register the application services.
      *
      * @return void
@@ -30,8 +21,11 @@ class ServiceProvider extends IlluminateServiceProvider
     public function register()
     {
         $this->app->register(Providers\ConfigurationServiceProvider::class);
+        $this->app->register(Providers\CommandServiceProvider::class);
+        $this->app->register(Providers\AuthServiceProvider::class);
         $this->app->register(Providers\ViewServiceProvider::class);
         $this->app->register(Providers\RouteServiceProvider::class);
+        $this->app->register(Providers\TranslationServiceProvider::class);
     }
 
     /**
@@ -41,7 +35,8 @@ class ServiceProvider extends IlluminateServiceProvider
      */
     public function boot()
     {
-
+        $this
+            ->publish();
     }
 
     /**
@@ -55,14 +50,22 @@ class ServiceProvider extends IlluminateServiceProvider
         // php artisan vendor:publish --provider="Softworx\RocXolid\Admin\ServiceProvider" --tag="config" (--force to overwrite)
         $this->publishes([
             __DIR__ . '/../config/general.php' => config_path('rocXolid/admin/general.php'),
+            __DIR__ . '/../config/auth.php' => config_path('rocXolid/admin/auth.php'),
             __DIR__ . '/../config/layout.php' => config_path('rocXolid/admin/layout.php'),
             __DIR__ . '/../config/sidebar.php' => config_path('rocXolid/admin/sidebar.php'),
         ], 'config');
 
+        // lang files
+        // php artisan vendor:publish --provider="Softworx\RocXolid\Admin\ServiceProvider" --tag="views" (--force to overwrite)
+        $this->publishes([
+            //__DIR__ . '/../resources/lang' => resource_path('lang/vendor/softworx/rocXolid/admin'),
+            __DIR__ . '/../resources/lang' => resource_path('lang/vendor/rocXolid:admin'),
+        ], 'views');
+
         // views files
         // php artisan vendor:publish --provider="Softworx\RocXolid\Admin\ServiceProvider" --tag="views" (--force to overwrite)
         $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('views/vendor/softworx/rocxolid-admin'),
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/softworx/rocXolid/admin'),
         ], 'views');
 
         return $this;

@@ -2,7 +2,7 @@
     <div class="left_col">
         <div class="fixed-scroll">
             <div class="navbar nav_title text-center">
-                <a href="{{ route('rocxolid.index') }}" class="site_title">{{ Html::image('vendor/softworx/rocXolid/images/branding/rocXolid-white.png', 'rocXolid') }}</a>
+                <a href="{{ route('rocXolid.admin.index') }}" class="site_title">{{ Html::image('vendor/softworx/rocXolid/images/branding/rocXolid-white.png', 'rocXolid') }}</a>
             </div>
             <div class="clearfix"></div>
         @if ($user)
@@ -31,7 +31,7 @@
             <a title="Lock"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></a>
         @endif
         @if ($user)
-            <a title="{{ $component->translate('text.user.logout', false) }}" href="{{ route('rocxolid.logout') }}" style="width: 100%;"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+            <a title="{{ $component->translate('auth.logout', false) }}" href="{{ route('rocXolid.auth.logout') }}" style="width: 100%;"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
         @endif
         </div>
     </div>

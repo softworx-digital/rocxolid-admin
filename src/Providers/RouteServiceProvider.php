@@ -35,25 +35,12 @@ class RouteServiceProvider extends IlluminateServiceProvider
      */
     private function load(Router $router): IlluminateServiceProvider
     {
-        /*
-        $router->group([
-            'module' => 'rocXolid',
-            'middleware' => [ 'web' ],
-            'namespace' => 'Softworx\RocXolid\Admin\Http\Controllers',
-            'prefix' => config('rocXolid.admin.general.routes.root', 'rocXolid'),
-            'as' => 'rocxolid.',
-        ], function ($router) {
-            // package dashboard
-            $router->get('', 'Controller@index')->name('index');
-        });
-        */
-
         $router->group([
             'module' => 'rocXolid',
             'middleware' => [ 'web', 'rocXolid.auth' ],
             'namespace' => 'Softworx\RocXolid\Admin\Http\Controllers',
             'prefix' => config('rocXolid.admin.general.routes.root', 'rocXolid'),
-            'as' => 'rocXolid.',
+            'as' => 'rocXolid.admin.',
         ], function ($router) {
             // package dashboard
             $router->get('', 'Controller@index')->name('index');
