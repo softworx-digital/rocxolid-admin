@@ -6,7 +6,7 @@ use Auth;
 use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\Auth\Guard;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
 use Softworx\RocXolid\Composers\Contracts\Composer as ComposerContract;
 
 /**
@@ -51,18 +51,20 @@ class DefaultComposer implements ComposerContract
      * Get currently logged users.
      * 
      * @param int $timeout
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return \Illuminate\Support\Collection
      */
     protected function getOnlineUsers(int $timeout = 3600): Collection
     {
+        /*
         if ($this->auth->user()) {
             return $this->auth->user()
                 ->where('id', '!=', $this->auth->user()->id)
                 ->where('last_action', '>', Carbon::now()->subSeconds($timeout)->toDateTimeString())
                 ->where('logged_out', null)
                 ->get();
-        } else {
-            return collect([]);
         }
+        */
+
+        return collect([]);
     }
 }

@@ -110,8 +110,10 @@ class LoginController extends AbstractController implements Dashboardable
     {
         $user = $this->guard()->user();
 
+        /*
         $user->logged_out = Carbon::now()->toDateTimeString();
         $user->save();
+        */
 
         $this->guard()->logout();
 

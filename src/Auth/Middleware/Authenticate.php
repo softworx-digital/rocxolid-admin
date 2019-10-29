@@ -42,6 +42,7 @@ class Authenticate extends BaseAuthenticate
             $user = parent::authenticate($request, $guards);
 
             if ($user && $user->exists()) {
+                /*
                 $user->last_action = Carbon::now()->toDateTimeString();
                 $user->logged_out = null;
 
@@ -52,6 +53,7 @@ class Authenticate extends BaseAuthenticate
                 $user->save();
 
                 App::setLocale($user->language->iso_639_1);
+                */
             }
         } catch (BaseAuthenticationException $e) {
             throw new AuthenticationException('Unauthenticated.', $guards, route('rocXolid.auth.login'));

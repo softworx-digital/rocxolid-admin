@@ -56,11 +56,11 @@ class ServiceProvider extends IlluminateServiceProvider
         ], 'config');
 
         // lang files
-        // php artisan vendor:publish --provider="Softworx\RocXolid\Admin\ServiceProvider" --tag="views" (--force to overwrite)
+        // php artisan vendor:publish --provider="Softworx\RocXolid\Admin\ServiceProvider" --tag="lang" (--force to overwrite)
         $this->publishes([
             //__DIR__ . '/../resources/lang' => resource_path('lang/vendor/softworx/rocXolid/admin'),
             __DIR__ . '/../resources/lang' => resource_path('lang/vendor/rocXolid:admin'),
-        ], 'views');
+        ], 'lang');
 
         // views files
         // php artisan vendor:publish --provider="Softworx\RocXolid\Admin\ServiceProvider" --tag="views" (--force to overwrite)

@@ -15,4 +15,18 @@ return [
     'auth' => [
         'invalid' => 'Neplatné prihlasovacie meno alebo heslo'
     ],
+
+    'sidebar' => [
+        'text' => [
+            'welcome' => 'Vitajte'
+        ],
+        'sections' => [
+            'administration' => [
+                'heading' => 'Administrácia',
+                'items' => [
+
+                ]
+            ]
+        ],
+    ],
 ];

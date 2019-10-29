@@ -11,7 +11,7 @@
                     {{ Html::image('vendor/softworx/rocXolid/images/user-placeholder.svg', $user->name, [ 'class' => 'img-circle profile_img' ]) }}
                 </div>
                 <div class="profile_info">
-                    <span>{{ $component->translate('text.welcome', false) }}</span>
+                    <span>{{ $component->translate('sidebar.text.welcome', false) }}</span>
                     <h2>{{ $user->name }}</h2>
                 </div>
             </div>
