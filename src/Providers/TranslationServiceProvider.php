@@ -5,7 +5,7 @@ namespace Softworx\Rocxolid\Admin\Providers;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
 /**
- * RocXolid translation service provider.
+ * rocXolid translation service provider.
  *
  * @author softworx <hello@softworx.digital>
  * @package Softworx\RocXolid\Admin
@@ -14,7 +14,7 @@ use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 class TranslationServiceProvider extends IlluminateServiceProvider
 {
     /**
-     * Bootstrap RocXolid translation services.
+     * Bootstrap rocXolid translation services.
      *
      * @return \Illuminate\Support\ServiceProvider
      */

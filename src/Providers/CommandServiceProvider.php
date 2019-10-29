@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 use Softworx\RocXolid\Admin\Commands\CreateRootUser;
 
 /**
- * RocXolid CLI commands service provider.
+ * rocXolid CLI commands service provider.
  *
  * @author softworx <hello@softworx.digital>
  * @package Softworx\RocXolid

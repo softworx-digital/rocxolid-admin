@@ -12,7 +12,7 @@ use Softworx\RocXolid\Admin\Auth\Middleware\Authenticate;
 use Softworx\RocXolid\Admin\Auth\Middleware\RedirectAuthenticated;
 
 /**
- * RocXolid authentication service provider.
+ * rocXolid authentication service provider.
  *
  * @author softworx <hello@softworx.digital>
  * @package Softworx\RocXolid\Admin

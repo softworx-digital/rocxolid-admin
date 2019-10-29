@@ -6,7 +6,7 @@ use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
 /**
- * RocXolid routes service provider.
+ * rocXolid routes service provider.
  *
  * @author softworx <hello@softworx.digital>
  * @package Softworx\RocXolid\Admin
@@ -15,7 +15,7 @@ use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 class RouteServiceProvider extends IlluminateServiceProvider
 {
     /**
-     * Bootstrap RocXolid routing services.
+     * Bootstrap rocXolid routing services.
      *
      * @return \Illuminate\Support\ServiceProvider
      */

@@ -11,7 +11,7 @@ use Illuminate\Auth\AuthenticationException as BaseAuthenticationException;
 use Softworx\RocXolid\Admin\Auth\Exceptions\AuthenticationException;
 
 /**
- * RocXolid authentication middleware.
+ * rocXolid authentication middleware.
  *
  * @author softworx <hello@softworx.digital>
  * @package Softworx\RocXolid\Admin

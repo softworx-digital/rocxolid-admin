@@ -5,7 +5,7 @@ namespace Softworx\RocXolid\Admin;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
 /**
- * RocXolid Admin package service provider.
+ * rocXolid Admin package service provider.
  *
  * @author softworx <hello@softworx.digital>
  * @package Softworx\RocXolid\Admin

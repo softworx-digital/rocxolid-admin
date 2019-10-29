@@ -6,6 +6,14 @@ use Hash;
 use Illuminate\Console\Command;
 use Softworx\RocXolid\UserManagement\Models\User;
 
+/**
+ * Command to create the first (root) user for rocXolid based applications.
+ *
+ * @author softworx <hello@softworx.digital>
+ * @package Softworx\RocXolid\Admin
+ * @version 1.0.0
+ * @todo input validation
+ */
 class CreateRootUser extends Command
 {
     /**
@@ -20,7 +28,7 @@ class CreateRootUser extends Command
      *
      * @var string
      */
-    protected $description = 'Creates root user for RocXolid based application';
+    protected $description = 'Creates root user for rocXolid based application';
 
     /**
      * Create a new command instance.
@@ -35,7 +43,6 @@ class CreateRootUser extends Command
     /**
      * Execute the console command.
      *
-     * @param  \App\DripEmailer  $drip
      * @return mixed
      */
     public function handle()
@@ -51,7 +58,6 @@ class CreateRootUser extends Command
             $user = User::create([
                 'name' => 'Root',
                 'email' => $email,
-                'login' => $email,
                 'password' => $password,
             ]);
             
