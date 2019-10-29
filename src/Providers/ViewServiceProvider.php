@@ -38,7 +38,7 @@ class ViewServiceProvider extends IlluminateServiceProvider
         // customized views preference
         $this->loadViewsFrom(resource_path('views/vendor/softworx/rocXolid/admin'), 'rocXolid');
         // pre-defined views fallback
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'rocXolid');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'rocXolid');
 
         return $this;
     }
