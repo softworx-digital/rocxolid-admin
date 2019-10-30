@@ -1,7 +1,7 @@
 @extends('rocXolid::layouts.default')
 
 @section('content')
-@if (false)
-<p class="alert alert-success">{{ $view_name }}</p>
-@endif
+
+<h1 class="text-center">{{ config('app.name', '-- undefined--') }}</h1>
+
 @endsection

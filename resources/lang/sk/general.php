@@ -10,12 +10,14 @@ return [
         'login' => 'Prihlásiť sa',
     ],
     'text' => [
-        'login' => 'Vitajte',
+        'login' => 'Prihlásenie',
     ],
     'auth' => [
         'invalid' => 'Neplatné prihlasovacie meno alebo heslo'
     ],
-
+    /**
+     * Sidebar localisation
+     */
     'sidebar' => [
         'text' => [
             'welcome' => 'Vitajte'
@@ -24,9 +26,25 @@ return [
             'administration' => [
                 'heading' => 'Administrácia',
                 'items' => [
-
-                ]
-            ]
+                    'user-management' => [
+                        'heading' => 'Nast. používateľov',
+                        'items' => [
+                            'users' => [
+                                'heading' => 'Používatelia systému',
+                            ],
+                            'groups' => [
+                                'heading' => 'Skupiny používateľov',
+                            ],
+                            'roles' => [
+                                'heading' => 'Role používateľov',
+                            ],
+                            'permissions' => [
+                                'heading' => 'Práva',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ],
     ],
 ];
