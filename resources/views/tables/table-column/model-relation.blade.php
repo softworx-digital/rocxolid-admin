@@ -1,9 +1,9 @@
 @if ($component->getTableColumn()->getRelationItems($component->getOption('model'))->count() > $component->getTableColumn()->getOption('relation.max-count', 5))
-<button data-toggle="collapse" data-target="{{ $component->makeDomIdHash($component->getTableColumn()->getName()) }}" class="btn btn-default btn-labeled collapse-toggle collapsed" data-label-hidden="{{ __('rocXolid::general.button.collapse-hidden') }} ({{ $component->getTableColumn()->getRelationItems($component->getOption('model'))->count() }})" data-label-shown="{{ __('rocXolid::general.button.collapse-shown') }}">
+<button data-toggle="collapse" data-target="{{ $component->getDomIdHash($component->getTableColumn()->getName()) }}" class="btn btn-default btn-labeled collapse-toggle collapsed" data-label-hidden="{{ __('rocXolid::general.button.collapse-hidden') }} ({{ $component->getTableColumn()->getRelationItems($component->getOption('model'))->count() }})" data-label-shown="{{ __('rocXolid::general.button.collapse-shown') }}">
     <span class="title">{{ __('rocXolid::general.button.collapse-hidden') }} ({{ $component->getTableColumn()->getRelationItems($component->getOption('model'))->count() }})</span>
     <span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span>
 </button>
-<div id="{{ $component->makeDomId($component->getTableColumn()->getName()) }}" class="collapse">
+<div id="{{ $component->getDomId($component->getTableColumn()->getName()) }}" class="collapse">
 @endif
 @foreach ($component->getTableColumn()->getRelationItems($component->getOption('model')) as $item)
 @if ($component->getOption('ajax', false))

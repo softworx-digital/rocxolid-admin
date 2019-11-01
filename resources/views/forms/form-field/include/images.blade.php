@@ -1,4 +1,4 @@
-<div id="{{ $component->makeDomId('images', $component->getFormField()->getName()) }}" class="row padding-top-20 padding-bottom-20">
+<div id="{{ $component->getDomId('images', $component->getFormField()->getName()) }}" class="row padding-top-20 padding-bottom-20">
     <div class="col-xs-12">
     @if ($component->getFormField()->getForm()->getModel()->{$component->getFormField()->getName()} instanceof \Illuminate\Support\Collection)
         <ul class="list-unstyled sortable images col-xs-12" data-update-url="{{ $component->getFormField()->getForm()->getModel()->getControllerRoute('reorder', [ 'relation' => $component->getFormField()->getName() ]) }}">

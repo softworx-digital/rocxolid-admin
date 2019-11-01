@@ -6,6 +6,6 @@
     @endif
         <small>{{ $component->translate(sprintf('action.%s', $route_method)) }}</small>
     </h2>
-    <div id="{{ $component->makeDomId('output-icon') }}" class="pull-right"></div>
+    <div id="{{ $component->getDomId('output-icon') }}" class="pull-right"></div>
     <div class="clearfix"></div>
 </div>

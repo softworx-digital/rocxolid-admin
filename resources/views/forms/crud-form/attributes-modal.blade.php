@@ -1,4 +1,4 @@
-{{ Form::open([ 'id' => $component->makeDomId('modal-update'), 'url' => $component->getForm()->getOption('route-action') ]) }}
+{{ Form::open([ 'id' => $component->getDomId('modal-update'), 'url' => $component->getForm()->getOption('route-action') ]) }}
     {{ Form::hidden('_method', 'PUT') }}
     {{ Form::hidden('_submit-action', null) }}
     {{ Form::hidden('_section', $component->hasOption('section') ? $component->getOption('section') : null) }}

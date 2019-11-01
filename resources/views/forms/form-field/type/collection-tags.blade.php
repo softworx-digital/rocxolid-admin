@@ -2,7 +2,7 @@
 @if ($component->getFormField()->isArray())
     {!! Form::text($component->getFormField()->getFieldName($index), $component->getFormField()->getFieldValue($index), $component->getOption('attributes')) !!}
 @else
-    {!! Form::text($component->getFormField()->getFieldName(), $component->getFormField()->getFieldValue(), $component->setOption('attributes.id', $component->makeDomIdHash('tagsinput', $component->getFormField()->getFieldName()))->getOption('attributes')) !!}
+    {!! Form::text($component->getFormField()->getFieldName(), $component->getFormField()->getFieldValue(), $component->setOption('attributes.id', $component->getDomIdHash('tagsinput', $component->getFormField()->getFieldName()))->getOption('attributes')) !!}
 @endif
 </div>
 
@@ -13,7 +13,7 @@
 $(function() {
     var bloodhounddata = bloodhounddata || {};
 
-    bloodhounddata._{{ md5($component->makeDomId($component->getFormField()->getFieldName())) }} = new Bloodhound({
+    bloodhounddata._{{ md5($component->getDomId($component->getFormField()->getFieldName())) }} = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         remote: {
@@ -22,7 +22,7 @@ $(function() {
         }
         //prefetch: 'https://raw.githubusercontent.com/bootstrap-tagsinput/bootstrap-tagsinput/master/examples/assets/cities.json'
     });
-    bloodhounddata._{{ md5($component->makeDomId($component->getFormField()->getFieldName())) }}.initialize();
+    bloodhounddata._{{ md5($component->getDomId($component->getFormField()->getFieldName())) }}.initialize();
 
     var $e = $('input#programme');
 
@@ -32,7 +32,7 @@ $(function() {
         typeaheadjs: {
             name: 'cities',
             displayKey: 'text',
-            source: bloodhounddata._{{ md5($component->makeDomId($component->getFormField()->getFieldName())) }}.ttAdapter()
+            source: bloodhounddata._{{ md5($component->getDomId($component->getFormField()->getFieldName())) }}.ttAdapter()
         }
     });
 

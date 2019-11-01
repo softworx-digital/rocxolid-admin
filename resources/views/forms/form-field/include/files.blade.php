@@ -1,4 +1,4 @@
-<div id="{{ $component->makeDomId('files', $component->getFormField()->getName()) }}" class="row padding-top-20 padding-bottom-20">
+<div id="{{ $component->getDomId('files', $component->getFormField()->getName()) }}" class="row padding-top-20 padding-bottom-20">
     <div class="col-xs-12">
     @if ($component->getFormField()->getForm()->getModel()->{$component->getFormField()->getName()} instanceof \Illuminate\Support\Collection)
         <ul class="list-unstyled sortable files col-xs-12" data-update-url="{{ $component->getFormField()->getForm()->getModel()->getControllerRoute('reorder', [ 'relation' => $component->getFormField()->getName() ]) }}">
