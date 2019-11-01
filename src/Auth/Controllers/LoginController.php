@@ -19,7 +19,7 @@ use Softworx\RocXolid\Http\Controllers\AbstractController;
 // rocXolid traits
 use Softworx\RocXolid\Http\Controllers\Traits\Dashboardable as DashboardableTrait;
 // rocXolid components
-use Softworx\RocXolid\Admin\Components\Dashboard\Admin as AdminDashboard;
+use Softworx\RocXolid\Admin\Components\Dashboard\Login as LoginDashboard;
 
 /**
  * Controller for login actions.
@@ -30,7 +30,9 @@ use Softworx\RocXolid\Admin\Components\Dashboard\Admin as AdminDashboard;
  */
 class LoginController extends AbstractController implements Dashboardable
 {
-    protected static $dashboard_class = AdminDashboard::class;
+    protected static $dashboard_class = LoginDashboard::class;
+
+    protected static $translation_param = 'login';
 
     use DashboardableTrait;
     use ValidatesRequests;
@@ -48,7 +50,7 @@ class LoginController extends AbstractController implements Dashboardable
      */
     public function index(Request $request): IlluminateView
     {
-        return $this->getDashboard()->render('login');
+        return $this->getDashboard()->render();
     }
 
     /**

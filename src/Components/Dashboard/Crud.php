@@ -4,10 +4,10 @@ namespace Softworx\RocXolid\Admin\Components\Dashboard;
 
 use Softworx\RocXolid\Components\Contracts\Repositoryable;
 use Softworx\RocXolid\Components\Contracts\RepositoryComponentable;
-use Softworx\RocXolid\Components\Contracts\Modellable;
 use Softworx\RocXolid\Components\Contracts\ModelViewerComponentable;
-use Softworx\RocXolid\Components\AbstractActiveComponent;
 use Softworx\RocXolid\Components\ModelViewers\CrudModelViewer;
+// admin components
+use Softworx\RocXolid\Admin\Components\AbstractActiveComponent;
 
 class Crud extends AbstractActiveComponent implements RepositoryComponentable, ModelViewerComponentable
 {
@@ -24,8 +24,7 @@ class Crud extends AbstractActiveComponent implements RepositoryComponentable, M
 
     public function getRepositoryComponent(): Repositoryable
     {
-        if (is_null($this->repository_component))
-        {
+        if (is_null($this->repository_component)) {
             throw new \RuntimeException(sprintf('CRUD table / repository_component not yet set to [%s]', get_class($this)));
         }
 
@@ -41,8 +40,7 @@ class Crud extends AbstractActiveComponent implements RepositoryComponentable, M
 
     public function getModelViewerComponent(): CrudModelViewer
     {
-        if (is_null($this->model_viewer_component))
-        {
+        if (is_null($this->model_viewer_component)) {
             throw new \RuntimeException(sprintf('CRUD model_viewer_component not yet set to [%s]', get_class($this)));
         }
 

@@ -4,7 +4,7 @@ namespace Softworx\RocXolid\Admin\Components\Dashboard;
 
 use Softworx\RocXolid\Admin\Components\AbstractActiveComponent;
 
-class Admin extends AbstractActiveComponent
+class Login extends AbstractActiveComponent
 {
     
 }

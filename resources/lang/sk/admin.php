@@ -1,19 +1,13 @@
 <?php
 
 return [
-    'field' => [
-        'username' => 'Prihlasovacie meno (e-mail)',
-        'password' => 'Heslo',
-        'remember-me' => 'Zapamätať v tomto prehliadači',
-    ],
-    'button' => [
-        'login' => 'Prihlásiť sa',
-    ],
-    'text' => [
-        'login' => 'Prihlásenie',
-    ],
+    /**
+     * Authenticated user related localisation
+     */
     'auth' => [
-        'invalid' => 'Neplatné prihlasovacie meno alebo heslo'
+        'profile' => 'Profil',
+        'settings' => 'Nastavenia',
+        'logout' => 'Odhlásenie',
     ],
     /**
      * Sidebar localisation

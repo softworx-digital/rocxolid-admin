@@ -34,12 +34,10 @@ class TranslationServiceProvider extends IlluminateServiceProvider
     private function load()
     {
         // customized translations preference
-        // @TODO: doesn't quite work this way - either create custom translation loader and bind it to SL
-        // @TODO: or publish to resources/lang/vendor/rocXolid:admin
-        // $this->loadTranslationsFrom(resource_path('lang/vendor/softworx/rocXolid/admin'), 'rocXolid:admin');
+        $this->loadTranslationsFrom(resource_path('lang/vendor/softworx/rocXolid:admin'), 'rocXolid:admin');
 
         // pre-defined translations fallback
-        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'rocXolid');
+        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'rocXolid:admin');
 
         return $this;
     }

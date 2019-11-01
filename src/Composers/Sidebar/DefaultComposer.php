@@ -2,9 +2,8 @@
 
 namespace Softworx\RocXolid\Admin\Composers\Sidebar;
 
-use App;
-use Auth;
 use Illuminate\Contracts\View\View;
+use Softworx\RocXolid\Composers\AbstractComposer;
 use Softworx\RocXolid\Services\RouteService;
 use Softworx\RocXolid\Contracts\Controllable as ControllableContract;
 use Softworx\RocXolid\Contracts\Routable as RoutableContract;
@@ -21,8 +20,12 @@ use Softworx\RocXolid\Composers\Contracts\Composer as ComposerContract;
  * @package Softworx\RocXolid
  * @version 1.0.0
  */
-class DefaultComposer implements ComposerContract
+class DefaultComposer extends AbstractComposer
 {
+    protected $translation_package = 'rocXolid:admin';
+
+    protected $translation_param = 'admin';
+
     /**
      * Route service to detect current route.
      * 
@@ -84,7 +87,7 @@ class DefaultComposer implements ComposerContract
      */
     protected function makeItem(array $config): NavbarAccessibleContract
     {
-        $item = App::make($config['item']);
+        $item = $config['item']::build($this, $this);
 
         if (!$item instanceof NavbarAccessibleContract) {
             throw new InvalidItemImplementationException($item, NavbarAccessible::class);

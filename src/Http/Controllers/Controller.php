@@ -21,9 +21,11 @@ use Softworx\RocXolid\Admin\Components\Dashboard\Admin as AdminDashboard;
  */
 class Controller extends AbstractController implements Dashboardable
 {
+    use DashboardableTrait;
+
     protected static $dashboard_class = AdminDashboard::class;
 
-    use DashboardableTrait;
+    protected $translation_param = 'admin';
 
     public function index(Request $request)
     {
