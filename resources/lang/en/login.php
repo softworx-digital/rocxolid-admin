@@ -11,15 +11,8 @@ return [
     ],
     'text' => [
         'login' => 'Administration',
-        'welcome' => 'Welcome',
     ],
     'auth' => [
-        'anonymous' => 'Anonymous',
         'invalid' => 'Invalid username or password',
-        'login' => 'Login',
-        'logout' => 'Logout',
-        'online-list' => 'Users online',
-        'profile' => 'Profile',
-        'settings' => 'Settings',
     ],
 ];

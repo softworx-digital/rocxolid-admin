@@ -32,7 +32,7 @@ class LoginController extends AbstractController implements Dashboardable
 {
     protected static $dashboard_class = LoginDashboard::class;
 
-    protected static $translation_param = 'login';
+    protected $translation_param = 'login';
 
     use DashboardableTrait;
     use ValidatesRequests;
