@@ -8,6 +8,8 @@ return [
         'profile' => 'Profil',
         'settings' => 'Nastavenia',
         'logout' => 'Odhlásenie',
+        'unauthorized' => 'Pre zobrazenie tejto stránky nemáte dostatočné práva',
+        'check-permissions-root-enabled' => 'Kontrola práv pre ROOT používateľa je zapnutá',
     ],
     /**
      * Sidebar localisation

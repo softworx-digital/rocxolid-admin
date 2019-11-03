@@ -3,6 +3,7 @@
 namespace Softworx\RocXolid\Admin\Composers\Sidebar;
 
 use Illuminate\Contracts\View\View;
+use Softworx\RocXolid\Composers\Contracts\Composer;
 use Softworx\RocXolid\Composers\AbstractComposer;
 use Softworx\RocXolid\Services\RouteService;
 use Softworx\RocXolid\Contracts\Controllable as ControllableContract;
@@ -10,8 +11,7 @@ use Softworx\RocXolid\Contracts\Routable as RoutableContract;
 use Softworx\RocXolid\Components\Contracts\NavbarAccessible as NavbarAccessibleContract;
 use Softworx\RocXolid\Components\Exceptions\UndefinedItemException;
 use Softworx\RocXolid\Components\Exceptions\InvalidItemImplementationException;
-use Softworx\RocXolid\Http\Controllers\Contracts\Crudable as CrudableContract; // @TODO: use other interface
-use Softworx\RocXolid\Composers\Contracts\Composer as ComposerContract;
+use Softworx\RocXolid\Http\Controllers\Contracts\Permissionable;
 
 /**
  * Default sidebar composer.
@@ -48,7 +48,7 @@ class DefaultComposer extends AbstractComposer
     /**
      * {@inheritdoc}
      */
-    public function compose(View $view): ComposerContract
+    public function compose(View $view): Composer
     {
         $view
             ->with('sections', $this->parseConfig(config('rocXolid.admin.sidebar.sections')));
@@ -71,12 +71,31 @@ class DefaultComposer extends AbstractComposer
                 throw new UndefinedItemException($node);
             }
 
-            if ($item = $this->makeItem($node)) {
-                $items[] = $item;
+            if ($this->shouldMakeItem($node)) {
+                $items[] = $this->makeItem($node);
             }
         }
 
         return $items;
+    }
+
+    /**
+     * Check if the item should be created.
+     * 
+     * @param array $config
+     * @return bool
+     */
+    protected function shouldMakeItem(array $config): bool
+    {
+        if (isset($config['controller'])) {
+            $controller = resolve($config['controller']);
+
+            if (($controller instanceof Permissionable) && !$controller->userCan('read-only')) {
+                return false;
+            }
+        }
+        
+        return true;
     }
 
     /**
@@ -102,12 +121,6 @@ class DefaultComposer extends AbstractComposer
         }
 
         if ($item instanceof ControllableContract) {
-            $controller = resolve($config['controller']);
-
-            if ((($controller instanceof CrudableContract) || method_exists($controller, 'userCan')) && !$controller->userCan('read-only')) {
-                return false;
-            }
-
             $item->setController(resolve($config['controller']));
         }
 

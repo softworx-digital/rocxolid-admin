@@ -8,6 +8,12 @@
         @endif
 
         @if ($user)
+            @if ($user->isRoot() && config('rocXolid.admin.auth.check_permissions_root', false))
+            <div class="toggle">
+                <i class="fa fa-exclamation-triangle fa-2x margin-right-10 text-danger" aria-hidden="true" title="{{ $component->translate('auth.check-permissions-root-enabled', false) }}"></i>
+            </div>
+            @endif
+
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
