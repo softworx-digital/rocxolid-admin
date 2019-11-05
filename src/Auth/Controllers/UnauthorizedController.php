@@ -21,6 +21,8 @@ use Softworx\RocXolid\Admin\Components\Dashboard\Admin as AdminDashboard;
  */
 class UnauthorizedController extends AbstractController implements Dashboardable
 {
+    use DashboardableTrait;
+
     protected static $dashboard_class = AdminDashboard::class;
 
     protected $translation_param = 'admin';

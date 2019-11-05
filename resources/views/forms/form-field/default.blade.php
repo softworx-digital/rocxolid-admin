@@ -1,3 +1,6 @@
+@if ($component->getFormField()->isHidden())
+    {!! $component->render(sprintf('type.%s', $component->getOption('type-template'))) !!}
+@else
 <div class="form-group">
     @if ($component->getOption('label', false) && !$component->getOption('label.after', false))
     <label {!! $component->getHtmlAttributes('label') !!}>
@@ -22,3 +25,4 @@
     </div>
     @endif
 </div>
+@endif

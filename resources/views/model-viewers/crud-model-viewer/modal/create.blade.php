@@ -3,14 +3,14 @@
         <div class="modal-content ajax-overlay">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
-                <h4 class="modal-title">{{ $component->translate('model.title.singular') }} <small>{{ $component->translate(sprintf('action.%s', $route_method)) }}</small></h4>
+                <h4 class="modal-title">{{ $component->translate('model.title.singular') }}@if (false) <small>{{ $component->translate(sprintf('action.%s', $route_method)) }}</small>@endif</h4>
             </div>
         @if ($component->getModel()->userCan('write'))
             {!! $component->getFormComponent()->render('create-modal') !!}
         @else
             <div class="modal-body">
                 <p class="text-center"><i class="fa fa-hand-stop-o text-danger fa-5x"></i></p>
-                <p class="text-center"><big>{{ $component->translate('text.no-access', false) }}</big></p>
+                <p class="text-center"><span class="text-big">{{ $component->translate('text.no-access', false) }}</span></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal"><i class="fa fa-chevron-left margin-right-10"></i>{{ $component->translate('button.close', false) }}</button>

@@ -30,10 +30,6 @@ use Softworx\RocXolid\Admin\Components\Dashboard\Login as LoginDashboard;
  */
 class LoginController extends AbstractController implements Dashboardable
 {
-    protected static $dashboard_class = LoginDashboard::class;
-
-    protected $translation_param = 'login';
-
     use DashboardableTrait;
     use ValidatesRequests;
     use AuthenticatesUsers {
@@ -41,6 +37,10 @@ class LoginController extends AbstractController implements Dashboardable
         logout as parentlogout;
         sendLoginResponse as parentSendLoginResponse;
     }
+
+    protected static $dashboard_class = LoginDashboard::class;
+
+    protected $translation_param = 'login';
 
     /**
      * Base action.
