@@ -1,6 +1,6 @@
 <dl class="dl-horizontal">
-@foreach ($component->getModel()->getShowAttributes(isset($except) ? $except : []) as $field => $value)
-    <dt>{{ $component->translate(sprintf('field.%s', $field)) }}</dt><dd>{!! $component->getModel()->$field !!}</dd>
+@foreach ($component->getModel()->getShowAttributes(isset($except) ? $except : []) as $attribute => $value)
+    <dt>{{ $component->translate(sprintf('field.%s', $attribute)) }}</dt><dd>{!! $component->getModel()->getAttributeViewValue($attribute) !!}</dd>
 @endforeach
 @foreach ($component->getModel()->getRelationshipMethods() as $method)
     <dt>{{ $component->translate(sprintf('field.%s', $method)) }}</dt>

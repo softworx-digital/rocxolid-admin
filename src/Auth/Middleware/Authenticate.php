@@ -38,7 +38,7 @@ class Authenticate extends BaseAuthenticate
     protected function authenticate($request, array $guards)
     {
         try {
-            // @TODO: find out why this returns null user
+            // @todo: find out why this returns null user
             $user = parent::authenticate($request, $guards);
 
             if ($user && $user->exists()) {

@@ -58,7 +58,7 @@ class ViewComposer implements ComposerContract
             ->with('user', $this->auth->user())
             ->with('route_method', $this->route_service->getMethod())
             ->with('view_name', $view->getName());
-        // @TODO: - needed? it's not used in blade templates right now
+        // @todo: - needed? it's not used in blade templates right now
         /*
             ->with('crudroute', function($action, $params = null) {
                 return $this->route_service->getRoute($action, $params);
