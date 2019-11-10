@@ -54,10 +54,12 @@ return [
         'destroyConfirm' => 'Potvrdenie vymazania',
     ],
     'text' => [
+        'or' => 'alebo',
         'base-data' => 'Základné údaje',
         'destroy-confirmation' => 'Naozaj vymazať',
         'not-yet' => 'zatiaľ nie je',
         'unavailable' => 'Nedostupné',
+        'unfilled' => 'Nevyplnené',
         'updated' => 'Údaje boli aktualizované',
         'form-error' => 'Vyskytli sa chyby v údajoch formuláru',
     ],

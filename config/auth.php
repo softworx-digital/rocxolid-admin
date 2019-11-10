@@ -25,11 +25,25 @@ return [
     'routes' => [
         'login' => 'login',
         'logout' => 'logout',
+        'profile' => 'profile',
+        'settings' => 'settings',
         'unauthorized' => 'unauthorized',
         'ping' => 'ping',
         'registration' => 'registration',
         'forgot-password' => 'forgot-password',
     ],
+    /**
+     * Defines the ability for users to register to the administration.
+     */
+    'registration_enabled' => true,
+    /**
+     * Defines where to redirect user after he's been just registered.
+     */
+    'registration_redirect' => 'rocXolid.auth.profile',
+    /**
+     * Defines where to redirect user after he's been just logged in.
+     */
+    'login_redirect' => 'rocXolid.auth.profile',
     /**
      * Guards config.
      */

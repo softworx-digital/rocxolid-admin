@@ -11,6 +11,8 @@ return [
     ],
     'text' => [
         'login' => 'Prihlásenie',
+        'register' => 'Registrovať',
+        'registration' => 'Registrácia',
     ],
     'auth' => [
         'invalid' => 'Neplatné prihlasovacie meno alebo heslo'

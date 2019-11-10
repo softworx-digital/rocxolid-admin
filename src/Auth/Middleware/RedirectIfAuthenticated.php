@@ -30,6 +30,10 @@ class RedirectAuthenticated
      */
     public function handle(Request $request, Closure $next, $guard = null)
     {
+        if ($request->route()->named('rocXolid.auth.registration') && !config('rocXolid.admin.auth.registration_enabled', false)) {
+            return redirect()->route('rocXolid.auth.login');
+        }
+
         if ($this->auth->guard()->check()) {
             return redirect()->route('rocXolid.admin.index');
         }

@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <script src="{{ mix('js/rocXolid.js', 'vendor/softworx/rocXolid') }}"></script>
+    <script src="{{ asset(mix('js/rocXolid.js', 'vendor/softworx/rocXolid')) }}"></script>
     @yield('script')
 </body>
 </html>

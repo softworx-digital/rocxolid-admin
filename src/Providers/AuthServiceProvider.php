@@ -79,16 +79,20 @@ dd($config);
             $router->group([
                 'middleware' => [ 'rocXolid.guest' ],
             ], function ($router) {
-                $router->get(config('rocXolid.admin.general.routes.login', 'login'), 'LoginController@index')->name('login');
-                $router->post(config('rocXolid.admin.general.routes.login', 'login'), 'LoginController@login')->name('login');
+                $router->get(config('rocXolid.admin.auth.routes.login', 'login'), 'LoginController@index')->name('login');
+                $router->post(config('rocXolid.admin.auth.routes.login', 'login'), 'LoginController@login')->name('login');
+                $router->get(config('rocXolid.admin.auth.routes.registration', 'registration'), 'RegistrationController@index')->name('registration');
+                $router->post(config('rocXolid.admin.auth.routes.registration', 'registration'), 'RegistrationController@register')->name('registration');
             });
             // authenticated
             $router->group([
                 'middleware' => [ 'rocXolid.auth' ],
             ], function ($router) {
-                $router->get(config('rocXolid.admin.general.routes.logout', 'logout'), 'LoginController@logout')->name('logout');
-                $router->get(config('rocXolid.admin.general.routes.unauthorized', 'unauthorized'), 'UnauthorizedController@index')->name('unauthorized');
-                $router->get(config('rocXolid.admin.general.routes.ping', 'ping'), 'LoginController@ping')->name('ping');
+                $router->get(config('rocXolid.admin.auth.routes.profile', 'profile'), 'ProfileController@index')->name('profile');
+                $router->get(config('rocXolid.admin.auth.routes.settings', 'settings'), 'ProfileController@settings')->name('settings');
+                $router->get(config('rocXolid.admin.auth.routes.logout', 'logout'), 'LoginController@logout')->name('logout');
+                $router->get(config('rocXolid.admin.auth.routes.unauthorized', 'unauthorized'), 'UnauthorizedController@index')->name('unauthorized');
+                $router->get(config('rocXolid.admin.auth.routes.ping', 'ping'), 'LoginController@ping')->name('ping');
             });
         });
     }

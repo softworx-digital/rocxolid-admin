@@ -23,10 +23,10 @@
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
                         <li>
-                            <a href="{{ $user->getControllerRoute() }}"><i class="fa fa-id-badge"></i> {{ $component->translate('auth.profile', false) }}</a>
+                            <a href="{{ $user->getProfileControllerRoute() }}"><i class="fa fa-id-badge"></i> {{ $component->translate('auth.profile', false) }}</a>
                         </li>
                         <li>
-                            <a href="{{ $user->getControllerRoute('edit') }}"><i class="fa fa-cog"></i> {{ $component->translate('auth.settings', false) }}</a>
+                            <a href="{{ $user->getProfileControllerRoute('settings') }}"><i class="fa fa-cog"></i> {{ $component->translate('auth.settings', false) }}</a>
                         </li>
                         <li>
                             <a href="{{ route('rocXolid.auth.logout') }}"><i class="fa fa-sign-out"></i> {{ $component->translate('auth.logout', false) }}</a>

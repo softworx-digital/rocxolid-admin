@@ -41,7 +41,15 @@ class Authorize
     {
         $controller = $request->route()->getController();
 
-        if (($controller instanceof Permissionable) && !$controller->userCan('read-only')) {
+        switch ($request->route()->getActionMethod()) {
+            case 'repositoryAutocomplete':
+                $action = 'autocomplete'; // @todo: hotfixed, you can do better
+                break;
+            default:
+                $action = 'read-only';
+        }
+
+        if (($controller instanceof Permissionable) && !$controller->userCan($action)) {
             throw new AuthorizationException(__('rocXolid:admin::admin.auth.unauthorized'), $guard);
         }
 

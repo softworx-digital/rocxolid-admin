@@ -6,7 +6,7 @@
     <label {!! $component->getHtmlAttributes('label') !!}>
         {{ $component->translate($component->getOption('label.title')) }}
         @if ($component->getOption('label.hint', false))
-            <i class="fa fa-question-circle text-warning" title="{{ $component->translate(sprintf('_hint.%s', $component->getOption('label.hint'))) }}"></i>
+            <i class="fa fa-question-circle text-warning" title="{{ $component->translate($component->getOption('label.hint')) }}"></i>
         @endif
     </label>
     @endif

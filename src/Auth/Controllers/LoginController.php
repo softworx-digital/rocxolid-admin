@@ -76,7 +76,7 @@ class LoginController extends AbstractController implements Dashboardable
                 ]);
             } else {
                 throw ValidationException::withMessages([
-                    $this->username() => $this->getDashboard()->translate('auth.invalid', false),
+                    $this->username() => $this->getDashboard()->translate('auth.invalid'),
                 ]);
             }
         }
@@ -142,7 +142,7 @@ class LoginController extends AbstractController implements Dashboardable
      */
     public function redirectPath(): string
     {
-        return route('rocXolid.admin.index');
+        return route(config('rocXolid.admin.auth.login_redirect', 'rocXolid.admin.index'));
     }
 
     /**

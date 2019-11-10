@@ -23,6 +23,6 @@ return [
     ],
     'content' => [
         //'fixed' => false,
-        'class' => 'offset-top offset-bottom',
+        'class' => 'offset-top offset-bottom animate slideInLeft',
     ],
 ];

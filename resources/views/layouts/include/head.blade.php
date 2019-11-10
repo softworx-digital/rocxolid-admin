@@ -14,7 +14,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('vendor/softworx/rocXolid/images/favicon/apple-touch-icon.png') }}"/>
     <link rel="manifest" href="{{ asset('vendor/softworx/rocXolid/images/favicon/site.webmanifest') }}"/>
 
-    <link rel="stylesheet" href="{{ mix('css/rocXolid.css', 'vendor/softworx/rocXolid') }}">
+    <link rel="stylesheet" href="{{ asset(mix('css/rocXolid.css', 'vendor/softworx/rocXolid')) }}">
 
     <script type="text/javascript">
         window.Laravel = {!! json_encode([ 'csrfToken' => csrf_token() ]); !!}
