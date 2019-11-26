@@ -19,6 +19,8 @@ return [
         'show-modal' => 'Zobraziť v okne',
         'edit' => 'Upraviť',
         'delete' => 'Vymazať',
+        'compose' => 'Komponovať',
+        'clone-structure' => 'Klonovať štruktúru',
     ],
     'button' => [
         'back' => 'Späť',
@@ -42,6 +44,10 @@ return [
         'submit_ajax_new' => 'Uložiť a vytvoriť nový',
     ],
     'filter' => [
+    ],
+    'filter-button' => [
+        'filter' => 'Filtrovať',
+        'clear' => 'Zrušíť filter',
     ],
     'action' => [
         'index' => 'Zoznam',

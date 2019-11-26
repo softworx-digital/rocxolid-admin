@@ -7,10 +7,6 @@ use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\Auth\Guard;
 use Softworx\RocXolid\Services\RouteService;
-use Softworx\RocXolid\Interfaces\NavbarAccessible;
-use Softworx\RocXolid\Exceptions\UndefinedControllerException;
-use Softworx\RocXolid\Exceptions\InvalidControllerImplementationException;
-use Softworx\RocXolid\UserManagement\Repositories\User\Repository as UserRepository;
 use Softworx\RocXolid\Composers\Contracts\Composer as ComposerContract;
 
 /**
@@ -54,6 +50,8 @@ class ViewComposer implements ComposerContract
      */
     public function compose(View $view): ComposerContract
     {
+        // dump($view->getName());
+
         $view
             ->with('user', $this->auth->user())
             ->with('route_method', $this->route_service->getMethod())

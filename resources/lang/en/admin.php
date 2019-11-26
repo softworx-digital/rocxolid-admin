@@ -5,37 +5,37 @@ return [
      * Authenticated user related localisation
      */
     'auth' => [
-        'profile' => 'Profil',
-        'settings' => 'Nastavenia',
-        'logout' => 'Odhlásenie',
-        'unauthorized' => 'Pre zobrazenie tejto stránky nemáte dostatočné práva',
-        'check-permissions-root-enabled' => 'Kontrola práv pre ROOT používateľa je zapnutá',
+        'profile' => 'Profile',
+        'settings' => 'Settings',
+        'logout' => 'Logout',
+        'unauthorized' => 'Unauthorized',
+        'check-permissions-root-enabled' => 'ROOT permissions check is enabled',
     ],
     /**
      * Sidebar localisation
      */
     'sidebar' => [
         'text' => [
-            'welcome' => 'Vitajte'
+            'welcome' => 'Welcome'
         ],
         'sections' => [
             'administration' => [
-                'heading' => 'Administrácia',
+                'heading' => 'Administration',
                 'items' => [
                     'user-management' => [
-                        'heading' => 'Nast. používateľov',
+                        'heading' => 'User Management',
                         'items' => [
                             'users' => [
-                                'heading' => 'Používatelia systému',
+                                'heading' => 'Users',
                             ],
                             'groups' => [
-                                'heading' => 'Skupiny používateľov',
+                                'heading' => 'Groups',
                             ],
                             'roles' => [
-                                'heading' => 'Role používateľov',
+                                'heading' => 'Roles',
                             ],
                             'permissions' => [
-                                'heading' => 'Práva',
+                                'heading' => 'Permissions',
                             ],
                         ],
                     ],
@@ -53,10 +53,10 @@ return [
                         ],
                     ],
                     'pages' => [
-                        'heading' => 'pages',
+                        'heading' => 'Pages',
                         'items' => [
                             'pages' => [
-                                'heading' => 'Articles',
+                                'heading' => 'Pages',
                             ],
                             'page-proxies' => [
                                 'heading' => 'Proxy pages',
@@ -66,8 +66,8 @@ return [
                             ],
                         ],
                     ],
-                    'content' => [
-                        'heading' => 'Content',
+                    'settings' => [
+                        'heading' => 'Settings',
                         'items' => [
                             'webs' => [
                                 'heading' => 'Webs',

@@ -36,7 +36,7 @@ use Softworx\RocXolid\UserManagement\Repositories\User\Repository as UserReposit
 // user management models
 use Softworx\RocXolid\UserManagement\Models\User;
 
-class RegistrationController extends AbstractController implements Dashboardable, Repositoryable, Modellable
+class ObsoleteRegistrationController extends AbstractController implements Dashboardable, Repositoryable, Modellable
 {
     use DashboardableTrait;
     use RepositoryableTrait;

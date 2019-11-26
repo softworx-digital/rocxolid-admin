@@ -1,13 +1,12 @@
 <div class="x_title">
     <h2>
-        {{ $component->translate('model.title.singular') }}
-    @if ($component->getModel()->getTitle())
-        <span class="text-big">{!! $component->getModel()->getTitle() !!}</span>
-    @endif
-    @if (false)
-        <small>{{ $component->translate(sprintf('action.%s', $route_method)) }}</small>
+    @if ($component->getModel()->exists)
+        <span class="text-big">{{ $component->getModel()->getTitle() }}</span>
+        <span class="pull-right model-class-title">{{ $component->translate('model.title.singular') }}</span>
+        <small class="pull-right">{{ $component->translate(sprintf('action.%s', $route_method)) }}</small>
+    @else
+        <small class="pull-left">{{ $component->translate(sprintf('action.%s', $route_method)) }}</small>
+        <span class="pull-left model-class-title">{{ $component->translate('model.title.singular') }}</span>
     @endif
     </h2>
-    <div id="{{ $component->getDomId('output-icon') }}" class="pull-right"></div>
-    <div class="clearfix"></div>
 </div>

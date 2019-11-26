@@ -4,15 +4,17 @@ return [
     'field' => [
         'username' => 'Username (e-mail)',
         'password' => 'Password',
-        'remember-me' => 'Remember me in this browser',
+        'remember-me' => 'Remember me',
     ],
     'button' => [
         'login' => 'Login',
     ],
     'text' => [
-        'login' => 'Administration',
+        'login' => 'Login',
+        'register' => 'Register',
+        'registration' => 'Registration',
     ],
     'auth' => [
-        'invalid' => 'Invalid username or password',
+        'invalid' => 'Invalid username or password'
     ],
 ];
