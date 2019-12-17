@@ -11,7 +11,7 @@
                     <button class="btn btn-danger" data-ajax-url="{{ $file->getControllerRoute('destroyConfirm') }}"><i class="fa fa-trash"></i></button>
                 </div>
                 <i class="fa fa-file-o fa-2x margin-right-5" style="position: relative; top: 5px;"></i>
-                <big>{{ $file->getTitle() }}</big>
+                <span class="text-big">{{ $file->getTitle() }}</span>
             </li>
         @endforeach
         </ul>
@@ -26,7 +26,7 @@
                     <button class="btn btn-danger" data-ajax-url="{{ $file->getControllerRoute('destroyConfirm') }}"><i class="fa fa-trash"></i></button>
                 </div>
                 <i class="fa fa-file-o fa-2x margin-right-5" style="position: relative; top: 5px;"></i>
-                <big>{{ $file->getTitle() }}</big>
+                <span class="text-big">{{ $file->getTitle() }}</span>
             </li>
         @endforeach
         </ul>

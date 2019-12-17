@@ -44,12 +44,19 @@ class LoginController extends AbstractController implements Dashboardable
 
     /**
      * Base action.
-     * 
+     *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\View\View
      */
-    public function index(Request $request): IlluminateView
+    public function index(Request $request)
     {
+        if ($request->ajax()) {
+            return response()->json([
+                'modalClose' => [ '#login-modal' ],
+                'modal' => View::make('rocXolid::auth.login-modal')->render()
+            ]);
+        }
+
         return $this->getDashboard()->render();
     }
 
@@ -65,10 +72,10 @@ class LoginController extends AbstractController implements Dashboardable
         try {
             return $this->parentLogin($request);
         } catch (ValidationException $e) {
-            if ($request->has('modal')) {
+            if ($request->ajax()) {
                 return response()->json([
                     'modalClose' => [ '#login-modal' ],
-                    'modal' => [ View::make('rocXolid:admin::auth.login-modal', [
+                    'modal' => [ View::make('rocXolid::auth.login-modal', [
                             'request' => $request,
                             'error' => true,
                         ])->render()
@@ -94,7 +101,7 @@ class LoginController extends AbstractController implements Dashboardable
 
         $this->clearLoginAttempts($request);
 
-        if ($request->has('modal')) {
+        if ($request->ajax()) {
             return response()->json(['modalClose' => [ '#login-modal' ]]);
         }
 
@@ -137,7 +144,7 @@ class LoginController extends AbstractController implements Dashboardable
 
     /**
      * Get route where to redirect logged in user.
-     * 
+     *
      * @return string
      */
     public function redirectPath(): string

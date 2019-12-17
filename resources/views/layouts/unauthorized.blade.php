@@ -11,6 +11,12 @@
         </div>
     </div>
 
+    <script>
+        let configuration = {
+            loginUrl: '{{ route('rocXolid.auth.login') }}',
+            pingUrl: '{{ route('rocXolid.auth.ping') }}'
+        }
+    </script>
     <script src="{{ asset(mix('js/rocXolid.js', 'vendor/softworx/rocXolid')) }}"></script>
     @yield('script')
 </body>

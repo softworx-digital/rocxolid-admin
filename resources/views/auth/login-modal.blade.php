@@ -1,7 +1,7 @@
-<div id="login-modal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog modal-sm">
+<div id="login-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-md">
         <div class="modal-content ajax-overlay">
-            <form id="login-modal-form" method="POST" action="{{ route('rocXolid.auth.login', ['modal' => true]) }}">
+            <form id="login-modal-form" method="POST" action="{{ route('rocXolid.auth.login') }}">
                 {{ csrf_field() }}
                 <div class="modal-header">
                     <h4 class="modal-title"><i class="fa fa-hourglass-end text-danger margin-right-10"></i>Prihlásenie vypršalo</h4>

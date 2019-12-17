@@ -42,6 +42,8 @@ return [
         'submit_new' => 'Uložiť a vytvoriť nový',
         'submit_ajax_edit' => 'Uložiť a upraviť',
         'submit_ajax_new' => 'Uložiť a vytvoriť nový',
+        'step_next' => 'Ďalší krok<i class="fa fa-forward margin-left-10"></i>',
+        'step_previous' => '<i class="fa fa-backward margin-right-10"></i>Predchádzajúci krok',
     ],
     'filter' => [
     ],

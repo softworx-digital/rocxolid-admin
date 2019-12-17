@@ -1,6 +1,11 @@
+<div id="{{ $component->getDomId($component->getFormFieldGroup()->getName()) }}">
 @if ($component->getFormFields())
     @if ($component->getOption('wrapper', false))
-    <div {!! $component->getHtmlAttributes('wrapper') !!}>
+    <fieldset {!! $component->getHtmlAttributes('wrapper') !!}>
+    @endif
+
+    @if ($component->getOption('wrapper.legend', false))
+        <legend>{!! $component->translate($component->getOption('wrapper.legend.title')) !!}</legend>
     @endif
 
         <div {!! $component->getHtmlAttributes() !!}>
@@ -10,6 +15,7 @@
         </div>
 
     @if ($component->getOption('wrapper', false))
-    </div>
+    </fieldset>
     @endif
 @endif
+</div>

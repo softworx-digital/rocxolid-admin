@@ -1,1 +1,1 @@
-{!! Form::button($component->getOption('label.title'), $component->getOption('attributes')) !!}
+{!! Form::button($component->translate($component->getOption('label.title')), $component->getOption('attributes')) !!}

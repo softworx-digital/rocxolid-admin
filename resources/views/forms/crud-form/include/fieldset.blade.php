@@ -1,4 +1,4 @@
-<fieldset id="{{ $component->getDomId('fieldset') }}">
+<fieldset id="{{ $component->getDomId('fieldset') }}" class="step-content">
 @foreach ($component->getFormFieldGroupsComponents() as $fieldgroup)
     {{-- @if (!in_array($field->getName(), $exclude)) --}}
         {!! $fieldgroup->render($fieldgroup->getOption('template', $fieldgroup->getDefaultTemplateName())) !!}
