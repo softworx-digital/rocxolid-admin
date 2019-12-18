@@ -7,7 +7,7 @@
     @endforeach
     </ul>
 </li>
-@else
+@elseif (method_exists($component, 'getRoute'))
 <li @if ($component->isRouteActive()) class="active" @endif>
     <a href="{{ $component->getRoute() }}"><i class="fa fa-{{ $component->getIcon() }}"></i> {{ $component->translate($component->getTitle(), false) }}</a>
 </li>
