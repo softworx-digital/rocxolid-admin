@@ -20,7 +20,7 @@ class ViewComposer implements ComposerContract
 {
     /**
      * Route service to detect current route.
-     * 
+     *
      * @var \Softworx\RocXolid\Services\RouteService
      */
     protected $route_service;

@@ -14,7 +14,7 @@ use Softworx\RocXolid\Repositories\Contracts\Repositoryable;
 use Softworx\RocXolid\Http\Controllers\Contracts\Dashboardable;
 use Softworx\RocXolid\Models\Contracts\Crudable as CrudableModel;
 use Softworx\RocXolid\Repositories\Contracts\Repository;
-use Softworx\RocXolid\Communication\Contracts\AjaxResponse;
+use Softworx\RocXolid\Http\Responses\Contracts\AjaxResponse;
 use Softworx\RocXolid\Forms\Contracts\FormField;
 // rocXolid forms
 use Softworx\RocXolid\Forms\AbstractCrudForm as AbstractCrudForm;

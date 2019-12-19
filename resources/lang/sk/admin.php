@@ -39,6 +39,17 @@ return [
                             ],
                         ],
                     ],
+                    'communication' => [
+                        'heading' => 'Komunikácia',
+                        'items' => [
+                            'email' => [
+                                'heading' => 'e-mail notifikácie',
+                            ],
+                            'sms' => [
+                                'heading' => 'SMS notifikácie',
+                            ],
+                        ],
+                    ],
                 ],
             ],
             'cms' => [
