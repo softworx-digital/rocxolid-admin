@@ -9,7 +9,7 @@
     </button>
     <ul class="dropdown-menu" role="menu">
     @foreach ($component->getOption('actions') as $action => $title)
-        <li><a data-submit-action="{{ $action }}">{{ $component->translate($title, false) }}</a></li>
+        <li><a data-submit-action="{{ $action }}">{{ $component->translate($title) }}</a></li>
     @endforeach
     </ul>
 </div>

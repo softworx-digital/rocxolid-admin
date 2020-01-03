@@ -102,7 +102,10 @@ class LoginController extends AbstractController implements Dashboardable
         $this->clearLoginAttempts($request);
 
         if ($request->ajax()) {
-            return response()->json(['modalClose' => [ '#login-modal' ]]);
+            return response()->json([
+                'modalClose' => [ '#login-modal' ],
+                'reload' => true,
+            ]);
         }
 
         return $this->authenticated($request, $this->guard()->user())

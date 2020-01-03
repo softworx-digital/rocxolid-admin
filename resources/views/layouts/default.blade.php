@@ -17,6 +17,7 @@
     <script>
         let configuration = {
             loginUrl: '{{ route('rocXolid.auth.login') }}',
+            registrationUrl: '{{ route('rocXolid.auth.registration') }}',
             pingUrl: '{{ route('rocXolid.auth.ping') }}'
         }
     </script>

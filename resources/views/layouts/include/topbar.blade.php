@@ -10,7 +10,7 @@
         @if ($user)
             @if ($user->isRoot() && config('rocXolid.admin.auth.check_permissions_root', false))
             <div class="toggle">
-                <i class="fa fa-exclamation-triangle fa-2x margin-right-10 text-danger" aria-hidden="true" title="{{ $component->translate('auth.check-permissions-root-enabled', false) }}"></i>
+                <i class="fa fa-exclamation-triangle fa-2x margin-right-10 text-danger" aria-hidden="true" title="{{ $component->translate('auth.check-permissions-root-enabled') }}"></i>
             </div>
             @endif
 
@@ -23,13 +23,15 @@
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
                         <li>
-                            <a href="{{ $user->getProfileControllerRoute() }}"><i class="fa fa-id-badge"></i> {{ $component->translate('auth.profile', false) }}</a>
+                            <a href="{{ $user->getProfileControllerRoute() }}"><i class="fa fa-id-badge"></i> {{ $component->translate('auth.profile') }}</a>
                         </li>
+                    @if (false)
                         <li>
-                            <a href="{{ $user->getProfileControllerRoute('settings') }}"><i class="fa fa-cog"></i> {{ $component->translate('auth.settings', false) }}</a>
+                            <a href="{{ $user->getProfileControllerRoute('settings') }}"><i class="fa fa-cog"></i> {{ $component->translate('auth.settings') }}</a>
                         </li>
+                    @endif
                         <li>
-                            <a href="{{ route('rocXolid.auth.logout') }}"><i class="fa fa-sign-out"></i> {{ $component->translate('auth.logout', false) }}</a>
+                            <a href="{{ route('rocXolid.auth.logout') }}"><i class="fa fa-sign-out"></i> {{ $component->translate('auth.logout') }}</a>
                         </li>
                     </ul>
                 </li>
@@ -66,7 +68,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a class="user-profile">
-                        <span>{{ $component->translate('auth.anonymous', false) }}</span>
+                        <span>{{ $component->translate('auth.anonymous') }}</span>
                     </a>
                 </li>
             </ul>

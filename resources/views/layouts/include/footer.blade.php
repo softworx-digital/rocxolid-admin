@@ -1,7 +1,7 @@
 <footer class="{{ config('rocXolid.admin.layout.footer.class') }}">
     <div class="pull-left online-users">
     @if ($online_users && $online_users->count())
-        <strong><i class="fa fa-users"></i> {{ $component->translate('auth.online-list', false) }}</strong>
+        <strong><i class="fa fa-users"></i> {{ $component->translate('auth.online-list') }}</strong>
         @foreach ($online_users as $online_user)
             <a class="label label-info" data-ajax-url="{{ $online_user->getControllerRoute() }}"><i class="fa fa-user"></i> {{ $online_user->name }}</a>
         @endforeach

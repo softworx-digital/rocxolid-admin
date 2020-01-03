@@ -32,6 +32,8 @@ use Softworx\RocXolid\UserManagement\Repositories\User\Repository as UserReposit
 // user management models
 use Softworx\RocXolid\UserManagement\Models\User;
 use Softworx\RocXolid\UserManagement\Models\UserProfile;
+// events
+use Softworx\RocXolid\Admin\Auth\Events\UserRegistered;
 
 class RegistrationController extends AbstractController implements Dashboardable, Repositoryable, Modellable
 {
@@ -98,8 +100,8 @@ class RegistrationController extends AbstractController implements Dashboardable
     protected function success(CrudRequest $request, Repository $repository, AbstractCrudForm $form, $action)
     {
         $user = $this->create($request->get(FormField::SINGLE_DATA_PARAM));
-        // $this->registered($request, $user);
-        // event(new Registered($user = $this->create($request->all())));
+
+        event(new UserRegistered($user));
 
         $this->guard()->login($user);
 
@@ -138,27 +140,6 @@ class RegistrationController extends AbstractController implements Dashboardable
         ])->save();
 
         return $user;
-    }
-
-    protected function registered(Request $request, User $user)
-    {
-        $user->syncRoles([ RoleMiddleware::USER ]);
-
-        $email = Email::findOrFail(Email::WELCOME);
-
-        $data = [
-            'body' => $email->parseBody([
-                '[first-name]' => $user->first_name,
-                '[email]' => $user->email,
-                '[password]' => $request->input('password'),
-            ]),
-        ];
-
-        Mail::send('notifications.email-custom', $data, function ($message) use ($email, $user, $data) {
-            $message->from($email->sender);
-            $message->subject($email->subject);
-            $message->to($user->email);
-        });
     }
 
     protected function errorResponse(CrudRequest $request, Repository $repository, AbstractCrudForm $form, $action)

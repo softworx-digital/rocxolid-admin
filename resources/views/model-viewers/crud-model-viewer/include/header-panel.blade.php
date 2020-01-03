@@ -1,7 +1,7 @@
 <div class="x_title">
     <h2>
     @if ($component->getModel()->exists)
-        <span class="text-big">{{ $component->getModel()->getTitle() }}</span>
+        <span class="text-big">{!! $component->getModel()->getTitle() !!}</span>
         <span class="pull-right model-class-title">{{ $component->translate('model.title.singular') }}</span>
         <small class="pull-right">{{ $component->translate(sprintf('action.%s', $route_method)) }}</small>
     @else

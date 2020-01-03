@@ -11,7 +11,7 @@
                     {{ Html::image('vendor/softworx/rocXolid/images/user-placeholder.svg', $user->name, [ 'class' => 'img-circle profile_img' ]) }}
                 </div>
                 <div class="profile_info">
-                    <span>{{ $component->translate('sidebar.text.welcome', false) }}</span>
+                    <span>{{ $component->translate('sidebar.text.welcome') }}</span>
                     <h2>{{ $user->name }}</h2>
                 </div>
             </div>
@@ -31,7 +31,7 @@
             <a title="Lock"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></a>
         @endif
         @if ($user)
-            <a title="{{ $component->translate('auth.logout', false) }}" href="{{ route('rocXolid.auth.logout') }}" style="width: 100%;"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+            <a title="{{ $component->translate('auth.logout') }}" href="{{ route('rocXolid.auth.logout') }}" style="width: 100%;"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
         @endif
         </div>
     </div>

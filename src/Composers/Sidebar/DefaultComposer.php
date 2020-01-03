@@ -28,7 +28,7 @@ class DefaultComposer extends AbstractComposer
 
     /**
      * Route service to detect current route.
-     * 
+     *
      * @todo Use this to set items' state appropriately
      * @var \Softworx\RocXolid\Services\RouteService
      */
@@ -36,7 +36,7 @@ class DefaultComposer extends AbstractComposer
 
     /**
      * Constructor.
-     * 
+     *
      * @param \Softworx\RocXolid\Services\RouteService $route_service
      * @return \Softworx\RocXolid\Admin\Composers\Sidebar\DefaultComposer
      */
@@ -58,7 +58,7 @@ class DefaultComposer extends AbstractComposer
 
     /**
      * Parse sidebar items structure configuration.
-     * 
+     *
      * @param array $config
      * @return array
      */
@@ -81,7 +81,7 @@ class DefaultComposer extends AbstractComposer
 
     /**
      * Check if the item should be created.
-     * 
+     *
      * @param array $config
      * @return bool
      */
@@ -94,13 +94,13 @@ class DefaultComposer extends AbstractComposer
                 return false;
             }
         }
-        
+
         return true;
     }
 
     /**
      * Create sidebar item element based in its configuration.
-     * 
+     *
      * @param array $config
      * @return \Softworx\RocXolid\Components\Contracts\NavbarAccessible
      */

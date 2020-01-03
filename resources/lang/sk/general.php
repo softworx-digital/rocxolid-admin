@@ -45,6 +45,8 @@ return [
         'clone-structure' => 'Klonovať štruktúru',
     ],
     'button' => [
+        'yes' => 'Áno',
+        'no' => 'Nie',
         'back' => 'Späť',
         'close' => 'Zavrieť',
         'confirm' => 'Áno',
@@ -92,5 +94,6 @@ return [
         'unfilled' => 'Nevyplnené',
         'updated' => 'Údaje boli aktualizované',
         'form-error' => 'Vyskytli sa chyby v údajoch formuláru',
+        'image-primary' => 'Hlavný obrázok',
     ],
 ];

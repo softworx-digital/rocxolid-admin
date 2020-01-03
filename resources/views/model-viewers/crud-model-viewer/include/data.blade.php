@@ -8,6 +8,8 @@
         @else
             <i class="fa fa-close"></i>
         @endif
+    @elseif ($component->getModel()->isJsonAttribute($attribute))
+        JSON - // @todo
     @elseif ($component->getModel()->isColorAttribute($attribute))
         <span class="label" style="background-color: {{ $component->getModel()->$attribute }};">{{ $component->getModel()->$attribute }}</span>
     @else
