@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ env('localisation') }}">
+<html lang="{{ $user->profile()->exists() && $user->profile->language()->exists() ? $user->profile->language->iso_639_1 : config('app.locale') }}">
 @include('rocXolid::layouts.include.head')
 
 <body class="nav-md @if (config('rocXolid.admin.layout.footer.fixed')) footer_fixed @endif {{ config('rocXolid.admin.layout.body.class') }}">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ env('localisation') }}">
+<html lang="{{ config('app.locale') }}">
 @include('rocXolid::layouts.include.head')
 
 <body class="login">

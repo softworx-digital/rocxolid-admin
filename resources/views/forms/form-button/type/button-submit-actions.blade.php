@@ -1,4 +1,4 @@
-<div class="btn-group submit-actions">
+<div class="btn-group submit-actions dropup">
 @if ($component->getOption('ajax', false))
     {!! Form::button($component->translate($component->getOption('label.title')), $component->getOption('attributes')) !!}
 @else
