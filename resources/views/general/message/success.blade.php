@@ -1,0 +1,1 @@
+<div class="alert alert-success">{{ $component->translate($message) }}</div>

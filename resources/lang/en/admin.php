@@ -2,7 +2,7 @@
 
 return [
     /**
-     * Authenticated user related localisation
+     * Authenticated user related localization
      */
     'auth' => [
         'profile' => 'Profile',
@@ -12,7 +12,7 @@ return [
         'check-permissions-root-enabled' => 'ROOT permissions check is enabled',
     ],
     /**
-     * Sidebar localisation
+     * Sidebar localization
      */
     'sidebar' => [
         'text' => [

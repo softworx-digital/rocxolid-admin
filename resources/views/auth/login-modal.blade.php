@@ -4,31 +4,27 @@
             <form id="login-modal-form" method="POST" action="{{ route('rocXolid.auth.login') }}">
                 {{ csrf_field() }}
                 <div class="modal-header">
-                    <h4 class="modal-title"><i class="fa fa-hourglass-end text-danger margin-right-10"></i>Prihlásenie vypršalo</h4>
+                    <h4 class="modal-title"><i class="fa fa-hourglass-end text-danger margin-right-10"></i>{{ $component->translate('text.login-timeout') }}</h4>
                 </div>
                 <div class="modal-body">
                     <fieldset>
-                    @if (false)
-                        @if ($errors->has('email'))
-                            <p class="alert alert-danger"><strong style="text-shadow: none;">{{ $errors->first('email') }}</strong></p>
-                        @endif
+                    @if ($errors->has('email'))
+                        <p class="alert alert-danger"><strong>{{ $errors->first('email') }}</strong></p>
+                    @elseif ($errors->has('password'))
+                        <p class="alert alert-danger"><strong>{{ $errors->first('password') }}</strong></p>
                     @endif
-                        @if (isset($error))
-                            <p class="alert alert-danger">Nesprávne prihlasovacie údaje</p>
-                        @endif
-
                         <div class="form-group">
-                            <div class="control-group"><input type="text" name="email" class="form-control" placeholder="Login (e-mail)" required="required"/></div>
+                            <div class="control-group"><input type="text" name="email" class="form-control" placeholder="{{ $component->translate('field.username') }}" required="required"/></div>
                         </div>
 
                         <div class="form-group">
-                            <div class="control-group"><input type="password" name="password" class="form-control" placeholder="Heslo" required="required"/></div>
+                            <div class="control-group"><input type="password" name="password" class="form-control" placeholder="{{ $component->translate('field.password') }}" required="required"/></div>
                         </div>
-                        <div class="form-group"><label><input type="checkbox" name="remember"/> Zapamätať v tomto prehliadači</label></div>
+                        <div class="form-group"><label><input type="checkbox" name="remember"/> {{ $component->translate('field.remember-me') }}</label></div>
                     </fieldset>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-primary" type="button" data-ajax-submit-form="#login-modal-form">Prihlásiť sa</button>
+                    <button class="btn btn-primary" type="button" data-ajax-submit-form="#login-modal-form">{{ $component->translate('button.login') }}</button>
                 </div>
             </form>
         </div>

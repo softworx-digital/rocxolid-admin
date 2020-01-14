@@ -11,6 +11,7 @@ return [
     ],
     'text' => [
         'login' => 'Login',
+        'login-timeout' => 'Your session has timed out, please login again',
         'register' => 'Register',
         'registration' => 'Registration',
     ],

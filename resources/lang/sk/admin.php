@@ -2,7 +2,7 @@
 
 return [
     /**
-     * Authenticated user related localisation
+     * Authenticated user related localization
      */
     'auth' => [
         'profile' => 'Profil',
@@ -12,7 +12,7 @@ return [
         'check-permissions-root-enabled' => 'Kontrola práv pre ROOT používateľa je zapnutá',
     ],
     /**
-     * Sidebar localisation
+     * Sidebar localization
      */
     'sidebar' => [
         'text' => [

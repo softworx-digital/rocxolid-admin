@@ -10,11 +10,13 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Softworx\RocXolid\Http\Requests\CrudRequest;
 // rocXolid contracts
 use Softworx\RocXolid\Contracts\Modellable;
-use Softworx\RocXolid\Repositories\Contracts\Repositoryable;
-use Softworx\RocXolid\Http\Controllers\Contracts\Dashboardable;
-use Softworx\RocXolid\Models\Contracts\Crudable as CrudableModel;
+// rocXolid repository contracts
 use Softworx\RocXolid\Repositories\Contracts\Repository;
+use Softworx\RocXolid\Repositories\Contracts\Repositoryable;
+// rocXolid http contracts
+use Softworx\RocXolid\Http\Controllers\Contracts\Dashboardable;
 use Softworx\RocXolid\Http\Responses\Contracts\AjaxResponse;
+// rocXolid form contracts
 use Softworx\RocXolid\Forms\Contracts\FormField;
 // rocXolid forms
 use Softworx\RocXolid\Forms\AbstractCrudForm as AbstractCrudForm;
@@ -22,19 +24,25 @@ use Softworx\RocXolid\Forms\AbstractCrudForm as AbstractCrudForm;
 use Softworx\RocXolid\Http\Controllers\AbstractController;
 // rocXolid traits
 use Softworx\RocXolid\Traits\Modellable as ModellableTrait;
-use Softworx\RocXolid\Repositories\Traits\Repositoryable as RepositoryableTrait;
+// rocXolid controller traits
 use Softworx\RocXolid\Http\Controllers\Traits\Dashboardable as DashboardableTrait;
+// rocXolid repository traits
+use Softworx\RocXolid\Repositories\Traits\Repositoryable as RepositoryableTrait;
 // rocXolid components
-use Softworx\RocXolid\Admin\Components\Dashboard\Registration as RegistrationDashboard;
 use Softworx\RocXolid\Components\Forms\CrudForm as CrudFormComponent;
-// user management repositories
+// rocXolid admin components
+use Softworx\RocXolid\Admin\Components\Dashboard\Registration as RegistrationDashboard;
+// rocXolid user management repositories
 use Softworx\RocXolid\UserManagement\Repositories\User\Repository as UserRepository;
-// user management models
+// rocXolid user management models
 use Softworx\RocXolid\UserManagement\Models\User;
 use Softworx\RocXolid\UserManagement\Models\UserProfile;
-// events
+// rocXolid admin events
 use Softworx\RocXolid\Admin\Auth\Events\UserRegistered;
 
+/**
+ *
+ */
 class RegistrationController extends AbstractController implements Dashboardable, Repositoryable, Modellable
 {
     use DashboardableTrait;

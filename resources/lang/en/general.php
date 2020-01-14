@@ -60,6 +60,7 @@ return [
         'replace' => 'Replace',
         'collapse-hidden' => 'Expand',
         'collapse-shown' => 'Collapse',
+        'submit' => 'Submit',
         'submit_back' => 'Save and back',
         'submit_ajax_back' => 'Save and back',
         'submit_edit' => 'Save and edit',

@@ -44,20 +44,36 @@ class AuthServiceProvider extends IlluminateAuthServiceProvider
     {
         $this
             ->setGuards()
+            ->setProviders()
+            ->setBrokers()
             ->setRoutes($this->app['router']);
     }
 
     private function setGuards()
     {
         $this->app->config['auth.guards'] = $this->app->config['auth.guards'] + config('rocXolid.admin.auth.guards');
-        $this->app->config['auth.providers'] = $this->app->config['auth.providers'] + config('rocXolid.admin.auth.providers');
 
+        // @todo: does this actually work / is being executed??
         Auth::extend('rocXolid', function ($app, $name, array $config) {
             // Return an instance of Illuminate\Contracts\Auth\Guard...
-dump(__METHOD__);
-dd($config);
+            dump(__METHOD__);
+            dd($config);
             return new Guard(Auth::createUserProvider($config['provider']));
         });
+
+        return $this;
+    }
+
+    private function setProviders()
+    {
+        $this->app->config['auth.providers'] = $this->app->config['auth.providers'] + config('rocXolid.admin.auth.providers');
+
+        return $this;
+    }
+
+    private function setBrokers()
+    {
+        $this->app->config['auth.passwords'] = $this->app->config['auth.passwords'] + config('rocXolid.admin.auth.passwords');
 
         return $this;
     }
@@ -80,9 +96,14 @@ dd($config);
                 'middleware' => [ 'rocXolid.guest' ],
             ], function ($router) {
                 $router->get(config('rocXolid.admin.auth.routes.login', 'login'), 'LoginController@index')->name('login');
-                $router->post(config('rocXolid.admin.auth.routes.login', 'login'), 'LoginController@login')->name('login');
+                $router->post(config('rocXolid.admin.auth.routes.login', 'login'), 'LoginController@login')->name('login.submit');
                 $router->get(config('rocXolid.admin.auth.routes.registration', 'registration'), 'RegistrationController@index')->name('registration');
-                $router->post(config('rocXolid.admin.auth.routes.registration', 'registration'), 'RegistrationController@register')->name('registration');
+                $router->post(config('rocXolid.admin.auth.routes.registration', 'registration'), 'RegistrationController@register')->name('registration.submit');
+                $router->get(config('rocXolid.admin.auth.routes.forgot-password', 'forgot-password'), 'ForgotPasswordController@index')->name('forgot-password');
+                $router->post(config('rocXolid.admin.auth.routes.forgot-password', 'forgot-password'), 'ForgotPasswordController@forgotPassword')->name('forgot-password.submit');
+                $router->get(sprintf('%s/{token}', config('rocXolid.admin.auth.routes.reset-password', 'reset-password')), 'ResetPasswordController@index')->name('reset-password');
+                $router->get(config('rocXolid.admin.auth.routes.reset-password', 'reset-password'), 'ResetPasswordController@invalid')->name('reset-password.invalid');
+                $router->post(config('rocXolid.admin.auth.routes.reset-password', 'reset-password'), 'ResetPasswordController@passwordReset')->name('reset-password.submit');
             });
             // authenticated
             $router->group([

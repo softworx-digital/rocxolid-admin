@@ -8,9 +8,9 @@ use Softworx\RocXolid\Components\Contracts\FormComponentable;
 // rocXolid admin components
 use Softworx\RocXolid\Admin\Components\AbstractActiveComponent;
 
-class Registration extends AbstractActiveComponent implements FormComponentable
+class ForgotPassword extends AbstractActiveComponent implements FormComponentable
 {
-    protected $translation_param = 'registration';
+    protected $translation_param = 'forgot-password';
 
     protected $model_form_component = null;
 

@@ -53,7 +53,9 @@ class LoginController extends AbstractController implements Dashboardable
         if ($request->ajax()) {
             return response()->json([
                 'modalClose' => [ '#login-modal' ],
-                'modal' => View::make('rocXolid::auth.login-modal')->render()
+                'modal' => View::make('rocXolid::auth.login-modal', [
+                    'component' => $this->getDashboard()
+                ])->render()
             ]);
         }
 
@@ -77,7 +79,8 @@ class LoginController extends AbstractController implements Dashboardable
                     'modalClose' => [ '#login-modal' ],
                     'modal' => [ View::make('rocXolid::auth.login-modal', [
                             'request' => $request,
-                            'error' => true,
+                            'errors' => $e->validator->getMessageBag(),
+                            'component' => $this->getDashboard()
                         ])->render()
                     ]
                 ]);

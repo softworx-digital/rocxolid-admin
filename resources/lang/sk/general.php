@@ -60,6 +60,7 @@ return [
         'replace' => 'Nahradiť',
         'collapse-hidden' => 'Rozbaliť',
         'collapse-shown' => 'Zabaliť',
+        'submit' => 'Odoslať',
         'submit_back' => 'Uložiť a späť na zoznam',
         'submit_ajax_back' => 'Uložiť a späť na zoznam',
         'submit_edit' => 'Uložiť a upraviť',
