@@ -117,7 +117,7 @@ class ObsoleteRegistrationController extends AbstractController implements Dashb
 
     public function register()
     {
-dd(__METHOD__);
+        dd(__METHOD__);
         return route('frontpage.user.dashboard');
     }
 

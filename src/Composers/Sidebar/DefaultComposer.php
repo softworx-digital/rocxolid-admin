@@ -137,7 +137,7 @@ class DefaultComposer extends AbstractComposer
         }
 
         if (isset($config['add'])) {
-            foreach (array($config['add']) as $subnodes) {
+            foreach ([$config['add']] as $subnodes) {
                 $item->setItems($this->parseConfig($subnodes));
             }
         }

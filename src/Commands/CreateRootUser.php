@@ -12,7 +12,7 @@ use Softworx\RocXolid\UserManagement\Models\User;
  * @author softworx <hello@softworx.digital>
  * @package Softworx\RocXolid\Admin
  * @version 1.0.0
- * 
+ *
  * @todo input validation
  */
 class CreateRootUser extends Command

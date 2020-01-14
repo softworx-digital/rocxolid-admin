@@ -49,7 +49,7 @@ class DefaultComposer implements ComposerContract
 
     /**
      * Get currently logged users.
-     * 
+     *
      * @param int $timeout
      * @return \Illuminate\Support\Collection
      */
