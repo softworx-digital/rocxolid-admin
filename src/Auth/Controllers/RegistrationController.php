@@ -12,10 +12,10 @@ use Softworx\RocXolid\Http\Requests\CrudRequest;
 use Softworx\RocXolid\Contracts\Modellable;
 // rocXolid repository contracts
 use Softworx\RocXolid\Repositories\Contracts\Repository;
-use Softworx\RocXolid\Repositories\Contracts\Repositoryable;
 // rocXolid http contracts
-use Softworx\RocXolid\Http\Controllers\Contracts\Dashboardable;
 use Softworx\RocXolid\Http\Responses\Contracts\AjaxResponse;
+use Softworx\RocXolid\Http\Controllers\Contracts\Dashboardable;
+use Softworx\RocXolid\Http\Controllers\Contracts\Repositoryable;
 // rocXolid form contracts
 use Softworx\RocXolid\Forms\Contracts\FormField;
 // rocXolid forms
@@ -26,8 +26,7 @@ use Softworx\RocXolid\Http\Controllers\AbstractController;
 use Softworx\RocXolid\Traits\Modellable as ModellableTrait;
 // rocXolid controller traits
 use Softworx\RocXolid\Http\Controllers\Traits\Dashboardable as DashboardableTrait;
-// rocXolid repository traits
-use Softworx\RocXolid\Repositories\Traits\Repositoryable as RepositoryableTrait;
+use Softworx\RocXolid\Http\Controllers\Traits\Repositoryable as RepositoryableTrait;
 // rocXolid components
 use Softworx\RocXolid\Components\Forms\CrudForm as CrudFormComponent;
 // rocXolid admin components
