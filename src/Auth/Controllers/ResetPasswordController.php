@@ -149,6 +149,14 @@ class ResetPasswordController extends AbstractController implements Dashboardabl
     /**
      * {@inheritdoc}
      */
+    protected function setUserPassword($user, $password)
+    {
+        $user->password = $password;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     protected function rules()
     {
         return []; // already validated

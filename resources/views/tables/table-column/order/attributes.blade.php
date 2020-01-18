@@ -38,8 +38,8 @@
         <i class="fa fa-truck text-info fa-2x" title="{{ $component->getOption('model')->delivery->getTitle() }}"></i>
     {{--
     @if ($component->getOption('model')->delivery->deliveryMethod()->exists())
-        <img style="max-width: {{ $component->getOption('model')->delivery->deliveryMethod->getImageDimension('icon')->width }}px;" src="{!! $component->getOption('model')->delivery->deliveryMethod->image->getControllerRoute('get', [ 'dimension' => 'icon' ]) !!}" title="{{ $component->getOption('model')->delivery->getTitle() }}"/>
-        <img style="max-width: {{ $component->getOption('model')->delivery->deliveryMethod->getImageDimension('image', 'icon')->width }}px;" src="{{ asset($component->getModel()->delivery->deliveryMethod->image->getPath('icon')) }}" alt="{{ $component->getOption('model')->delivery->deliveryMethod->image->alt }}"/>
+        <img style="max-width: {{ $component->getOption('model')->delivery->deliveryMethod->getImageSize('icon')->width }}px;" src="{!! $component->getOption('model')->delivery->deliveryMethod->image->getControllerRoute('get', [ 'size' => 'icon' ]) !!}" title="{{ $component->getOption('model')->delivery->getTitle() }}"/>
+        <img style="max-width: {{ $component->getOption('model')->delivery->deliveryMethod->getImageSize('image', 'icon')->width }}px;" src="{{ asset($component->getModel()->delivery->deliveryMethod->image->getPath('icon')) }}" alt="{{ $component->getOption('model')->delivery->deliveryMethod->image->alt }}"/>
     --}}
     @else
         <i class="fa fa-question text-danger fa-2x" title="Neznámy spôsob doručenia"></i>
@@ -57,8 +57,8 @@
     {{--
         cez asset
     @if ($component->getOption('model')->payment->paymentMethod()->exists())
-        <img style="max-width: {{ $component->getOption('model')->payment->paymentMethod->getImageDimension('icon')->width }}px;" src="{!! $component->getOption('model')->payment->paymentMethod->image->getControllerRoute('get', [ 'dimension' => 'icon' ]) !!}" title="{{ $component->getOption('model')->delivery->getTitle() }}"/>
-        <img style="max-width: {{ $component->getOption('model')->payment->paymentMethod->getImageDimension('image', 'icon')->width }}px;" src="{{ asset($component->getModel()->payment->paymentMethod->image->getPath('icon')) }}" alt="{{ $component->getOption('model')->delivery->deliveryMethod->image->alt }}"/>
+        <img style="max-width: {{ $component->getOption('model')->payment->paymentMethod->getImageSize('icon')->width }}px;" src="{!! $component->getOption('model')->payment->paymentMethod->image->getControllerRoute('get', [ 'size' => 'icon' ]) !!}" title="{{ $component->getOption('model')->delivery->getTitle() }}"/>
+        <img style="max-width: {{ $component->getOption('model')->payment->paymentMethod->getImageSize('image', 'icon')->width }}px;" src="{{ asset($component->getModel()->payment->paymentMethod->image->getPath('icon')) }}" alt="{{ $component->getOption('model')->delivery->deliveryMethod->image->alt }}"/>
     --}}
     @if ($component->getOption('model')->payment->paymentMethod()->exists())
         <i class="fa @if ($component->getOption('model')->payment->paymentMethod->is_electronic) fa-credit-card @else fa-money @endif text-info fa-2x" title="{{ $component->getOption('model')->payment->paymentMethod->getTitle() }}"></i>

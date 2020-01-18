@@ -6,15 +6,7 @@
             </div>
             <div class="clearfix"></div>
         @if ($user)
-            <div class="profile clearfix">
-                <div class="profile_pic">
-                    {{ Html::image('vendor/softworx/rocXolid/images/user-placeholder.svg', $user->name, [ 'class' => 'img-circle profile_img' ]) }}
-                </div>
-                <div class="profile_info">
-                    <span>{{ $component->translate('sidebar.text.welcome') }}</span>
-                    <h2>{{ $user->name }}</h2>
-                </div>
-            </div>
+            {!! $user->getModelViewerComponent()->render('wrapped.sidebar', [ 'wrapper' => $component ]) !!}
         @endif
         </div>
 

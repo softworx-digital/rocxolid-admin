@@ -5,12 +5,13 @@
         @foreach ($component->getFormField()->getForm()->getModel()->{$component->getFormField()->getName()} as $image)
             <li data-item-id="{{ $image->id }}" class="d-inline-block">
                 <div class="img img-small @if ($image->is_model_primary) highlight @endif" @if ($image->is_model_primary) title="{{ __('rocXolid:admin::general.text.image-primary') }}" @endif>
-                    {{--
-                    <img style="max-width: {{ $component->getFormField()->getForm()->getModel()->getImageDimension($image->model_attribute, $component->getOption('image-preview-size'))->width }}px;" src="{{ $image->getControllerRoute('get', [ 'dimension' => $component->getOption('image-preview-size') ]) }}"/>
-                    --}}
+                @if (false)
+                    <img style="max-width: {{ $component->getFormField()->getForm()->getModel()->getImageSize($image->model_attribute, $component->getOption('image-preview-size'))->width }}px;" src="{{ $image->getControllerRoute('get', [ 'size' => $component->getOption('image-preview-size') ]) }}"/>
                     <img src="{{ asset($image->getPath($component->getOption('image-preview-size'))) }}" alt="{{ $image->alt }}"/>
+                @endif
+                    {{ Html::image($image->getControllerRoute('get', [ 'size' => $component->getOption('image-preview-size') ]), $image->alt) }}
                     <div class="btn-group show-up">
-                        <button class="btn btn-primary" data-ajax-url="{{ $image->getControllerRoute('edit') }}"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-primary" data-ajax-url="{{ $image->getControllerRoute('edit', [ '_section' => 'model' ]) }}"><i class="fa fa-pencil"></i></button>
                         <span class="btn btn-default drag-handle"><i class="fa fa-arrows"></i></span>
                         <button class="btn btn-danger" data-ajax-url="{{ $image->getControllerRoute('destroyConfirm') }}"><i class="fa fa-trash"></i></button>
                     </div>
@@ -22,13 +23,14 @@
         <ul class="list-unstyled images col-xs-12">
         @foreach (collect([ $component->getFormField()->getForm()->getModel()->{$component->getFormField()->getName()} ]) as $image)
             <li data-item-id="{{ $image->id }}" class="d-inline-block">
-                <div class="img img-small @if ($image->is_model_primary) highlight @endif" @if ($image->is_model_primary) title="{{ __('rocXolid:admin::general.text.image-primary') }}" @endif>
-                    {{--
-                    <img style="max-width: {{ $component->getFormField()->getForm()->getModel()->getImageDimension($image->model_attribute, $component->getOption('image-preview-size'))->width }}px;" src="{{ $image->getControllerRoute('get', [ 'dimension' => $component->getOption('image-preview-size') ]) }}"/>
-                    --}}
+                <div class="img img-small">
+                @if (false)
+                    <img style="max-width: {{ $component->getFormField()->getForm()->getModel()->getImageSize($image->model_attribute, $component->getOption('image-preview-size'))->width }}px;" src="{{ $image->getControllerRoute('get', [ 'size' => $component->getOption('image-preview-size') ]) }}"/>
                     <img src="{{ asset($image->getPath($component->getOption('image-preview-size'))) }}" alt="{{ $image->alt }}"/>
+                @endif
+                    {{ Html::image($image->getControllerRoute('get', [ 'size' => $component->getOption('image-preview-size') ]), $image->alt) }}
                     <div class="btn-group show-up">
-                        <button class="btn btn-primary" data-ajax-url="{{ $image->getControllerRoute('edit') }}"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-primary" data-ajax-url="{{ $image->getControllerRoute('edit', [ '_section' => 'model' ]) }}"><i class="fa fa-pencil"></i></button>
                         <button class="btn btn-danger" data-ajax-url="{{ $image->getControllerRoute('destroyConfirm') }}"><i class="fa fa-trash"></i></button>
                     </div>
                 </div>
@@ -37,7 +39,7 @@
         </ul>
     @elseif (false)
         <div class="img img-small d-inline-block">
-                {{ Html::image('vendor/softworx/rocXolid/images/user-placeholder.svg') }}
+            {{ Html::image('vendor/softworx/rocXolid/images/user-placeholder.svg') }}
         </div>
     @endif
     </div>
