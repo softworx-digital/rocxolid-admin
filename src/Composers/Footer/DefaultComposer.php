@@ -29,7 +29,7 @@ class DefaultComposer implements ComposerContract
      * Constructor.
      *
      * @param \Illuminate\Contracts\Auth\Guard $auth
-     * @return \Softworx\RocXolid\Composers\ViewComposer
+     * @return \Softworx\RocXolid\Composers\Contracts\Composer
      */
     public function __construct(Guard $auth)
     {

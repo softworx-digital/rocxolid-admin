@@ -4,7 +4,7 @@ namespace Softworx\RocXolid\Admin\Components\Dashboard;
 
 // rocXolid component contracts
 use Softworx\RocXolid\Components\Contracts\Formable;
-use Softworx\RocXolid\Components\Contracts\FormComponentable;
+use Softworx\RocXolid\Components\Contracts\Componentable\Form as FormComponentable;
 // rocXolid admin components
 use Softworx\RocXolid\Admin\Components\AbstractActiveComponent;
 
