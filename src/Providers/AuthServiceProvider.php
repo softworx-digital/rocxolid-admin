@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as IlluminateAuthServiceProvider;
 use Softworx\RocXolid\CrudRouter;
+use Softworx\RocXolid\Models\Contracts\Crudable;
+use Softworx\RocXolid\UserManagement\Policies\CrudPolicy;
 use Softworx\RocXolid\Admin\Auth\Guard;
 use Softworx\RocXolid\Admin\Auth\Middleware\Authenticate;
 use Softworx\RocXolid\Admin\Auth\Middleware\Authorize;
@@ -27,7 +29,7 @@ class AuthServiceProvider extends IlluminateAuthServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+        Crudable::class => CrudPolicy::class,
     ];
 
     public function register()

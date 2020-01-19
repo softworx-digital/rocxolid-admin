@@ -50,6 +50,7 @@ class Authorize
         }
 
         if (($controller instanceof Permissionable) && !$controller->userCan($action)) {
+dd(__METHOD__);
             throw new AuthorizationException(__('rocXolid:admin::admin.auth.unauthorized'), $guard);
         }
 
