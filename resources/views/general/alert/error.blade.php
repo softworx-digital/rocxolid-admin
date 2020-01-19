@@ -1,4 +1,4 @@
-<div class="alert alert-info clearfix">
+<div class="alert alert-danger clearfix">
 @if ($component->hasText())
     <p class="pull-left">{!! $component->getText() !!}</p>
 @else
