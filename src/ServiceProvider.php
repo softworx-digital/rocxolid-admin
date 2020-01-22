@@ -2,7 +2,7 @@
 
 namespace Softworx\RocXolid\Admin;
 
-use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
+use Softworx\RocXolid\AbstractServiceProvider as RocXolidAbstractServiceProvider;
 
 /**
  * rocXolid Admin package service provider.
@@ -11,7 +11,7 @@ use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
  * @package Softworx\RocXolid\Admin
  * @version 1.0.0
  */
-class ServiceProvider extends IlluminateServiceProvider
+class ServiceProvider extends RocXolidAbstractServiceProvider
 {
     /**
      * Register the application services.
@@ -42,9 +42,9 @@ class ServiceProvider extends IlluminateServiceProvider
     /**
      * Expose config files and resources to be published.
      *
-     * @return \Illuminate\Support\ServiceProvider
+     * @return \Softworx\RocXolid\AbstractServiceProvider
      */
-    private function publish(): IlluminateServiceProvider
+    private function publish(): RocXolidAbstractServiceProvider
     {
         // config files
         // php artisan vendor:publish --provider="Softworx\RocXolid\Admin\ServiceProvider" --tag="config" (--force to overwrite)

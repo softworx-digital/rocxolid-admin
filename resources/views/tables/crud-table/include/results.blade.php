@@ -28,8 +28,8 @@
                     <td class="last text-right">
                         <div class="btn-group">
                     @foreach ($component->getTableButtonsComponents() as $button)
-                        @if ($button->hasOption('controller-method'))
-                            @if ($component->getRepository()->getController()->isModelActionAvailable($model, $button->getOption('controller-method')))
+                        @if ($button->hasOption('policy-ability'))
+                            @if ($component->getRepository()->getController()->isModelActionAvailable($model, $button->getOption('policy-ability')))
                                 {!! $button->setPreRenderProperties($component, $model)->render($button->getOption('type-template')) !!}
                             @else
                                 {!! $button->render('disabled') !!}

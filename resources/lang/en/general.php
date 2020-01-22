@@ -1,11 +1,15 @@
 <?php
 
 return [
+    'app' => 'Application',
     'field' => [
         'id' => 'ID',
+        'is_enabled' => 'Enabled',
         'email' => 'e-mail',
         'web_id' => 'Web',
         'web' => 'Web',
+        'language_id' => 'Language',
+        'language' => 'Language',
         'localization_id' => 'Localization',
         'localization' => 'Localization',
         'text' => 'Text',
@@ -18,9 +22,12 @@ return [
     ],
     'column' => [
         'id' => 'ID',
+        'is_enabled' => 'Enabled',
         'email' => 'e-mail',
         'web_id' => 'Web',
         'web' => 'Web',
+        'language_id' => 'Language',
+        'language' => 'Language',
         'localization_id' => 'Localization',
         'localization' => 'Localization',
         'text' => 'Text',
@@ -101,5 +108,12 @@ return [
         'updated' => 'Update successful',
         'form-error' => 'The form contains invalid data',
         'element-already-set' => 'Element is already set',
+    ],
+    'permissions' => [
+        'viewAll' => 'View all',
+        'create' => 'Create',
+        'view' => 'Show',
+        'update' => 'Update',
+        'delete' => 'Delete',
     ],
 ];

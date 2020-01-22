@@ -27,6 +27,12 @@
             "providers": [
                 "Softworx\\RocXolid\\Admin\\ServiceProvider"
             ]
+        },
+        "rocXolid": {
+            "title": {
+                "en": "Administration Dashboard",
+                "sk": "Pracovná Plocha"
+            }
         }
     }
 }

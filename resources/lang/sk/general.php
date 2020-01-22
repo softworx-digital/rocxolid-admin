@@ -1,15 +1,18 @@
 <?php
 
 return [
+    'app' => 'Aplikácia',
     'field' => [
         'id' => 'ID',
+        'is_enabled' => 'Aktívne',
         'email' => 'e-mail',
-        'language_id' => 'Jazyk',
-        'language' => 'Jazyk',
         'web_id' => 'Web',
         'web' => 'Web',
-        'text' => 'Text',
+        'language_id' => 'Jazyk',
+        'language' => 'Jazyk',
         'localization_id' => 'Lokalizácia',
+        'localization' => 'Lokalizácia',
+        'text' => 'Text',
         'created_at' => 'Čas vytvorenia',
         'updated_at' => 'Čas poslednej aktualizácie',
         'deleted_at' => 'Čas vymazania',
@@ -19,19 +22,24 @@ return [
     ],
     'column' => [
         'id' => 'ID',
+        'is_enabled' => 'Aktívne',
         'email' => 'e-mail',
-        'language_id' => 'Jazyk',
-        'language' => 'Jazyk',
         'web_id' => 'Web',
         'web' => 'Web',
-        'text' => 'Text',
+        'language_id' => 'Jazyk',
+        'language' => 'Jazyk',
         'localization_id' => 'Lokalizácia',
+        'localization' => 'Lokalizácia',
+        'text' => 'Text',
         'created_at' => 'Čas vytvorenia',
         'updated_at' => 'Čas poslednej aktualizácie',
         'deleted_at' => 'Čas vymazania',
         'created_by' => 'Vytvoril používateľ',
         'updated_by' => 'Aktualizoval používateľ',
         'deleted_by' => 'Vymazal používateľ',
+    ],
+    'hint' => [
+        'is_visible' => 'Príznak, či sa element zobrazí na frontpage',
     ],
     'placeholder' => [
         'select' => 'Vyberte',
@@ -96,5 +104,12 @@ return [
         'updated' => 'Údaje boli aktualizované',
         'form-error' => 'Vyskytli sa chyby v údajoch formuláru',
         'image-primary' => 'Hlavný obrázok',
+    ],
+    'permissions' => [
+        'viewAll' => 'Zobrazenie výsledkov',
+        'create' => 'Vytváranie',
+        'view' => 'Zobrazenie',
+        'update' => 'Úprava',
+        'delete' => 'Mazanie',
     ],
 ];
