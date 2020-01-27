@@ -8,11 +8,18 @@ use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as IlluminateAuthServiceProvider;
 use Softworx\RocXolid\CrudRouter;
 use Softworx\RocXolid\Models\Contracts\Crudable;
-use Softworx\RocXolid\UserManagement\Policies\CrudPolicy;
+
 use Softworx\RocXolid\Admin\Auth\Guard;
 use Softworx\RocXolid\Admin\Auth\Middleware\Authenticate;
 use Softworx\RocXolid\Admin\Auth\Middleware\Authorize;
 use Softworx\RocXolid\Admin\Auth\Middleware\RedirectAuthenticated;
+
+// @todo: dont'like it here since it's a different package, but register policies is from IlluminateAuthServiceProvider
+use Softworx\RocXolid\UserManagement\Policies\CrudPolicy;
+use Softworx\RocXolid\UserManagement\Models\Permission;
+use Softworx\RocXolid\UserManagement\Policies\PermissionPolicy;
+use Softworx\RocXolid\Common\Models\Address;
+use Softworx\RocXolid\Common\Policies\AddressPolicy;
 
 /**
  * rocXolid authentication service provider.
@@ -30,6 +37,8 @@ class AuthServiceProvider extends IlluminateAuthServiceProvider
      */
     protected $policies = [
         Crudable::class => CrudPolicy::class,
+        Permission::class => PermissionPolicy::class,
+        Address::class => AddressPolicy::class,
     ];
 
     public function register()

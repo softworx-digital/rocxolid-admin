@@ -16,6 +16,8 @@ return [
         'description' => 'Description',
         'note' => 'Note',
         'url' => 'URL',
+        'image' => 'Image',
+        'address' => 'Address',
         'created_at' => 'Created at',
         'updated_at' => 'Updated at',
         'deleted_at' => 'Deleted at',
@@ -37,6 +39,8 @@ return [
         'description' => 'Description',
         'note' => 'Note',
         'url' => 'URL',
+        'image' => 'Image',
+        'address' => 'Address',
         'created_at' => 'Created at',
         'updated_at' => 'Updated at',
         'deleted_at' => 'Deleted at',
@@ -125,7 +129,11 @@ return [
         'delete' => 'Delete',
     ],
     'permissions-scope' => [
-        'all' => 'All',
-        'owned' => 'Owned',
+        'policy' => [
+            'scope' => [
+                'all' => 'All',
+                'owned' => 'Owned',
+            ],
+        ],
     ],
 ];

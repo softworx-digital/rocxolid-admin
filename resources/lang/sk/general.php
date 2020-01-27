@@ -16,6 +16,8 @@ return [
         'description' => 'Popis',
         'note' => 'Poznámka',
         'url' => 'URL',
+        'image' => 'Obrázok',
+        'address' => 'Adresa',
         'created_at' => 'Čas vytvorenia',
         'updated_at' => 'Čas poslednej aktualizácie',
         'deleted_at' => 'Čas vymazania',
@@ -37,6 +39,8 @@ return [
         'description' => 'Popis',
         'note' => 'Poznámka',
         'url' => 'URL',
+        'image' => 'Obrázok',
+        'address' => 'Adresa',
         'created_at' => 'Čas vytvorenia',
         'updated_at' => 'Čas poslednej aktualizácie',
         'deleted_at' => 'Čas vymazania',
@@ -121,7 +125,11 @@ return [
         'delete' => 'Mazanie',
     ],
     'permissions-scope' => [
-        'all' => 'Všetky objekty tohto typu',
-        'owned' => 'Vlastné objekty tohto typu',
+        'policy' => [
+            'scope' => [
+                'all' => 'Všetky',
+                'owned' => 'Vlastné',
+            ],
+        ],
     ],
 ];

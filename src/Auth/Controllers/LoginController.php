@@ -145,6 +145,8 @@ class LoginController extends AbstractController implements Dashboardable
      */
     public function ping(Request $request): Response
     {
+        app('debugbar')->disable();
+
         return response()->json(['ping' => time()]);
     }
 
