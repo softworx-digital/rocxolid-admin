@@ -38,10 +38,15 @@ class Authenticate extends BaseAuthenticate
     protected function authenticate($request, array $guards)
     {
         try {
-            // @todo: find out why this returns null user
-            $user = parent::authenticate($request, $guards);
+            parent::authenticate($request, $guards);
 
-            if ($user && $user->exists()) {
+            if ($user = $this->auth->user()) {
+                $user->load([
+                    'rolePermissions',
+                    'permissions',
+                ]);
+
+
                 /*
                 $user->last_action = Carbon::now()->toDateTimeString();
                 $user->logged_out = null;

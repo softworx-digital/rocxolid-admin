@@ -24,9 +24,7 @@ class ProfileController extends AbstractController
 
     public function index(CrudRequest $request)
     {
-        $user = Auth::guard()->user();
-
-        return $this->user_controller->show($request, $user->id);
+        return $this->user_controller->show($request, $request->user());
     }
 
     public function settings(CrudRequest $request)

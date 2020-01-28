@@ -3,15 +3,19 @@
 namespace Softworx\RocXolid\Admin\Composers\Sidebar;
 
 use Illuminate\Contracts\View\View;
-use Softworx\RocXolid\Composers\Contracts\Composer;
-use Softworx\RocXolid\Composers\AbstractComposer;
-use Softworx\RocXolid\Services\RouteService;
+// rocXolid contracts
 use Softworx\RocXolid\Contracts\Controllable as ControllableContract;
 use Softworx\RocXolid\Contracts\Routable as RoutableContract;
+// rocXolid controller contracts
+use Softworx\RocXolid\Http\Controllers\Contracts\Crudable;
+// rocXolid composer contracts
+use Softworx\RocXolid\Composers\Contracts\Composer;
 use Softworx\RocXolid\Components\Contracts\NavbarAccessible as NavbarAccessibleContract;
+// rocXolid composers
+use Softworx\RocXolid\Composers\AbstractComposer;
+// rocXolid component exceptions
 use Softworx\RocXolid\Components\Exceptions\UndefinedItemException;
 use Softworx\RocXolid\Components\Exceptions\InvalidItemImplementationException;
-use Softworx\RocXolid\Http\Controllers\Contracts\Permissionable;
 
 /**
  * Default sidebar composer.
@@ -19,31 +23,13 @@ use Softworx\RocXolid\Http\Controllers\Contracts\Permissionable;
  * @author softworx <hello@softworx.digital>
  * @package Softworx\RocXolid
  * @version 1.0.0
+ * @todo: $config to collection
  */
 class DefaultComposer extends AbstractComposer
 {
     protected $translation_package = 'rocXolid:admin';
 
     protected $translation_param = 'admin';
-
-    /**
-     * Route service to detect current route.
-     *
-     * @todo Use this to set items' state appropriately
-     * @var \Softworx\RocXolid\Services\RouteService
-     */
-    protected $route_service;
-
-    /**
-     * Constructor.
-     *
-     * @param \Softworx\RocXolid\Services\RouteService $route_service
-     * @return \Softworx\RocXolid\Admin\Composers\Sidebar\DefaultComposer
-     */
-    public function __construct(RouteService $route_service)
-    {
-        $this->route_service = $route_service;
-    }
 
     /**
      * {@inheritdoc}
@@ -87,12 +73,8 @@ class DefaultComposer extends AbstractComposer
      */
     protected function shouldMakeItem(array $config): bool
     {
-        if (isset($config['controller'])) {
-            $controller = resolve($config['controller']);
-
-            if (($controller instanceof Permissionable) && !$controller->userCan('read-only')) {
-                return false;
-            }
+        if (isset($config['controller']) && ($controller = app($config['controller'])) && ($controller instanceof Crudable)) {
+            return auth()->user()->can('viewAny', [ $controller->getModelClass(), $controller->getModelClass() ]);
         }
 
         return true;
@@ -121,7 +103,7 @@ class DefaultComposer extends AbstractComposer
         }
 
         if ($item instanceof ControllableContract) {
-            $item->setController(resolve($config['controller']));
+            $item->setController(app($config['controller']));
         }
 
         if ($item instanceof RoutableContract) {

@@ -6,20 +6,23 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as IlluminateAuthServiceProvider;
+// rocXolid utils
 use Softworx\RocXolid\CrudRouter;
+// rocXolid model contracts
 use Softworx\RocXolid\Models\Contracts\Crudable;
-
+// rocXolid admin auth guards
 use Softworx\RocXolid\Admin\Auth\Guard;
+// rocXolid admin auth middlewares
 use Softworx\RocXolid\Admin\Auth\Middleware\Authenticate;
 use Softworx\RocXolid\Admin\Auth\Middleware\Authorize;
 use Softworx\RocXolid\Admin\Auth\Middleware\RedirectAuthenticated;
-
-// @todo: dont'like it here since it's a different package, but register policies is from IlluminateAuthServiceProvider
+// @todo: dont'like it here since it's a different package,
+// but registerPolicies() is from IlluminateAuthServiceProvider which this provider extends
+// rocXolid user management policies
 use Softworx\RocXolid\UserManagement\Policies\CrudPolicy;
-use Softworx\RocXolid\UserManagement\Models\Permission;
 use Softworx\RocXolid\UserManagement\Policies\PermissionPolicy;
-use Softworx\RocXolid\Common\Models\Address;
-use Softworx\RocXolid\Common\Policies\AddressPolicy;
+// rocXolid user management models
+use Softworx\RocXolid\UserManagement\Models\Permission;
 
 /**
  * rocXolid authentication service provider.
@@ -38,7 +41,6 @@ class AuthServiceProvider extends IlluminateAuthServiceProvider
     protected $policies = [
         Crudable::class => CrudPolicy::class,
         Permission::class => PermissionPolicy::class,
-        Address::class => AddressPolicy::class,
     ];
 
     public function register()

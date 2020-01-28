@@ -28,23 +28,25 @@
                     <td class="last text-right">
                         <div class="btn-group">
                     @foreach ($component->getTableButtonsComponents() as $button)
-                        @if ($button->hasOption('policy-ability'))
-                            @if ($component->getRepository()->getController()->isModelActionAvailable($model, $button->getOption('policy-ability')))
-                                {!! $button->setPreRenderProperties($component, $model)->render($button->getOption('type-template')) !!}
-                            @else
-                                {!! $button->render('disabled') !!}
-                            @endif
-                        @elseif ($button->hasOption('tel'))
-                            @if ($model->{$button->getOption('tel')})
-                                {!! $button->setPreRenderProperties($component, $model)->render($button->getOption('type-template')) !!}
-                            @else
-                                {!! $button->render('disabled') !!}
-                            @endif
-                        @elseif ($button->hasOption('mailto'))
-                            @if ($model->{$button->getOption('mailto')})
-                                {!! $button->setPreRenderProperties($component, $model)->render($button->getOption('type-template')) !!}
-                            @else
-                                {!! $button->render('disabled') !!}
+                        @can ($button->getOption('policy-ability'), $model)
+                            @if ($button->hasOption('action'))
+                                @if ($component->getRepository()->getController()->isModelActionAvailable($model, $button->getOption('action')))
+                                    {!! $button->setPreRenderProperties($component, $model)->render($button->getOption('type-template')) !!}
+                                @else
+                                    {!! $button->render('disabled') !!}
+                                @endif
+                            @elseif ($button->hasOption('tel'))
+                                @if ($model->{$button->getOption('tel')})
+                                    {!! $button->setPreRenderProperties($component, $model)->render($button->getOption('type-template')) !!}
+                                @else
+                                    {!! $button->render('disabled') !!}
+                                @endif
+                            @elseif ($button->hasOption('mailto'))
+                                @if ($model->{$button->getOption('mailto')})
+                                    {!! $button->setPreRenderProperties($component, $model)->render($button->getOption('type-template')) !!}
+                                @else
+                                    {!! $button->render('disabled') !!}
+                                @endif
                             @endif
                         @endif
                     @endforeach

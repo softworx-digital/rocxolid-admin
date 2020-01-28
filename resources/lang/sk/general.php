@@ -118,11 +118,12 @@ return [
     'permissions' => [
         'full' => 'Plné práva',
         'none' => 'Žiadne práva',
-        'viewAll' => 'Zobrazenie výsledkov',
+        'viewAny' => 'Zobrazenie výsledkov',
         'create' => 'Vytváranie',
         'view' => 'Zobrazenie',
         'update' => 'Úprava',
         'delete' => 'Mazanie',
+        'assign' => 'Priradenie',
     ],
     'permissions-scope' => [
         'policy' => [

@@ -122,11 +122,12 @@ return [
     'permissions' => [
         'full' => 'Full permissions',
         'none' => 'None permissions',
-        'viewAll' => 'View all',
+        'viewAny' => 'View all',
         'create' => 'Create',
         'view' => 'Show',
         'update' => 'Update',
         'delete' => 'Delete',
+        'assign' => 'Assignment',
     ],
     'permissions-scope' => [
         'policy' => [

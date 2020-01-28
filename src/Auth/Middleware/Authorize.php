@@ -4,8 +4,6 @@ namespace Softworx\RocXolid\Admin\Auth\Middleware;
 
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Factory as Auth;
-use Softworx\RocXolid\Admin\Auth\Exceptions\AuthorizationException;
-use Softworx\RocXolid\Http\Controllers\Contracts\Permissionable;
 
 /**
  * rocXolid authorization middleware.
@@ -28,32 +26,8 @@ class Authorize
         $this->auth->shouldUse('rocXolid'); // guard definition
     }
 
-    /**
-     * Handle an incoming request.
-     *
-     * @param \Illuminate\Http\Request  $request
-     * @param \Closure $next
-     * @param string $guard
-     * @return mixed
-     * @throws \Softworx\RocXolid\Admin\Auth\Exceptions\AuthorizationException
-     */
     public function handle(Request $request, \Closure $next, $guard = null)
     {
-        $controller = $request->route()->getController();
-
-        switch ($request->route()->getActionMethod()) {
-            case 'repositoryAutocomplete':
-                $action = 'autocomplete'; // @todo: hotfixed, you can do better
-                break;
-            default:
-                $action = 'read-only';
-        }
-
-        if (($controller instanceof Permissionable) && !$controller->userCan($action)) {
-dd(__METHOD__);
-            throw new AuthorizationException(__('rocXolid:admin::admin.auth.unauthorized'), $guard);
-        }
-
         return $next($request);
     }
 }

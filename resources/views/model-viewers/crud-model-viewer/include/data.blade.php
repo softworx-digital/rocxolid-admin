@@ -21,11 +21,11 @@
     <dt>{{ $component->translate(sprintf('field.%s', $method)) }}</dt>
     <dd>
     @foreach ($component->getModel()->$method()->get() as $item)
-        @if ($item->userCan('read-only'))
+        todo data.blade
             <a class="label label-info" data-ajax-url="{{ $item->getControllerRoute() }}">{{ $item->getTitle() }}</a>
-        @else
+
             <span class="label label-info">{{ $item->getTitle() }}</span>
-        @endif
+
     @endforeach
     </dd>
 @endforeach
