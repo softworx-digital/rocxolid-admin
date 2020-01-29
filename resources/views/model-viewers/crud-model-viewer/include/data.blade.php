@@ -1,3 +1,5 @@
+TODO relations - crud-model-viewer - include - data.blade.php
+
 <dl class="dl-horizontal">
 @foreach ($component->getModel()->getShowAttributes(isset($except) ? $except : []) as $attribute => $value)
     <dt>{{ $component->translate(sprintf('field.%s', $attribute)) }}</dt>

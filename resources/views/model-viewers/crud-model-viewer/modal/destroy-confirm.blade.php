@@ -3,6 +3,12 @@
         <div class="modal-content ajax-overlay">
         {{ Form::open([ 'url' => $component->getController()->getRoute('destroy', $component->getModel()) ]) }}
             {{ Form::hidden('_method', 'DELETE') }}
+        @if (request()->has('_data.relation'))
+            {{ Form::hidden('_data[relation]', collect(request()->get('_data'))->get('relation')) }}
+        @endif
+        @if (request()->has('_data.model_attribute'))
+            {{ Form::hidden('_data[model_attribute]', collect(request()->get('_data'))->get('model_attribute')) }}
+        @endif
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
                 <h4 class="modal-title">{{ $component->translate('model.title.singular') }} <small>{{ $component->translate(sprintf('action.%s', $route_method)) }}</small></h4>
