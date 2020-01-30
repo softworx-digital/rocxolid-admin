@@ -1,1 +1,1 @@
-{!! $component->getController()->getImageUploadFormComponent()->render('upload') !!}
+{!! $component->getController()->getImageUploadFormComponent()->render('upload', [ 'attribute' => $attribute, 'relation' => $relation, 'related' => $related ]) !!}

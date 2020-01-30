@@ -1,5 +1,3 @@
-TODO relations - crud-model-viewer - include - data.blade.php
-
 <dl class="dl-horizontal">
 @foreach ($component->getModel()->getShowAttributes(isset($except) ? $except : []) as $attribute => $value)
     <dt>{{ $component->translate(sprintf('field.%s', $attribute)) }}</dt>
@@ -20,15 +18,17 @@ TODO relations - crud-model-viewer - include - data.blade.php
     </dd>
 @endforeach
 @foreach ($component->getModel()->getRelationshipMethods() as $method)
+@canany(['view', 'update', 'assign' ], [ $component->getModel(), $method ])
     <dt>{{ $component->translate(sprintf('field.%s', $method)) }}</dt>
     <dd>
     @foreach ($component->getModel()->$method()->get() as $item)
-        todo data.blade
+        @can('update', $item)
             <a class="label label-info" data-ajax-url="{{ $item->getControllerRoute() }}">{{ $item->getTitle() }}</a>
-
+        @elsecan('view', $item)
             <span class="label label-info">{{ $item->getTitle() }}</span>
-
+        @endcan
     @endforeach
     </dd>
+@endcan
 @endforeach
 </dl>

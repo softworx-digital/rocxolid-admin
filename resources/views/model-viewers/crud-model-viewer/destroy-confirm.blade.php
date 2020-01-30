@@ -10,7 +10,7 @@
         {{ Form::hidden('_data[model_attribute]', collect(request()->get('_data'))->get('model_attribute')) }}
     @endif
         <div class="x_content">
-            <p class="text-center">{{ $component->translate('destroy.confirmation') }} {{ $component->getModel()->getTitle() }}?</p>
+            <p class="text-center">{{ $component->translate('text.destroy-confirmation') }} {{ $component->getModel()->getTitle() }}?</p>
         </div>
 
         <div class="x_footer">

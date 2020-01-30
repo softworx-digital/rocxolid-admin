@@ -78,4 +78,8 @@ return [
             'throttle' => 60,
         ],
     ],
+    /**
+     * @todo: hotfixed
+     */
+    'admin_role_id' => 1,
 ];

@@ -20,9 +20,11 @@ use Softworx\RocXolid\Admin\Auth\Middleware\RedirectAuthenticated;
 // but registerPolicies() is from IlluminateAuthServiceProvider which this provider extends
 // rocXolid user management policies
 use Softworx\RocXolid\UserManagement\Policies\CrudPolicy;
+use Softworx\RocXolid\UserManagement\Policies\UserPolicy;
 use Softworx\RocXolid\UserManagement\Policies\PermissionPolicy;
 // rocXolid user management models
 use Softworx\RocXolid\UserManagement\Models\Permission;
+use Softworx\RocXolid\UserManagement\Models\User;
 
 /**
  * rocXolid authentication service provider.
@@ -40,6 +42,7 @@ class AuthServiceProvider extends IlluminateAuthServiceProvider
      */
     protected $policies = [
         Crudable::class => CrudPolicy::class,
+        User::class => UserPolicy::class,
         Permission::class => PermissionPolicy::class,
     ];
 

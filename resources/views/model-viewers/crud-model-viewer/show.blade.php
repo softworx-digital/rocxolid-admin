@@ -6,7 +6,7 @@
     </div>
 
     <div class="x_footer">
-    @can ('viewAny', [ $component->getModel(), $component->getModel() ])
+    @can ('backAny', $component->getModel())
         <a class="btn btn-default" href="{{ $component->getController()->getRoute('index') }}"><i class="fa fa-chevron-left margin-right-10"></i>{{ $component->translate('button.back') }}</a>
     @endcan
     @can ('update', $component->getModel())
