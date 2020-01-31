@@ -61,9 +61,9 @@ class CreateRootUser extends Command
                 'email' => $email,
                 'password' => $password,
             ]);
-            
+
             $user->save();
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             $this->error($e->getMessage());
         }
     }
