@@ -16,15 +16,6 @@ use Softworx\RocXolid\Admin\Auth\Guard;
 use Softworx\RocXolid\Admin\Auth\Middleware\Authenticate;
 use Softworx\RocXolid\Admin\Auth\Middleware\Authorize;
 use Softworx\RocXolid\Admin\Auth\Middleware\RedirectAuthenticated;
-// @todo: dont'like it here since it's a different package,
-// but registerPolicies() is from IlluminateAuthServiceProvider which this provider extends
-// rocXolid user management policies
-use Softworx\RocXolid\UserManagement\Policies\CrudPolicy;
-use Softworx\RocXolid\UserManagement\Policies\UserPolicy;
-use Softworx\RocXolid\UserManagement\Policies\PermissionPolicy;
-// rocXolid user management models
-use Softworx\RocXolid\UserManagement\Models\Permission;
-use Softworx\RocXolid\UserManagement\Models\User;
 
 /**
  * rocXolid authentication service provider.
@@ -35,22 +26,6 @@ use Softworx\RocXolid\UserManagement\Models\User;
  */
 class AuthServiceProvider extends IlluminateAuthServiceProvider
 {
-    /**
-     * The policy mappings for the application.
-     *
-     * @var array
-     */
-    protected $policies = [
-        Crudable::class => CrudPolicy::class,
-        User::class => UserPolicy::class,
-        Permission::class => PermissionPolicy::class,
-    ];
-
-    public function register()
-    {
-        $this->registerPolicies();
-    }
-
     /**
      * Register any authentication / authorization services.
      *

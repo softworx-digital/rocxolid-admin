@@ -114,6 +114,7 @@ return [
         'updated' => 'Údaje boli aktualizované',
         'form-error' => 'Vyskytli sa chyby v údajoch formuláru',
         'image-primary' => 'Hlavný obrázok',
+        'more-permissions' => 'Viac',
     ],
     'permissions' => [
         'full' => 'Plné práva',

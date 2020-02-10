@@ -15,7 +15,7 @@
             </div>
 
             <div class="modal-body">
-                <p class="text-center">{{ $component->translate('text.destroy-confirmation') }} {{ $component->getModel()->getTitle() }}?</p>
+                <p class="text-center">{{ $component->translate('text.destroy-confirmation') }} {!! $component->getModel()->getTitle() !!}?</p>
             </div>
 
             <div class="modal-footer">

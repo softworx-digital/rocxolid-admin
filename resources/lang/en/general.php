@@ -118,6 +118,7 @@ return [
         'updated' => 'Update successful',
         'form-error' => 'The form contains invalid data',
         'element-already-set' => 'Element is already set',
+        'more-permissions' => 'More',
     ],
     'permissions' => [
         'full' => 'Full permissions',
