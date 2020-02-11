@@ -1,11 +1,9 @@
 <div class="top_nav @if (config('rocXolid.admin.layout.topbar.fixed')) navbar-static-top @endif {{ config('rocXolid.admin.layout.topbar.class') }}">
     <div class="nav_menu">
         <nav>
-        @if (false)
-            <div class="nav toggle">
-                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            <div class="nav toggle visible-xs-block visible-sm-block">
+                <a id="menu-toggle"><i class="fa fa-bars"></i></a>
             </div>
-        @endif
 
         @if ($user)
             @if ($user->isRoot() && config('rocXolid.admin.auth.check_permissions_root', false))

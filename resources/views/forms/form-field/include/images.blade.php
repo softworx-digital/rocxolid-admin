@@ -1,5 +1,5 @@
 <div id="{{ $component->getDomId('images', $component->getFormField()->getName()) }}" class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-12 text-center">
     @if ($component->getFormField()->getForm()->getModel()->{$component->getFormField()->getName()} instanceof \Illuminate\Support\Collection)
         <ul class="list-unstyled sortable images col-xs-12" data-update-url="{{ $component->getFormField()->getForm()->getModel()->getControllerRoute('reorder', [ 'relation' => $component->getFormField()->getName() ]) }}">
         @foreach ($component->getFormField()->getForm()->getModel()->{$component->getFormField()->getName()} as $image)

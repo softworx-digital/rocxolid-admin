@@ -4,7 +4,7 @@
     @if ($component->hasItems())
     <ul class="nav side-menu">
     @foreach ($component->getItems() as $item)
-        {!! $item->render('section-group') !!}
+    {!! $item->render('section-group', [ 'loop' => $loop ]) !!}
     @endforeach
     </ul>
     @endif
@@ -15,7 +15,7 @@
     @if ($component->hasItems())
     <ul class="nav side-menu">
     @foreach ($component->getItems() as $item)
-        {!! $item->render('section-group') !!}
+        {!! $item->render('section-group', [ 'loop' => $loop ]) !!}
     @endforeach
     </ul>
 @endif

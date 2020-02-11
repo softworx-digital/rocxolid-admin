@@ -1,6 +1,6 @@
 <div class="control-group row ajax-overlay">
     {!! $component->render('include.images') !!}
-    <div class="btn-group col-sm-12">
+    <div class="btn-group col-xs-12">
         <div class="btn btn-primary fileinput-button col-md-4 col-xs-4">
             <i class="fa fa-upload fa-2x"></i>
         @if ($component->getFormField()->isArray())

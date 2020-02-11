@@ -109,6 +109,7 @@ return [
         'preview' => 'Preview',
     ],
     'text' => [
+        'attributes' => 'Attributes',
         'or' => 'or',
         'base-data' => 'Base data',
         'destroy-confirmation' => 'Really delete',

@@ -105,6 +105,7 @@ return [
         'destroyConfirm' => 'Potvrdenie vymazania',
     ],
     'text' => [
+        'attributes' => 'Atribúty',
         'or' => 'alebo',
         'base-data' => 'Základné údaje',
         'destroy-confirmation' => 'Naozaj vymazať',

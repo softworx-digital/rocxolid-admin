@@ -14,6 +14,7 @@ use Softworx\RocXolid\UserManagement\Models\User;
  * @version 1.0.0
  *
  * @todo input validation
+ * @todo this command probably doesn't belong here
  */
 class CreateRootUser extends Command
 {
@@ -22,7 +23,7 @@ class CreateRootUser extends Command
      *
      * @var string
      */
-    protected $signature = 'rx:user:create-root';
+    protected $signature = 'rocXolid:user:create-root';
 
     /**
      * The console command description.
