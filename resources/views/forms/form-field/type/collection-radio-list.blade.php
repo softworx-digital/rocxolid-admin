@@ -1,28 +1,31 @@
-<div class="control-group">
+<div class="control-group row">
 @if ($component->getFormField()->isArray())
-    <div class="btn-group" data-toggle="buttons">
-    @foreach ($component->getFormField()->getCollection()->all() as $value => $collection_item)
-        <label class="btn btn-default text-wrap @if ($component->getFormField()->isFieldValue($value, $index)) active @endif">
+    <div class="btn-group btn-group-justified col-xs-12" data-toggle="buttons">
+    @foreach ($component->getFormField()->getCollection()->all() as $value => $item)
         @if (is_scalar($value))
+        <label class="btn btn-default text-wrap col-xs-4 @if ($component->getFormField()->isFieldValue($value, $index)) active @endif">
             {!! Form::radio($component->getFormField()->getFieldName($index), $value, $component->getFormField()->isFieldValue($value, $index), $component->getOption('attributes')) !!}
-            <span>{!! $collection_item !!}</span>
+            <span>{!! $item !!}</span>
         @else
-            {!! Form::radio($component->getFormField()->getFieldName($index), $collection_item->id, $component->getFormField()->isFieldValue($collection_item->id, $index), $component->getOption('attributes')) !!}
-            {!! $collection_item->getModelViewerComponent()->render('include.data', [ 'except' => $component->getOption('except-attributes', null) ]) !!}
+        <label class="btn btn-default text-wrap col-xs-4 @if ($component->getFormField()->isFieldValue($item->getKey(), $index)) active @endif">
+            {!! Form::radio($component->getFormField()->getFieldName($index), $item->getKey(), $component->getFormField()->isFieldValue($item->id, $index), $component->getOption('attributes')) !!}
+            {!! $item->getModelViewerComponent()->render('include.data', [ 'except' => $component->getOption('except-attributes', null) ]) !!}
         @endif
         </label>
     @endforeach
     </div>
 @else
-    <div class="btn-group" data-toggle="buttons">
-    @foreach ($component->getFormField()->getCollection()->all() as $value => $collection_item)
-        <label class="btn btn-default text-wrap @if ($component->getFormField()->isFieldValue($value)) active @endif">
-        @if (is_scalar($collection_item))
+    <div class="btn-group btn-group-justified col-xs-12" data-toggle="buttons">
+    @foreach ($component->getFormField()->getCollection()->all() as $value => $item)
+        @if (is_scalar($item))
+        <label class="btn btn-default text-wrap col-xs-4 @if ($component->getFormField()->isFieldValue($value)) active @endif">
             {!! Form::radio($component->getFormField()->getFieldName(), $value, $component->getFormField()->isFieldValue($value), $component->getOption('attributes')) !!}
-            <span>{!! $collection_item !!}</span>
+            <span>{!! $item !!}</span>
+        </label>
         @else
-            {!! Form::radio($component->getFormField()->getFieldName(), $collection_item->id, $component->getFormField()->isFieldValue($collection_item->id), $component->getOption('attributes')) !!}
-            {!! $collection_item->getModelViewerComponent()->render('include.data', [ 'except' => $component->getOption('except-attributes', null) ]) !!}
+        <label class="btn btn-default text-wrap col-xs-4 @if ($component->getFormField()->isFieldValue($item->getKey())) active @endif">
+            {!! Form::radio($component->getFormField()->getFieldName(), $item->getKey(), $component->getFormField()->isFieldValue($item->getKey()), $component->getOption('attributes')) !!}
+            {!! $item->getModelViewerComponent()->render($component->getOption('collection-item-template'), [ 'except' => $component->getOption('except-attributes', null) ]) !!}
         @endif
         </label>
     @endforeach

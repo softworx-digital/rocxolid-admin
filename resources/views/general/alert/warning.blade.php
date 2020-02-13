@@ -1,0 +1,1 @@
+<div class="alert alert-warning ajax-overlay clearfix">{!! $component->render('include.content') !!}</div>

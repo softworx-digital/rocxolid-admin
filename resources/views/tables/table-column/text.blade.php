@@ -3,5 +3,5 @@
 @elseif ($component->getOption('translate', false))
     <span title="{{ $component->getModelValue() }}" class="c-help">{{ $component->getOption('translate')->get($component->getModelValue()) }}</span>
 @else
-    {{ $component->getModelValue() }}
+    {!! $component->getModelValue() !!}
 @endif

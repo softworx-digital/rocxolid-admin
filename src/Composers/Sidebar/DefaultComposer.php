@@ -109,8 +109,8 @@ class DefaultComposer extends AbstractComposer
         if ($item instanceof RoutableContract) {
             if (isset($config['route'])) {
                 $item->setRouteName($config['route']);
-            } elseif (isset($config['method'])) {
-                $item->setRouteMethod($config['method']);
+            } elseif (isset($config['action'])) {
+                $item->setRouteAction($config['action']);
             }
         }
 

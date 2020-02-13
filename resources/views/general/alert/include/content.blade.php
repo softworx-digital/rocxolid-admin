@@ -13,7 +13,7 @@
 </div>
 <div class="col-md-2 col-xs-12">
 @if ($component->hasRoute())
-    <a class="btn btn-primary pull-right" href="{{ $component->getRoute() }}">{{ $component->translate(sprintf('button.%s', $component->getRouteMethod())) }}</a>
+    <a class="btn btn-primary pull-right" href="{{ $component->getRoute() }}">{{ $component->translate(sprintf('button.%s', $component->getRouteAction())) }}</a>
 @endif
 @foreach ($component->getButtons() as $button)
     {!! $button->render() !!}
