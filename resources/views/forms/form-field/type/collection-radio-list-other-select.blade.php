@@ -13,8 +13,8 @@
             <span>{!! $collection_item !!}</span>
         </label>
         @else
-        <label class="btn btn-default text-wrap @if ($component->getFormField()->isFieldValue($collection_item->id)) active @endif" data-toggle-visibility-hide="{{ $component->getDomIdHash($component->getFormField()->getName(), 'other-options') }}">
-            {!! Form::radio($component->getFormField()->getFieldName(), $collection_item->id, $component->getFormField()->isFieldValue($collection_item->id), $component->getOption('attributes')) !!}
+        <label class="btn btn-default text-wrap @if ($component->getFormField()->isFieldValue($collection_item->getKey())) active @endif" data-toggle-visibility-hide="{{ $component->getDomIdHash($component->getFormField()->getName(), 'other-options') }}">
+            {!! Form::radio($component->getFormField()->getFieldName(), $collection_item->getKey(), $component->getFormField()->isFieldValue($collection_item->getKey()), $component->getOption('attributes')) !!}
             <span>{!! $collection_item->getTitle() !!}</span>
         </label>
         @endif

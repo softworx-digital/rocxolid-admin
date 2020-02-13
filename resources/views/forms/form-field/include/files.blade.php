@@ -3,7 +3,7 @@
     @if ($component->getFormField()->getForm()->getModel()->{$component->getFormField()->getName()} instanceof \Illuminate\Support\Collection)
         <ul class="list-unstyled sortable files col-xs-12" data-update-url="{{ $component->getFormField()->getForm()->getModel()->getControllerRoute('reorder', [ 'relation' => $component->getFormField()->getName() ]) }}">
         @foreach ($component->getFormField()->getForm()->getModel()->{$component->getFormField()->getName()} as $file)
-            <li data-item-id="{{ $file->id }}" class="padding-5 padding-left-5">
+            <li data-item-id="{{ $file->getKey() }}" class="padding-5 padding-left-5">
                 <div class="btn-group margin-right-5" style="margin-top: -10px;">
                     <button class="btn btn-primary" data-ajax-url="{{ $file->getControllerRoute('edit') }}"><i class="fa fa-pencil"></i></button>
                     <a class="btn btn-default" href="{{ $file->getControllerRoute('get') }}"><i class="fa fa-download"></i></a>
@@ -18,7 +18,7 @@
     @elseif ($component->getFormField()->getForm()->getModel()->{$component->getFormField()->getName()}()->exists())
         <ul class="list-unstyled sortable files col-xs-12" data-update-url="{{ $component->getFormField()->getForm()->getModel()->getControllerRoute('reorder', [ 'relation' => $component->getFormField()->getName() ]) }}">
         @foreach (collect([ $component->getFormField()->getForm()->getModel()->{$component->getFormField()->getName()} ]) as $file)
-            <li data-item-id="{{ $file->id }}" class="padding-5 padding-left-5">
+            <li data-item-id="{{ $file->getKey() }}" class="padding-5 padding-left-5">
                 <div class="btn-group margin-right-5" style="margin-top: -10px;">
                     <button class="btn btn-primary" data-ajax-url="{{ $file->getControllerRoute('edit') }}"><i class="fa fa-pencil"></i></button>
                     <a class="btn btn-default" href="{{ $file->getControllerRoute('get') }}"><i class="fa fa-download"></i></a>

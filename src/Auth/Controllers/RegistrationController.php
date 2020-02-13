@@ -134,7 +134,7 @@ class RegistrationController extends AbstractController implements Dashboardable
         ]);
 
         $user_profile = UserProfile::create([
-            'user_id' => $user->id,
+            'user_id' => $user->getKey(),
             'language_id' => $data['language_id'],
             'email' => $data['email'],
             'first_name' => $data['first_name'],

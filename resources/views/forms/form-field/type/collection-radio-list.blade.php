@@ -8,7 +8,7 @@
             <span>{!! $item !!}</span>
         @else
         <label class="btn btn-default text-wrap col-xs-4 @if ($component->getFormField()->isFieldValue($item->getKey(), $index)) active @endif">
-            {!! Form::radio($component->getFormField()->getFieldName($index), $item->getKey(), $component->getFormField()->isFieldValue($item->id, $index), $component->getOption('attributes')) !!}
+            {!! Form::radio($component->getFormField()->getFieldName($index), $item->getKey(), $component->getFormField()->isFieldValue($item->getKey(), $index), $component->getOption('attributes')) !!}
             {!! $item->getModelViewerComponent()->render('include.data', [ 'except' => $component->getOption('except-attributes', null) ]) !!}
         @endif
         </label>

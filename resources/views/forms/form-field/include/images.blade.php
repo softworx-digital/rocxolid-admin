@@ -3,7 +3,7 @@
     @if ($component->getFormField()->getForm()->getModel()->{$component->getFormField()->getName()} instanceof \Illuminate\Support\Collection)
         <ul class="list-unstyled sortable images col-xs-12" data-update-url="{{ $component->getFormField()->getForm()->getModel()->getControllerRoute('reorder', [ 'relation' => $component->getFormField()->getName() ]) }}">
         @foreach ($component->getFormField()->getForm()->getModel()->{$component->getFormField()->getName()} as $image)
-            <li data-item-id="{{ $image->id }}" class="d-inline-block">
+            <li data-item-id="{{ $image->getKey() }}" class="d-inline-block">
                 <div class="img img-small @if ($image->is_model_primary) highlight @endif" @if ($image->is_model_primary) title="{{ __('rocXolid:admin::general.text.image-primary') }}" @endif>
                 @if (false)
                     <img style="max-width: {{ $component->getFormField()->getForm()->getModel()->getImageSize($image->model_attribute, $component->getOption('image-preview-size'))->width }}px;" src="{{ $image->getControllerRoute('get', [ 'size' => $component->getOption('image-preview-size') ]) }}"/>
@@ -22,7 +22,7 @@
     @elseif ($component->getFormField()->getForm()->getModel()->{$component->getFormField()->getName()}()->exists())
         <ul class="list-unstyled images col-xs-12">
         @foreach (collect([ $component->getFormField()->getForm()->getModel()->{$component->getFormField()->getName()} ]) as $image)
-            <li data-item-id="{{ $image->id }}" class="d-inline-block">
+            <li data-item-id="{{ $image->getKey() }}" class="d-inline-block">
                 <div class="img img-small">
                 @if (false)
                     <img style="max-width: {{ $component->getFormField()->getForm()->getModel()->getImageSize($image->model_attribute, $component->getOption('image-preview-size'))->width }}px;" src="{{ $image->getControllerRoute('get', [ 'size' => $component->getOption('image-preview-size') ]) }}"/>

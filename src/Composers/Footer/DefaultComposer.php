@@ -58,7 +58,7 @@ class DefaultComposer implements ComposerContract
         /*
         if ($this->auth->user()) {
             return $this->auth->user()
-                ->where('id', '!=', $this->auth->user()->id)
+                ->where('id', '!=', $this->auth->user()->getKey())
                 ->where('last_action', '>', Carbon::now()->subSeconds($timeout)->toDateTimeString())
                 ->where('logged_out', null)
                 ->get();
