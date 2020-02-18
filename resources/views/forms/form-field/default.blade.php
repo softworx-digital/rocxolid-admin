@@ -5,6 +5,7 @@
     @if ($component->getOption('label', false) && !$component->getOption('label.after', false))
     <label {!! $component->getHtmlAttributes('label') !!}>
         {{ $component->translate($component->getOption('label.title')) }}
+        @if ($component->getFormField()->isRequired())<sup class="text-danger"><i class="fa fa-asterisk"></i></sup>@endif
         @if ($component->getOption('label.hint', false))
             <i class="fa fa-question-circle text-warning" title="{{ $component->translate($component->getOption('label.hint')) }}"></i>
         @endif

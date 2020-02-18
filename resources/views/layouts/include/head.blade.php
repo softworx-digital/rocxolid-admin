@@ -15,7 +15,9 @@
     <link rel="manifest" href="{{ asset('vendor/softworx/rocXolid/images/favicon/site.webmanifest') }}"/>
 
     <link rel="stylesheet" href="{{ asset(mix('css/rocXolid.css', 'vendor/softworx/rocXolid')) }}">
-
+@foreach (config('rocXolid.admin.general.stylesheets', []) as $path)
+    <link rel="stylesheet" href="{{ asset($path) }}">
+@endforeach
     <script type="text/javascript">
         window.Laravel = {!! json_encode([ 'csrfToken' => csrf_token() ]); !!}
     </script>

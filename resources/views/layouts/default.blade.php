@@ -20,6 +20,10 @@
             pingUrl: '{{ route('rocXolid.auth.ping') }}'
         };
     </script>
+
+@foreach (config('rocXolid.admin.general.scripts', []) as $path)
+    <script src="{{ asset($path) }}"></script>
+@endforeach
     <script src="{{ asset(mix('js/rocXolid.js', 'vendor/softworx/rocXolid')) }}"></script>
     @stack('script')
 </body>

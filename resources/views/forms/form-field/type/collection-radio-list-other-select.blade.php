@@ -1,7 +1,7 @@
 <div class="row">
 @if ($component->getFormField()->isArray())
     <div class="btn-group col-xs-12" data-toggle="buttons">
-    <!-- @todo: not supported yet -->
+    {{-- @todo: unfinished --}}
     - TODO -
     </div>
 @else

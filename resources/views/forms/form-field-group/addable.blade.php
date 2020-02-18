@@ -7,7 +7,7 @@
                 {!! $field->render($field->getOption('template', $field->getDefaultTemplateName()), [ 'index' => $i ]) !!}
             @endforeach
             </div>
-            {{-- @todo - kind of hacky - mozno domysliet neskor --}}
+            {{-- @todo: "hotfixed" --}}
             @if ($i == 0)
                 @if ($component->getOption('button-add', false))
                     {!! $component->getOption('button-add')->render() !!}

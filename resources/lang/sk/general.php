@@ -17,6 +17,7 @@ return [
         'note' => 'Poznámka',
         'url' => 'URL',
         'image' => 'Obrázok',
+        'images' => 'Galéria',
         'address' => 'Adresa',
         'created_at' => 'Čas vytvorenia',
         'updated_at' => 'Čas poslednej aktualizácie',
@@ -105,6 +106,7 @@ return [
         'destroyConfirm' => 'Potvrdenie vymazania',
     ],
     'text' => [
+        'show' => 'Ukázať',
         'attributes' => 'Atribúty',
         'or' => 'alebo',
         'base-data' => 'Základné údaje',

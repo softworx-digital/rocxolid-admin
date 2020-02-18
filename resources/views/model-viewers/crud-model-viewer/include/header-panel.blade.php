@@ -1,4 +1,4 @@
-<div class="x_title">
+<div id="{{ $component->getDomId('header-panel') }}" class="x_title">
     <h2>
     @if ($component->getModel()->exists)
         <span class="text-big">{!! $component->getModel()->getTitle() !!}</span>

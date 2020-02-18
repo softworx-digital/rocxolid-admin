@@ -1,7 +1,7 @@
 @if (isset($group))
 @foreach ($component->getFormFieldGroupsComponents() as $name => $fieldgroup)
     @if ($name === $group)
-        {!! $fieldgroup->render($fieldgroup->getOption('template', $fieldgroup->getDefaultTemplateName()), ['show' => true]) !!}
+        {!! $fieldgroup->render($fieldgroup->getOption('template', $fieldgroup->getDefaultTemplateName()), [ 'show' => $show ?? true ]) !!}
     @endif
 @endforeach
 @else

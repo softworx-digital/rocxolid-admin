@@ -79,7 +79,7 @@ return [
         ],
     ],
     /**
-     * @todo: hotfixed
+     * @todo: "hotfixed"
      */
     'admin_role_id' => 1,
 ];

@@ -17,6 +17,7 @@ return [
         'note' => 'Note',
         'url' => 'URL',
         'image' => 'Image',
+        'images' => 'Gallery',
         'address' => 'Address',
         'created_at' => 'Created at',
         'updated_at' => 'Updated at',
@@ -109,6 +110,7 @@ return [
         'preview' => 'Preview',
     ],
     'text' => [
+        'show' => 'Show',
         'attributes' => 'Attributes',
         'or' => 'or',
         'base-data' => 'Base data',
