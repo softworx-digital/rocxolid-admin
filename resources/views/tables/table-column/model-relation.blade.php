@@ -1,4 +1,5 @@
-@can ('viewAny', [ $component->getTableColumn()->getRelationModelClass($component->getOption('model')), $component->getTableColumn()->getRelationModelClass($component->getOption('model')) ])
+@if ($user->can('viewAny', [ $component->getTableColumn()->getRelationModelClass($component->getOption('model')), $component->getTableColumn()->getRelationModelClass($component->getOption('model')) ])
+    || $user->can('assign', [ $component->getOption('model'), $component->getTableColumn()->getOption('relation.name') ]))
 @if ($component->getTableColumn()->getRelationItems($component->getOption('model'))->count() > $component->getTableColumn()->getOption('relation.max-count', 5))
 <button data-toggle="collapse" data-target="{{ $component->getDomIdHash($component->getTableColumn()->getName()) }}" class="btn btn-default btn-labeled collapse-toggle collapsed" data-label-hidden="{{ $component->translate('collapse-hidden') }} ({{ $component->getTableColumn()->getRelationItems($component->getOption('model'))->count() }})" data-label-shown="{{ $component->translate('collapse-shown') }}">
     <span class="title">{{ $component->translate('collapse-hidden') }} ({{ $component->getTableColumn()->getRelationItems($component->getOption('model'))->count() }})</span>
@@ -7,7 +8,7 @@
 <div id="{{ $component->getDomId($component->getTableColumn()->getName()) }}" class="collapse">
 @endif
 @foreach ($component->getTableColumn()->getRelationItems($component->getOption('model')) as $item)
-    @canany ([ 'view', 'update' ], $item)
+    @if ($user->can('view', $item) || $user->can('update', $item) || $user->can('assign', [ $component->getOption('model'), $component->getTableColumn()->getOption('relation.name') ]))
         @can ('update', $item)
             <a class="label label-info @if (isset($item->is_label_with_flag) && $item->is_label_with_flag && $item->country() && $item->country->exists() && $item->country->flag) has-image @endif" @if ($component->getOption('ajax', false)) data-ajax-url="{{ $item->getControllerRoute() }}" @else href="{{ $item->getControllerRoute() }}" @endif @if (isset($item->is_label_with_color) && $item->is_label_with_color && $item->color) style="background: {{ $item->color }};" @endif>
         @else
