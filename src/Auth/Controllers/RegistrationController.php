@@ -139,7 +139,7 @@ class RegistrationController extends AbstractController implements Dashboardable
             'email' => $data['email'],
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
-            'birthdate' => \Carbon\Carbon::parse($data['birthdate'])->format('Y-m-d'),
+            'birthdate' => \Carbon\Carbon::parse($data['birthdate'])->format('Y-m-d'), // @todo: "hotfixed"
         ]);
 
         $user->fill([

@@ -2,7 +2,8 @@
     <button type="button" class="btn btn-default pull-left" data-dismiss="modal"><i class="fa fa-chevron-left margin-right-10"></i>{{ $component->translate('button.close') }}</button>
 
     <div class="btn-group pull-right">
-    @can('update', $component->getForm()->getModel())
+    {{-- @todo: "hotfixed" --}}
+    @if ($component->getForm()->hasButtons() && $user->can('update', $component->getForm()->getModel()))
         <button type="button" class="btn btn-success" data-ajax-submit-form="{{ $component->getDomIdHash('modal-update') }}"><i class="fa fa-save margin-right-10"></i>{{ $component->translate('button.save') }}</button>
     @endcan
     {{-- @todo: "hotfixed" --}}

@@ -1,4 +1,4 @@
-<div class="col-md-10 col-xs-12">
+<div class="col-md-10 col-12">
 @foreach ($component->getText() as $text)
     <{{ data_get($text, 'wrapper') }}>
     @if (data_get($text, 'key')){!! $component->translate(data_get($text, 'key')) !!}@endif
@@ -11,7 +11,7 @@
     </{{ data_get($text, 'wrapper') }}>
 @endforeach
 </div>
-<div class="col-md-2 col-xs-12">
+<div class="col-md-2 col-12">
 @if ($component->hasRoute())
     <a class="btn btn-primary pull-right" href="{{ $component->getRoute() }}">{{ $component->translate(sprintf('button.%s', $component->getRouteAction())) }}</a>
 @endif
