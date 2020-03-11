@@ -30,6 +30,7 @@
                 @endif
                     {{ Html::image($image->getControllerRoute('get', [ 'size' => $component->getOption('image-preview-size') ]), $image->alt) }}
                     <div class="btn-group show-up">
+                        <a class="btn btn-default" href="{{ asset($image->getPath()) }}" data-toggle="lightbox"><i class="fa fa-arrows-alt"></i></a>
                         <button class="btn btn-primary" data-ajax-url="{{ $image->getControllerRoute('edit', [ '_section' => 'model' ]) }}"><i class="fa fa-pencil"></i></button>
                         <button class="btn btn-danger" data-ajax-url="{{ $image->getControllerRoute('destroyConfirm') }}"><i class="fa fa-trash"></i></button>
                     </div>

@@ -66,6 +66,7 @@ return [
         'detach' => 'Detach',
     ],
     'button' => [
+        'actions' => 'Actions',
         'yes' => 'Yes',
         'no' => 'No',
         'back' => 'Back',

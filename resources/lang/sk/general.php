@@ -65,6 +65,7 @@ return [
         'clone-structure' => 'Klonovať štruktúru',
     ],
     'button' => [
+        'actions' => 'Akcie',
         'yes' => 'Áno',
         'no' => 'Nie',
         'back' => 'Späť',
