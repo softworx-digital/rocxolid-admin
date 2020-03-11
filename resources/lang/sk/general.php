@@ -54,6 +54,7 @@ return [
     ],
     'placeholder' => [
         'select' => 'Vyberte',
+        'no-value' => 'Neurčené',
     ],
     'table-button' => [
         'show' => 'Zobraziť',

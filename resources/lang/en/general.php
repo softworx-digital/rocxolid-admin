@@ -54,6 +54,7 @@ return [
     ],
     'placeholder' => [
         'select' => 'Select',
+        'no-value' => 'No value',
     ],
     'table-button' => [
         'show' => 'Show',
