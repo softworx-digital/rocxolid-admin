@@ -1,6 +1,6 @@
 <?php
 
-namespace Softworx\RocXolid\Admin\Auth\Middleware;
+namespace Softworx\RocXolid\Admin\Auth\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

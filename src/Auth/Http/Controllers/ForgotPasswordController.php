@@ -1,6 +1,6 @@
 <?php
 
-namespace Softworx\RocXolid\Admin\Auth\Controllers;
+namespace Softworx\RocXolid\Admin\Auth\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;

@@ -1,10 +1,7 @@
 <?php
 
-namespace Softworx\RocXolid\Admin\Auth\Controllers;
+namespace Softworx\RocXolid\Admin\Auth\Http\Controllers;
 
-use Auth;
-use View;
-use Carbon\Carbon;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\View\View as IlluminateView;
 use Illuminate\Http\Request;
@@ -18,8 +15,12 @@ use Softworx\RocXolid\Http\Controllers\Contracts\Dashboardable;
 use Softworx\RocXolid\Http\Controllers\AbstractController;
 // rocXolid traits
 use Softworx\RocXolid\Http\Controllers\Traits\Dashboardable as DashboardableTrait;
-// rocXolid components
+// rocXolid admin components
 use Softworx\RocXolid\Admin\Components\Dashboard\Login as LoginDashboard;
+// rocXolid admin auth services
+use Softworx\RocXolid\Admin\Auth\Services\UserActivityService;
+// rocXolid admin auth data holders
+use Softworx\RocXolid\Admin\Auth\DataHolders\LogoutUserActivity;
 
 /**
  * Controller for login actions.
@@ -43,6 +44,22 @@ class LoginController extends AbstractController implements Dashboardable
     protected $translation_param = 'login';
 
     /**
+     * @var \Softworx\RocXolid\Admin\Auth\Services\UserActivityService
+     */
+    private $user_activity_service;
+
+    /**
+     * Create a new middleware instance.
+     *
+     * @param \Illuminate\Contracts\Auth\Factory $auth
+     * @return void
+     */
+    public function __construct(UserActivityService $user_activity_service)
+    {
+        $this->user_activity_service = $user_activity_service;
+    }
+
+    /**
      * Base action.
      *
      * @param \Illuminate\Http\Request $request
@@ -53,7 +70,7 @@ class LoginController extends AbstractController implements Dashboardable
         if ($request->ajax()) {
             return response()->json([
                 'modalClose' => [ '#login-modal' ],
-                'modal' => View::make('rocXolid::auth.login-modal', [
+                'modal' => view('rocXolid::auth.login-modal', [
                     'component' => $this->getDashboard()
                 ])->render()
             ]);
@@ -77,7 +94,7 @@ class LoginController extends AbstractController implements Dashboardable
             if ($request->ajax()) {
                 return response()->json([
                     'modalClose' => [ '#login-modal' ],
-                    'modal' => [ View::make('rocXolid::auth.login-modal', [
+                    'modal' => [ view('rocXolid::auth.login-modal', [
                             'request' => $request,
                             'errors' => $e->validator->getMessageBag(),
                             'component' => $this->getDashboard()
@@ -125,14 +142,11 @@ class LoginController extends AbstractController implements Dashboardable
     {
         $user = $this->guard()->user();
 
-        /*
-        $user->logged_out = Carbon::now()->toDateTimeString();
-        $user->save();
-        */
-
         $this->guard()->logout();
 
         $request->session()->invalidate();
+
+        $this->user_activity_service->logUserActivity($request, $user, LogoutUserActivity::class);
 
         return redirect()->route('rocXolid.auth.login');
     }
@@ -167,6 +181,6 @@ class LoginController extends AbstractController implements Dashboardable
      */
     protected function guard(): StatefulGuard
     {
-        return Auth::guard('rocXolid');
+        return auth('rocXolid');
     }
 }

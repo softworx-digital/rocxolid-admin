@@ -1,6 +1,6 @@
 <?php
 
-namespace Softworx\RocXolid\Admin\Auth\Middleware;
+namespace Softworx\RocXolid\Admin\Auth\Http\Middleware;
 
 use App;
 use Carbon\Carbon;

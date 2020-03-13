@@ -4,6 +4,7 @@ return [
     'app' => 'Application',
     'field' => [
         'id' => 'ID',
+        'code' => 'Code',
         'is_enabled' => 'Enabled',
         'email' => 'e-mail',
         'web_id' => 'Web',
@@ -28,6 +29,7 @@ return [
     ],
     'column' => [
         'id' => 'ID',
+        'code' => 'Code',
         'is_enabled' => 'Enabled',
         'email' => 'e-mail',
         'web_id' => 'Web',

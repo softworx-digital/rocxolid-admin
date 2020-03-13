@@ -9,8 +9,7 @@
         </h3>
     </div>
     <div class="panel-body text-center text-primary">
-        <i class="fa fa-info-circle fa-2x text-vertical-align-middle margin-right-5"></i>
-        {{ $component->translate('text.unfilled') }}
+        <i class="fa fa-info-circle fa-2x text-vertical-align-middle margin-right-5"></i>{{ $component->translate('text.unfilled') }}
     </div>
 </div>
 @endcan

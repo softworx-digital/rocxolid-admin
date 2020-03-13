@@ -13,9 +13,10 @@ use Softworx\RocXolid\Models\Contracts\Crudable;
 // rocXolid admin auth guards
 use Softworx\RocXolid\Admin\Auth\Guard;
 // rocXolid admin auth middlewares
-use Softworx\RocXolid\Admin\Auth\Middleware\Authenticate;
-use Softworx\RocXolid\Admin\Auth\Middleware\Authorize;
-use Softworx\RocXolid\Admin\Auth\Middleware\RedirectAuthenticated;
+use Softworx\RocXolid\Admin\Auth\Http\Middleware\Authenticate;
+use Softworx\RocXolid\Admin\Auth\Http\Middleware\Authorize;
+use Softworx\RocXolid\Admin\Auth\Http\Middleware\RedirectAuthenticated;
+use Softworx\RocXolid\Admin\Auth\Http\Middleware\LastUserActivity;
 
 /**
  * rocXolid authentication service provider.
@@ -74,11 +75,12 @@ class AuthServiceProvider extends IlluminateAuthServiceProvider
         $router->pushMiddlewareToGroup('rocXolid.guest', RedirectAuthenticated::class);
         $router->pushMiddlewareToGroup('rocXolid.auth', Authenticate::class);
         $router->pushMiddlewareToGroup('rocXolid.auth', Authorize::class);
+        $router->pushMiddlewareToGroup('rocXolid.auth', LastUserActivity::class);
 
         $router->group([
             'module' => 'rocXolid',
             'middleware' => [ 'web' ],
-            'namespace' => 'Softworx\RocXolid\Admin\Auth\Controllers',
+            'namespace' => 'Softworx\RocXolid\Admin\Auth\Http\Controllers',
             'prefix' => config('rocXolid.admin.general.routes.root', 'rocXolid'),
             'as' => 'rocXolid.auth.',
         ], function ($router) {

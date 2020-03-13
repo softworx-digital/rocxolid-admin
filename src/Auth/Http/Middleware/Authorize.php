@@ -1,6 +1,6 @@
 <?php
 
-namespace Softworx\RocXolid\Admin\Auth\Middleware;
+namespace Softworx\RocXolid\Admin\Auth\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Factory as Auth;

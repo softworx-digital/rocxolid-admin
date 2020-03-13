@@ -4,6 +4,7 @@ return [
     'app' => 'Aplikácia',
     'field' => [
         'id' => 'ID',
+        'code' => 'Kód',
         'is_enabled' => 'Aktívne',
         'email' => 'e-mail',
         'web_id' => 'Web',
@@ -28,6 +29,7 @@ return [
     ],
     'column' => [
         'id' => 'ID',
+        'code' => 'Kód',
         'is_enabled' => 'Aktívne',
         'email' => 'e-mail',
         'web_id' => 'Web',
