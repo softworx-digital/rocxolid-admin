@@ -8,12 +8,12 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 // rocXolid utils
 use Softworx\RocXolid\Http\Requests\CrudRequest;
+use Softworx\RocXolid\Http\Responses\Contracts\AjaxResponse;
 // rocXolid contracts
 use Softworx\RocXolid\Contracts\Modellable;
 // rocXolid repository contracts
 use Softworx\RocXolid\Repositories\Contracts\Repository;
 // rocXolid http contracts
-use Softworx\RocXolid\Http\Responses\Contracts\AjaxResponse;
 use Softworx\RocXolid\Http\Controllers\Contracts\Dashboardable;
 use Softworx\RocXolid\Http\Controllers\Contracts\Repositoryable;
 // rocXolid form contracts
@@ -98,13 +98,13 @@ class RegistrationController extends AbstractController implements Dashboardable
             ->submit();
 
         if ($form->isValid()) {
-            return $this->success($request, $repository, $form, 'create');
+            return $this->successResponse($request, $repository, $form, 'create');
         } else {
             return $this->errorResponse($request, $repository, $form, 'create');
         }
     }
 
-    protected function success(CrudRequest $request, Repository $repository, AbstractCrudForm $form, $action)
+    protected function successResponse(CrudRequest $request, Repository $repository, AbstractCrudForm $form, string $action)
     {
         $user = $this->create($request->get(FormField::SINGLE_DATA_PARAM));
 

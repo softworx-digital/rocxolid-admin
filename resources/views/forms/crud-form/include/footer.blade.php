@@ -1,4 +1,4 @@
-<div class="x_footer step-footer">
+<div id="{{ $component->getDomId('footer') }}" class="step-footer">
 @if ($component->getOption('show-back-button', true))
     <a class="btn btn-default" href="{{ $component->getRepository()->getController()->getRoute('index') }}"><i class="fa fa-chevron-left margin-right-10"></i>{{ $component->translate('button.back') }}</a>
 @endif

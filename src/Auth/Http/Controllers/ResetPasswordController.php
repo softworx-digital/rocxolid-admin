@@ -8,12 +8,12 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 // rocXolid utils
 use Softworx\RocXolid\Http\Requests\CrudRequest;
 use Softworx\RocXolid\Helpers\View as ViewHelper;
+use Softworx\RocXolid\Http\Responses\Contracts\AjaxResponse;
 // rocXolid contracts
 use Softworx\RocXolid\Contracts\Modellable;
 // rocXolid repository contracts
 use Softworx\RocXolid\Repositories\Contracts\Repository;
 // rocXolid http contracts
-use Softworx\RocXolid\Http\Responses\Contracts\AjaxResponse;
 use Softworx\RocXolid\Http\Controllers\Contracts\Dashboardable;
 use Softworx\RocXolid\Http\Controllers\Contracts\Repositoryable;
 // rocXolid forms

@@ -1,15 +1,12 @@
 {!! Form::open($component->getOptions()->except(['scripts'])->toArray()) !!}
-    {{ Form::hidden('_method', 'POST') }}
-    {{ Form::hidden('_submit-action', null) }}
-    {{ Form::hidden('_section', $component->hasOption('section') ? $component->getOption('section') : null) }}
-
+    {{ Form::hidden('_method', $component->getForm()->getOption('method')) }}
     {!! $component->render('include.output') !!}
 
-    <div class="x_content">
+    <div class="modal-body">
         {!! $component->render('include.fieldset') !!}
     </div>
 
-    <div class="x_footer">
+    <div class="modal-footer">
         {!! $component->render('include.footer') !!}
     </div>
 {!! Form::close() !!}
