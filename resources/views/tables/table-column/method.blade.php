@@ -1,5 +1,5 @@
 @if ($component->getOption('shorten', false))
-    {!! ViewHelper::truncate($component->getOption('model')->{$component->getOption('method')}(), $component->getOption('shorten')) !!}
+    <span class="text-overflow d-block">{!! ViewHelper::truncate($component->getOption('model')->{$component->getOption('method')}(), $component->getOption('shorten')) !!}</span>
 @else
-    {!! $component->getOption('model')->{$component->getOption('method')}() !!}
+    <span class="text-overflow d-block">{!! $component->getOption('model')->{$component->getOption('method')}() !!}</span>
 @endif

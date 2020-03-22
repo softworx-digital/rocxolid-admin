@@ -5,7 +5,7 @@
                 <a href="{{ route('rocXolid.admin.index') }}" class="site_title">{{ Html::image('vendor/softworx/rocXolid/images/branding/rocXolid-white.png', 'rocXolid') }}</a>
             </div>
             <div class="clearfix"></div>
-        @if ($user)
+        @if (config('rocXolid.admin.layout.sidebar.profile') && $user)
             {!! $user->getModelViewerComponent()->render('wrapped.sidebar', [ 'wrapper' => $component ]) !!}
         @endif
         </div>

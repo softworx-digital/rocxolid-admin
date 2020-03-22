@@ -1,4 +1,4 @@
-@can('view', [ $component->getModel()->$relation()->getRelated(), $attribute ])
+@can ('view', [ $component->getModel()->$relation()->getRelated(), $attribute ])
 <div id="{{ $component->getDomId() }}" class="panel panel-default">
     {!! $component->render('related.panel-heading', [ 'relation' => $relation, 'attribute' => $attribute ]) !!}
     <div class="panel-body">

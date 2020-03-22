@@ -22,7 +22,7 @@
     <dt>{{ $component->translate(sprintf('field.%s', $method)) }}</dt>
     <dd>
     @foreach ($component->getModel()->$method()->get() as $item)
-        @can('update', $item)
+        @can ('update', $item)
             <a class="label label-info" data-ajax-url="{{ $item->getControllerRoute() }}">{{ $item->getTitle() }}</a>
         @elsecan('view', $item)
             <span class="label label-info">{{ $item->getTitle() }}</span>

@@ -88,6 +88,7 @@ return [
         'collapse-shown' => 'Collapse',
         'upload' => 'Upload',
         'upload-image' => 'Upload image',
+        'delete-image' => 'Delete obrázok',
         'submit' => 'Submit',
         'submit-back' => 'Save and back',
         'submit-edit' => 'Save and edit',

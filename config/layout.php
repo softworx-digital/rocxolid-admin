@@ -16,6 +16,7 @@ return [
     'sidebar' => [
         'fixed' => true,
         'class' => '',
+        'profile' => true,
     ],
     'footer' => [
         'fixed' => true,
