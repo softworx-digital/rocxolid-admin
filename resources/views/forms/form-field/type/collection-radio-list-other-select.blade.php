@@ -19,23 +19,23 @@
         </label>
         @endif
     @endforeach
-        @if ($component->getFormField()->isSelectFieldValue($component->getFormField()->getFieldValue()))
-            <label class="btn btn-default text-wrap active" data-toggle-visibility-show="{{ $component->getDomIdHash($component->getFormField()->getName(), 'other-options') }}">
-                {!! Form::radio($component->getFormField()->getFieldName(), '', $component->getFormField()->isFieldValue(null)) !!}
-                <span>{!! $component->translate(sprintf('_other.%s', $component->getFormField()->getName())) !!}</span>
-            </label>
-            <div class="btn btn-select animate slideInLeft" id="{{ $component->getDomId($component->getFormField()->getName(), 'other-options') }}">
-                {!! Form::select($component->getFormField()->getFieldName(), $component->getFormField()->getSelectCollection(), $component->getFormField()->getFieldValue(), $component->getOption('attributes')) !!}
-            </div>
-        @else
-            <label class="btn btn-default text-wrap" data-toggle-visibility-show="{{ $component->getDomIdHash($component->getFormField()->getName(), 'other-options') }}">
-                {!! Form::radio($component->getFormField()->getFieldName(), '', $component->getFormField()->isFieldValue(null)) !!}
-                <span>{!! $component->translate(sprintf('_other.%s', $component->getFormField()->getName())) !!}</span>
-            </label>
-            <div class="btn btn-select animate slideInLeft hidden" id="{{ $component->getDomId($component->getFormField()->getName(), 'other-options') }}">
-                {!! Form::select($component->getFormField()->getFieldName(), $component->getFormField()->getSelectCollection(), $component->getFormField()->getFieldValue(), $component->getOption('attributes') + ['disabled']) !!}
-            </div>
-        @endif
+    @if ($component->getFormField()->isSelectFieldValue($component->getFormField()->getFieldValue()))
+        <label class="btn btn-default text-wrap active" data-toggle-visibility-show="{{ $component->getDomIdHash($component->getFormField()->getName(), 'other-options') }}">
+            {!! Form::radio($component->getFormField()->getFieldName(), '', $component->getFormField()->isFieldValue(null)) !!}
+            <span>{!! $component->translate(sprintf('_other.%s', $component->getFormField()->getName())) !!}</span>
+        </label>
+        <div class="btn btn-select animate slideInLeft" id="{{ $component->getDomId($component->getFormField()->getName(), 'other-options') }}">
+            {!! Form::select($component->getFormField()->getFieldName(), $component->getFormField()->getSelectCollection(), $component->getFormField()->getFieldValue(), $component->getOption('attributes')) !!}
+        </div>
+    @else
+        <label class="btn btn-default text-wrap" data-toggle-visibility-show="{{ $component->getDomIdHash($component->getFormField()->getName(), 'other-options') }}">
+            {!! Form::radio($component->getFormField()->getFieldName(), '', $component->getFormField()->isFieldValue(null)) !!}
+            <span>{!! $component->translate(sprintf('_other.%s', $component->getFormField()->getName())) !!}</span>
+        </label>
+        <div class="btn btn-select animate slideInLeft hidden" id="{{ $component->getDomId($component->getFormField()->getName(), 'other-options') }}">
+            {!! Form::select($component->getFormField()->getFieldName(), $component->getFormField()->getSelectCollection(), $component->getFormField()->getFieldValue(), $component->getOption('attributes') + ['disabled']) !!}
+        </div>
+    @endif
     </div>
 @endif
 </div>

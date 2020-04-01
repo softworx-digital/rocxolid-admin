@@ -76,6 +76,7 @@ return [
         'continue' => 'Continue',
         'close' => 'Close',
         'confirm' => 'Yes',
+        'show' => 'Show',
         'delete' => 'Delete',
         'edit' => 'Edit',
         'save' => 'Save',

@@ -1,7 +1,8 @@
 @if ($component->getFormField()->isHidden())
     {!! $component->render(sprintf('type.%s', $component->getOption('type-template'))) !!}
 @else
-<div class="form-group">
+{{-- @todo: "hotfixed" --}}
+<div class="form-group @if ($component->isHidden()) hidden @endif @if ($component->getOption('attributes.col', false)) {{ $component->getOption('attributes.col') }} @endif">
     @if ($component->getOption('label', false) && !$component->getOption('label.after', false))
     <label {!! $component->getHtmlAttributes('label') !!}>
         {{ $component->translate($component->getOption('label.title')) }}

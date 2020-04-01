@@ -10,14 +10,21 @@
 
             <div class="modal-body">
                 <p class="text-center">{{ $component->translate('text.clone-confirmation') }} {{ $component->getModel()->getTitle() }}?</p>
+            @if ($component->getModel()->getCloneRelationshipMethods())
                 <hr />
+            @endif
             @foreach ($component->getModel()->getCloneRelationshipMethods() as $clone_relationship_method)
-                <div class="form-group">
-                    <label class="label-fit-height margin-left-5 margin-right-5">
-                        {!! Form::checkbox('_data[with_relations][]', $clone_relationship_method, true, [ 'class' => 'form-control js-switch' ]) !!}
-                        <span class="margin-left-5" style="top: 4px;">{{ __('rocXolid::general.text.clone') }} {{ $component->translate(sprintf('field.%s', $clone_relationship_method)) }}</span>
-                    </label>
-                </div>
+                {!! Form::checkbox('_data[with_relations][]', $clone_relationship_method, true, [
+                    'data-toggle' => 'toggle',
+                    'data-size' => 'small',
+                    'data-width' => '60',
+                    'data-style' => 'round',
+                    'data-on' => '<i class="fa fa-check"></i>',
+                    'data-off' => '<i class="fa fa-close"></i>',
+                ]) !!}
+                <label class="label-fit-height margin-left-10 margin-right-5">
+                    <span>{{ $component->translate('text.clone') }} {{ $component->translate(sprintf('field.%s', $clone_relationship_method)) }}</span>
+                </label>
             @endforeach
             </div>
 
