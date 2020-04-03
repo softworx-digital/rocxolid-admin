@@ -1,7 +1,7 @@
 @if ($component->getOption('orderable', false))
-@if ($component->getTableColumn()->getRepository()->isOrderColumn($component->getTableColumn()))
+@if ($component->getTableColumn()->getTable()->isOrderColumn($component->getTableColumn()))
     <th class="column-title text-center ordered-by" @if ($component->getOption('width', false)) style="width: {{ $component->getOption('width') }}px;" @endif>
-    @if ($component->getTableColumn()->getRepository()->isOrderDirection('asc'))
+    @if ($component->getTableColumn()->getTable()->isOrderDirection('asc'))
         <i class="fa fa-caret-up margin-right-10"></i>
     @else
         <i class="fa fa-caret-down margin-right-10"></i>

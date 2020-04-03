@@ -11,11 +11,11 @@ use Softworx\RocXolid\Http\Requests\CrudRequest;
 use Softworx\RocXolid\Http\Responses\Contracts\AjaxResponse;
 // rocXolid contracts
 use Softworx\RocXolid\Contracts\Modellable;
+use Softworx\RocXolid\Contracts\Repositoryable;
 // rocXolid repository contracts
 use Softworx\RocXolid\Repositories\Contracts\Repository;
 // rocXolid http contracts
 use Softworx\RocXolid\Http\Controllers\Contracts\Dashboardable;
-use Softworx\RocXolid\Http\Controllers\Contracts\Repositoryable;
 // rocXolid form contracts
 use Softworx\RocXolid\Forms\Contracts\FormField;
 // rocXolid forms
@@ -24,15 +24,13 @@ use Softworx\RocXolid\Forms\AbstractCrudForm as AbstractCrudForm;
 use Softworx\RocXolid\Http\Controllers\AbstractController;
 // rocXolid traits
 use Softworx\RocXolid\Traits\Modellable as ModellableTrait;
+use Softworx\RocXolid\Traits\Repositoryable as RepositoryableTrait;
 // rocXolid controller traits
 use Softworx\RocXolid\Http\Controllers\Traits\Dashboardable as DashboardableTrait;
-use Softworx\RocXolid\Http\Controllers\Traits\Repositoryable as RepositoryableTrait;
 // rocXolid components
 use Softworx\RocXolid\Components\Forms\CrudForm as CrudFormComponent;
 // rocXolid admin components
 use Softworx\RocXolid\Admin\Components\Dashboard\Registration as RegistrationDashboard;
-// rocXolid user management repositories
-use Softworx\RocXolid\UserManagement\Repositories\User\Repository as UserRepository;
 // rocXolid user management models
 use Softworx\RocXolid\UserManagement\Models\User;
 use Softworx\RocXolid\UserManagement\Models\UserProfile;
@@ -51,19 +49,21 @@ class RegistrationController extends AbstractController implements Dashboardable
 
     protected static $dashboard_class = RegistrationDashboard::class;
 
-    protected static $model_class = User::class;
-
-    protected static $repository_class = UserRepository::class;
+    protected static $model_type = User::class;
 
     protected $translation_package = 'rocXolid:admin';
 
     protected $translation_param = 'registration';
 
-    public function __construct(AjaxResponse $response)
+    public function __construct(AjaxResponse $response, Repository $repository)
     {
         $this->middleware('guest');
 
-        $this->response = $response;
+        $this
+            ->setResponse($response)
+            ->setRepository($repository->init(static::getModelType()))
+            ->bindServices()
+            ->init();
     }
 
     public function index(CrudRequest $request)
@@ -120,9 +120,9 @@ class RegistrationController extends AbstractController implements Dashboardable
         return route(config('rocXolid.admin.auth.registration_redirect', 'rocXolid.admin.index'));
     }
 
-    public function getModelClass(): string
+    public function getModelType(): string
     {
-        return static::$model_class;
+        return static::$model_type;
     }
 
     protected function create(array $data)

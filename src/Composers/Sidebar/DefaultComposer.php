@@ -74,7 +74,7 @@ class DefaultComposer extends AbstractComposer
     protected function shouldMakeItem(array $config): bool
     {
         if (isset($config['controller']) && ($controller = app($config['controller'])) && ($controller instanceof Crudable)) {
-            return auth()->user()->can('viewAny', [ $controller->getModelClass(), $controller->getModelClass() ]);
+            return auth()->user()->can('viewAny', [ $controller->getModelType(), $controller->getModelType() ]);
         }
 
         return true;

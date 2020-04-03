@@ -9,8 +9,8 @@
                     </h2>
                 </div>
                 <div class="col-md-4 col-xs-12 text-right">
-                @can ('create', $component->getRepository()->getModel())
-                    <a class="btn btn-primary margin-top-10" href="{{ $component->getRepository()->getController()->getRoute('create') }}"><i class="fa fa-plus margin-right-5"></i> {{ $component->translate('model.title.singular') }}</a>
+                @can ('create', $component->getTable()->getController()->getRepository()->getModel())
+                    <a class="btn btn-primary margin-top-10" href="{{ $component->getTable()->getController()->getRoute('create') }}"><i class="fa fa-plus margin-right-5"></i> {{ $component->translate('model.title.singular') }}</a>
                 @endcan
                 </div>
             </div>

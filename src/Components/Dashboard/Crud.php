@@ -4,9 +4,9 @@ namespace Softworx\RocXolid\Admin\Components\Dashboard;
 
 use Illuminate\Support\Collection;
 // rocXolid component contracts
-use Softworx\RocXolid\Components\Contracts\Repositoryable;
+use Softworx\RocXolid\Components\Contracts\Tableable;
 use Softworx\RocXolid\Components\Contracts\Componentable\Alert as AlertComponentable;
-use Softworx\RocXolid\Components\Contracts\Componentable\Repository as RepositoryComponentable;
+use Softworx\RocXolid\Components\Contracts\Componentable\Table as TableComponentable;
 use Softworx\RocXolid\Components\Contracts\Componentable\ModelViewer as ModelViewerComponentable;
 // rocXolid components
 use Softworx\RocXolid\Components\General\Alert;
@@ -21,7 +21,7 @@ use Softworx\RocXolid\Admin\Components\AbstractActiveComponent;
  * @package Softworx\RocXolid
  * @version 1.0.0
  */
-class Crud extends AbstractActiveComponent implements AlertComponentable, RepositoryComponentable, ModelViewerComponentable
+class Crud extends AbstractActiveComponent implements AlertComponentable, TableComponentable, ModelViewerComponentable
 {
     /**
      * @var array
@@ -29,9 +29,9 @@ class Crud extends AbstractActiveComponent implements AlertComponentable, Reposi
     protected $alert_components = [];
 
     /**
-     * @var \Softworx\RocXolid\Components\Contracts\Repositoryable
+     * @var \Softworx\RocXolid\Components\Contracts\Tableable
      */
-    protected $repository_component;
+    protected $table_component;
 
     /**
      * @var \Softworx\RocXolid\Components\ModelViewers\CrudModelViewer
@@ -59,9 +59,9 @@ class Crud extends AbstractActiveComponent implements AlertComponentable, Reposi
     /**
      * {@inheritDoc}
      */
-    public function setRepositoryComponent(Repositoryable $component): RepositoryComponentable
+    public function setTableComponent(Tableable $component): TableComponentable
     {
-        $this->repository_component = $component;
+        $this->table_component = $component;
 
         return $this;
     }
@@ -69,13 +69,13 @@ class Crud extends AbstractActiveComponent implements AlertComponentable, Reposi
     /**
      * {@inheritDoc}
      */
-    public function getRepositoryComponent(): Repositoryable
+    public function getTableComponent(): Tableable
     {
-        if (!isset($this->repository_component)) {
-            throw new \RuntimeException(sprintf('CRUD table / repository_component not yet set to [%s]', get_class($this)));
+        if (!isset($this->table_component)) {
+            throw new \RuntimeException(sprintf('CRUD table component not yet set to [%s]', get_class($this)));
         }
 
-        return $this->repository_component;
+        return $this->table_component;
     }
 
     /**

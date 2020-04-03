@@ -47,7 +47,7 @@ class ResetPasswordController extends AbstractController implements Dashboardabl
 
     protected static $dashboard_class = ResetPasswordDashboard::class;
 
-    protected static $model_class = User::class;
+    protected static $model_type = User::class;
 
     protected static $repository_class = UserRepository::class;
 
@@ -170,9 +170,9 @@ class ResetPasswordController extends AbstractController implements Dashboardabl
         return Password::broker('rocXolid');
     }
 
-    public function getModelClass(): string
+    public function getModelType(): string
     {
-        return static::$model_class;
+        return static::$model_type;
     }
 
     protected function errorResponse(CrudRequest $request, Repository $repository, AbstractCrudForm $form, $action)

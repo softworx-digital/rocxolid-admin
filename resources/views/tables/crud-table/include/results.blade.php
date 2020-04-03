@@ -18,7 +18,7 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach ($component->getRepository()->paginate($component->getRepository()->getPageLimit()) as $i => $model)
+            @foreach ($component->getTable()->paginate($component->getTable()->getPerPage()) as $i => $model)
                 {!! $component->render('include.results-row', [ 'model' => $model ]) !!}
             @endforeach
             </tbody>
@@ -26,6 +26,6 @@
     </div>
 
     <div class="pull-right">
-        {{ $component->getRepository()->getPaginator()->links($component->getPaginationLinksViewPath()) }}
+        {{ $component->getTable()->paginate($component->getTable()->getPerPage())->links($component->getPaginationLinksViewPath()) }}
     </div>
 </div>

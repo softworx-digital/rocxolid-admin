@@ -9,11 +9,7 @@
     @foreach ($component->getTableButtonsComponents() as $button)
         @can ($button->getOption('policy-ability'), $model)
             @if ($button->hasOption('action'))
-                @if ($component->getRepository()->getController()->isModelActionAvailable($model, $button->getOption('action')))
-                    {!! $button->setPreRenderProperties($component, $model)->render($button->getOption('type-template')) !!}
-                @else
-                    {!! $button->render('disabled') !!}
-                @endif
+                {!! $button->setPreRenderProperties($component, $model)->render($button->getOption('type-template')) !!}
             @elseif ($button->hasOption('tel'))
                 @if ($model->{$button->getOption('tel')})
                     {!! $button->setPreRenderProperties($component, $model)->render($button->getOption('type-template')) !!}
