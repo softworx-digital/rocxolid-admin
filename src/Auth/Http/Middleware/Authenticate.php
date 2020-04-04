@@ -34,6 +34,7 @@ class Authenticate extends BaseAuthenticate
     /**
      * {@inheritdoc}
      * @throws \Softworx\RocXolid\Admin\Auth\Exceptions\AuthenticationException
+     * @todo: revise
      */
     protected function authenticate($request, array $guards)
     {
@@ -45,7 +46,6 @@ class Authenticate extends BaseAuthenticate
                     'rolePermissions',
                     'permissions',
                 ]);
-
 
                 /*
                 $user->last_action = Carbon::now()->toDateTimeString();
