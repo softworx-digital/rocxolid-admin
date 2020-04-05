@@ -1,4 +1,4 @@
-{!! Form::open($component->getOptions()->except(['scripts'])->toArray()) !!}
+{{ Form::open($component->getOptions()->except(['scripts'])->toArray()) }}
     {{ Form::hidden('_method', $component->getForm()->getOption('method')) }}
     {!! $component->render('include.output') !!}
 
@@ -9,6 +9,6 @@
     <div class="modal-footer">
         {!! $component->render('include.footer') !!}
     </div>
-{!! Form::close() !!}
+{{ Form::close() }}
 
 {!! $component->render('snippet.scripts') !!}

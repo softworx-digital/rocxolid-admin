@@ -2,28 +2,33 @@
 
 namespace Softworx\RocXolid\Admin\Auth\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
 // rocXolid utils
 use Softworx\RocXolid\Http\Responses\Contracts\AjaxResponse;
-// rocXolid contracts
-use Softworx\RocXolid\Contracts\Repositoryable;
-use Softworx\RocXolid\Contracts\Modellable;
-// rocXolid traits
-use Softworx\RocXolid\Traits\Repositoryable as RepositoryableTrait;
-use Softworx\RocXolid\Traits\Modellable as ModellableTrait;
+use Softworx\RocXolid\Http\Requests\CrudRequest;
 // rocXolid controllers
 use Softworx\RocXolid\Http\Controllers\AbstractController;
-// rocXolid controller contracts
+// rocXolid dashboardable
 use Softworx\RocXolid\Http\Controllers\Contracts\Dashboardable;
-// rocXolid controller traits
 use Softworx\RocXolid\Http\Controllers\Traits\Dashboardable as DashboardableTrait;
+// rocXolid repositoryable
+use Softworx\RocXolid\Contracts\Repositoryable;
+use Softworx\RocXolid\Traits\Repositoryable as RepositoryableTrait;
+// rocXolid formable
+use Softworx\RocXolid\Forms\Contracts\Formable;
+use Softworx\RocXolid\Http\Controllers\Traits\Formable as FormableTrait;
+// rocXolid modellable
+use Softworx\RocXolid\Contracts\Modellable;
+use Softworx\RocXolid\Traits\Modellable as ModellableTrait;
+// rocXolid componentable
+use Softworx\RocXolid\Http\Controllers\Traits\Components\FormComponentable;
+// rocXolid services
+use Softworx\RocXolid\Forms\Services\Contracts\FormService;
 // rocXolid repository contracts
 use Softworx\RocXolid\Repositories\Contracts\Repository;
 // rocXolid forms
 use Softworx\RocXolid\Forms\AbstractCrudForm as AbstractCrudForm;
 // rocXolid components
-use Softworx\RocXolid\Components\General\Message;
 use Softworx\RocXolid\Components\Forms\CrudForm as CrudFormComponent;
 // rocXolid user management models
 use Softworx\RocXolid\UserManagement\Models\User;
@@ -35,11 +40,20 @@ use Softworx\RocXolid\UserManagement\Models\User;
  * @package Softworx\RocXolid
  * @version 1.0.0
  */
-class AbstractAuthController extends AbstractController implements Dashboardable, Repositoryable, Modellable
+abstract class AbstractAuthController extends AbstractController implements Dashboardable, Repositoryable, Formable, Modellable
 {
     use DashboardableTrait;
     use RepositoryableTrait;
+    use FormableTrait;
     use ModellableTrait;
+    use FormComponentable;
+
+    /**
+     * {@inheritDoc}
+     */
+    protected $default_services = [
+        FormService::class,
+    ];
 
     /**
      * Model type to work with.
@@ -63,15 +77,33 @@ class AbstractAuthController extends AbstractController implements Dashboardable
     {
         $this->middleware('guest');
 
-        $this->response = $response;
+        $this
+            ->setResponse($response)
+            ->setRepository($repository->init(static::getModelType()))
+            ->bindServices()
+            ->init();
     }
 
     /**
-     * {@inheritdoc}
+     * Default view.
+     *
+     * @param \Softworx\RocXolid\Http\Requests\CrudRequest $request
+     * @return void
      */
-    public function broker()
+    public function index(CrudRequest $request)
     {
-        return Password::broker('rocXolid');
+        $form = $this->getForm(
+            $request,
+            $this->getRepository()->getModel(),
+            $this->getFormParam()
+        );
+
+        $form_component = $this->getFormComponent($form);
+
+        return $this
+            ->getDashboard()
+            ->setFormComponent($form_component)
+            ->render();
     }
 
     /**
@@ -87,24 +119,26 @@ class AbstractAuthController extends AbstractController implements Dashboardable
     /**
      * Send error response in case of invalid user input.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param Repository $repository
-     * @param AbstractCrudForm $form
-     * @param [type] $action
+     * @param \Softworx\RocXolid\Http\Requests\CrudRequest $request
+     * @param \Softworx\RocXolid\Repositories\Contracts\Repository $repository
+     * @param \Softworx\RocXolid\Forms\AbstractCrudForm $form
+     * @param \Softworx\RocXolid\Components\Forms\CrudForm $form_component
      * @return void
      */
-    protected function errorResponse(Request $request, AbstractCrudForm $form, $action)
+    protected function errorResponse(CrudRequest $request, AbstractCrudForm $form, CrudFormComponent $form_component)
     {
-        $form_component = CrudFormComponent::build($this, $this)
-            ->setForm($form)
-            ->setRepository($this->getRepository());
-
-        $assignments = [
-            'errors' => $form->getErrors()
-        ];
-
         return $this->response
             ->replace($form_component->getDomId('fieldset'), $form_component->fetch('include.fieldset'))
             ->get();
+    }
+
+    /**
+     * Return form parameter based on controller name.
+     *
+     * @return string
+     */
+    protected function getFormParam(): string
+    {
+        return Str::kebab(str_replace('Controller', '', (new \ReflectionClass($this))->getShortName()));
     }
 }

@@ -8,35 +8,65 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 use Softworx\RocXolid\Admin\Auth\Http\Controllers\AbstractAuthController;
 // rocXolid utils
 use Softworx\RocXolid\Helpers\View as ViewHelper;
+use Softworx\RocXolid\Http\Requests\CrudRequest;
+// rocXolid forms
+use Softworx\RocXolid\Forms\AbstractCrudForm as AbstractCrudForm;
 // rocXolid components
 use Softworx\RocXolid\Components\General\Message;
-use Softworx\RocXolid\Components\Forms\CrudForm as CrudFormComponent;
 // rocXolid admin components
 use Softworx\RocXolid\Admin\Components\Dashboard\ResetPassword as ResetPasswordDashboard;
+// rocXolid user management model forms
+use Softworx\RocXolid\UserManagement\Models\Forms\User\ResetPassword as ResetPasswordForm;
 
 /**
- * The controller is responsible for handling password reset requests.
+ * Guest controller to handle password reset request.
+ *
+ * @author softworx <hello@softworx.digital>
+ * @package Softworx\RocXolid
+ * @version 1.0.0
  */
 class ResetPasswordController extends AbstractAuthController
 {
     use ResetsPasswords;
 
+    /**
+     * Dashboard type definition.
+     *
+     * @var \Softworx\RocXolid\Admin\Components\Dashboard\ResetPasswordDashboard
+     */
     protected static $dashboard_class = ResetPasswordDashboard::class;
 
+    /**
+     * Form type mapping.
+     *
+     * @var array
+     */
+    protected static $form_type = [
+        'reset-password' => ResetPasswordForm::class,
+    ];
+
+    /**
+     * {@inheritDoc}
+     */
     protected $translation_param = 'reset-password';
 
-    public function index(Request $request, string $token = null)
+    /**
+     * Show reset password form.
+     *
+     * @param \Softworx\RocXolid\Http\Requests\CrudRequest $request
+     * @param string $token
+     */
+    public function index(CrudRequest $request, string $token = null)
     {
-        $repository = $this->getRepository();
+        $form = $this->getForm(
+            $request,
+            $this->getRepository()->getModel(),
+            $this->getFormParam()
+        );
 
-        $this->setModel($repository->getModel());
-
-        $form = $repository->getForm('reset-password');
         $form->getFormField('token')->setValue($token);
 
-        $form_component = CrudFormComponent::build($this, $this)
-            ->setForm($form)
-            ->setRepository($repository);
+        $form_component = $this->getFormComponent($form);
 
         return $this
             ->getDashboard()
@@ -44,22 +74,29 @@ class ResetPasswordController extends AbstractAuthController
             ->render();
     }
 
-    public function passwordReset(Request $request)
+    /**
+     * Handle reset password form submit.
+     *
+     * @param \Softworx\RocXolid\Http\Requests\CrudRequest $request
+     */
+    public function passwordReset(CrudRequest $request)
     {
-        $repository = $this->getRepository();
-
-        $this->setModel($repository->getModel());
-
-        $form = $repository->getForm('reset-password');
-        $form->submit();
+        $form = $this->getForm(
+            $request,
+            $this->getRepository()->getModel(),
+            $this->getFormParam()
+        )->submit();
 
         if ($form->isValid()) {
             return $this->reset($request);
         } else {
-            return $this->errorResponse($request, $repository, $form, 'passwordReset');
+            return $this->errorResponse($request, $form, $this->getFormComponent($form));
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function invalid(Request $request)
     {
         abort(404);
@@ -81,7 +118,11 @@ class ResetPasswordController extends AbstractAuthController
      */
     protected function sendResetFailedResponse(Request $request, $response)
     {
-        $form = $this->getRepository()->getForm('reset-password');
+        $form = $this->getForm(
+            $request,
+            $this->getRepository()->getModel(),
+            $this->getFormParam()
+        );
 
         return $this->response
             ->replace(ViewHelper::domId($form, 'form'), Message::build($this, $this)->fetch('error', [ 'message' => $response ]))

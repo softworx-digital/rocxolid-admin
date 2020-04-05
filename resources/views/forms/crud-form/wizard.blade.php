@@ -1,7 +1,8 @@
 <div class="wizard step-app">
-{!! Form::open($component->getOptions()->except(['scripts'])->toArray()) !!}
+{{ Form::open($component->getOptions()->except(['scripts'])->toArray()) }}
     {{ Form::hidden('_method', 'POST') }}
     {{ Form::hidden('_submit-action', null) }}
+    {{ Form::hidden('_param', $component->getForm()->getParam()) }}
     {{ Form::hidden('_section', $component->hasOption('section') ? $component->getOption('section') : null) }}
     {{ Form::hidden('_step', 0) }}
 
@@ -22,7 +23,7 @@
     <div class="x_footer">
         {!! $component->render('include.footer') !!}
     </div>
-{!! Form::close() !!}
+{{ Form::close() }}
 </div>
 
 {!! $component->render('snippet.scripts') !!}
