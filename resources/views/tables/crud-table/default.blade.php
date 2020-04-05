@@ -15,7 +15,6 @@
                 </div>
             </div>
         </div>
-
         <div class="x_content">
             {!! $component->render('include.results') !!}
         </div>

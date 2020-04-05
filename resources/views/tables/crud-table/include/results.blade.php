@@ -18,7 +18,7 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach ($component->getTable()->paginate($component->getTable()->getPerPage()) as $i => $model)
+            @foreach ($component->getTable()->getData() as $i => $model)
                 {!! $component->render('include.results-row', [ 'model' => $model ]) !!}
             @endforeach
             </tbody>
@@ -26,6 +26,6 @@
     </div>
 
     <div class="pull-right">
-        {{ $component->getTable()->paginate($component->getTable()->getPerPage())->links($component->getPaginationLinksViewPath()) }}
+        {{ $component->getTable()->getData()->links($component->getPaginationLinksViewPath()) }}
     </div>
 </div>

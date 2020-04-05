@@ -1,4 +1,4 @@
-{{ Form::open([ 'id' => $component->getDomId('filter'), 'class' => 'autosubmit', 'url' => $component->getTable()->getRoute('filter') ]) }}
+{{ Form::open([ 'id' => $component->getDomId('filter'), 'class' => 'autosubmit', 'url' => $component->getTable()->getFilteringRoute() ]) }}
     {{ Form::hidden('_method', 'POST') }}
 
     <fieldset class="row">
