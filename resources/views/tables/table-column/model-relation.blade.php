@@ -10,11 +10,11 @@
 @foreach ($component->getTableColumn()->getRelationItems($component->getOption('model')) as $item)
     @if ($user->can('view', $item) || $user->can('update', $item) || $user->can('assign', [ $component->getOption('model'), $component->getTableColumn()->getOption('relation.name') ]))
         @can ('update', $item)
-            <a class="label label-info @if (isset($item->is_label_with_flag) && $item->is_label_with_flag && $item->country() && $item->country->exists() && $item->country->flag) has-image @endif" @if ($component->getOption('ajax', false)) data-ajax-url="{{ $item->getControllerRoute() }}" @else href="{{ $item->getControllerRoute() }}" @endif @if (isset($item->is_label_with_color) && $item->is_label_with_color && $item->color) style="background: {{ $item->color }};" @endif>
+            <a class="label label-info @if ($component->getTableColumn()->canUseCountryFlag($item)) has-image @endif" @if ($component->getOption('ajax', false)) data-ajax-url="{{ $item->getControllerRoute() }}" @else href="{{ $item->getControllerRoute() }}" @endif @if (isset($item->is_label_with_color) && $item->is_label_with_color && $item->color) style="background: {{ $item->color }};" @endif>
         @else
-            <span class="label label-info @if (isset($item->is_label_with_flag) && $item->is_label_with_flag && $item->country() && $item->country->exists() && $item->country->flag) has-image @endif" @if (isset($item->is_label_with_color) && $item->is_label_with_color && $item->color) style="background: {{ $item->color }};" @endif>
+            <span class="label label-info @if ($component->getTableColumn()->canUseCountryFlag($item)) has-image @endif" @if (isset($item->is_label_with_color) && $item->is_label_with_color && $item->color) style="background: {{ $item->color }};" @endif>
         @endcan
-        @if (isset($item->is_label_with_flag) && $item->is_label_with_flag && $item->country() && $item->country->exists() && $item->country->flag)
+        @if ($component->getTableColumn()->canUseCountryFlag($item))
             {{ Html::image(sprintf('vendor/softworx/rocXolid/images/flags/%s', $item->country->flag), $item->country->flag, [ 'class' => 'country-flag' ]) }}
         @endif
         @if (!isset($item->is_label_with_name) || $item->is_label_with_name)

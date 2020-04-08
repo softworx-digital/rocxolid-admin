@@ -56,35 +56,38 @@ return [
                 'heading' => 'CMS',
                 'items' => [
                     'content' => [
-                        'heading' => 'Content',
+                        'heading' => 'Obsah',
                         'items' => [
                             'articles' => [
-                                'heading' => 'Articles',
+                                'heading' => 'Články',
+                            ],
+                            'faqs' => [
+                                'heading' => 'FAQ',
                             ],
                         ],
                     ],
-                    'pages' => [
-                        'heading' => 'pages',
+                    'composition' => [
+                        'heading' => 'Kompozícia',
                         'items' => [
                             'pages' => [
-                                'heading' => 'Articles',
+                                'heading' => 'Stránky',
                             ],
                             'page-proxies' => [
-                                'heading' => 'Proxy pages',
+                                'heading' => 'Proxy stránky',
                             ],
                             'page-templates' => [
-                                'heading' => 'Page templates',
+                                'heading' => 'Šablóny stránok',
                             ],
                         ],
                     ],
-                    'content' => [
-                        'heading' => 'Content',
+                    'settings' => [
+                        'heading' => 'Nastavenia',
                         'items' => [
                             'webs' => [
-                                'heading' => 'Webs',
+                                'heading' => 'Weby',
                             ],
                             'web-frontpage-settings' => [
-                                'heading' => 'Frontpage settings',
+                                'heading' => 'Frontpage nastavenia',
                             ],
                         ],
                     ],
