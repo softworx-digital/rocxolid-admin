@@ -55,6 +55,17 @@ return [
             'cms' => [
                 'heading' => 'CMS',
                 'items' => [
+                    'documents' => [
+                        'heading' => 'Dokumenty',
+                        'items' => [
+                            'document-types' => [
+                                'heading' => 'Kategórie dokumentov',
+                            ],
+                            'documents' => [
+                                'heading' => 'Dokumenty',
+                            ],
+                        ],
+                    ],
                     'content' => [
                         'heading' => 'Obsah',
                         'items' => [

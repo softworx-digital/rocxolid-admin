@@ -5,7 +5,7 @@
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
                     <h4 class="modal-title">{{ $component->translate('model.title.singular') }} <small>{{ $component->translate(sprintf('action.%s', $route_method)) }}</small></h4>
                 </div>
-            @if ($component->getModel()->userCan('write'))
+            @can ('update', $component->getModel())
                 {!! $component->getFormComponent()->render('modal.attributes') !!}
             @else
                 <div class="modal-body">
@@ -15,7 +15,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal"><i class="fa fa-chevron-left margin-right-10"></i>{{ $component->translate('button.close') }}</button>
                 </div>
-            @endif
+            @endcan
             </div>
         </div>
     </div>

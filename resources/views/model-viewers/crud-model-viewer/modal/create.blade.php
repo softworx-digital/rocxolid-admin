@@ -5,7 +5,7 @@
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>
                 <h4 class="modal-title">{{ $component->translate('model.title.singular') }}@if (false) <small>{{ $component->translate(sprintf('action.%s', $route_method)) }}</small>@endif</h4>
             </div>
-        @can ('create', [ $component->getModel(), $component->getModel() ])
+        @can ('create', $component->getModel())
             {!! $component->getFormComponent()->render('modal.create') !!}
         @else
             <div class="modal-body">
