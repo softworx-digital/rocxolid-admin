@@ -24,6 +24,9 @@
 @foreach (config('rocXolid.admin.general.scripts', []) as $path)
     <script src="{{ asset($path) }}"></script>
 @endforeach
+
+    <script src="{{ asset(mix('js/manifest.js', 'vendor/softworx/rocXolid')) }}"></script>
+    <script src="{{ asset(mix('js/vendor.js', 'vendor/softworx/rocXolid')) }}"></script>
     <script src="{{ asset(mix('js/rocXolid.js', 'vendor/softworx/rocXolid')) }}"></script>
     @stack('script')
 </body>

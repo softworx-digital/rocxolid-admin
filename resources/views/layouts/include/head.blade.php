@@ -20,5 +20,6 @@
 @endforeach
     <script type="text/javascript">
         window.Laravel = {!! json_encode([ 'csrfToken' => csrf_token() ]); !!}
+        window.CKEDITOR_BASEPATH = "{{ asset('vendor/softworx/rocXolid/plugins/ckeditor4/') }}/";
     </script>
 </head>
