@@ -6,4 +6,5 @@ use Illuminate\Auth\Access\AuthorizationException as BaseAuthorizationException;
 
 class AuthorizationException extends BaseAuthorizationException
 {
+
 }

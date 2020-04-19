@@ -6,4 +6,5 @@ use Softworx\RocXolid\Admin\Components\AbstractActiveComponent;
 
 class Admin extends AbstractActiveComponent
 {
+
 }
