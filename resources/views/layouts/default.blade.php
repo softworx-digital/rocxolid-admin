@@ -17,7 +17,8 @@
     <script>
         let configuration = {
             loginUrl: '{{ route('rocXolid.auth.login') }}',
-            pingUrl: '{{ route('rocXolid.auth.ping') }}'
+            pingUrl: '{{ route('rocXolid.auth.ping') }}',
+            leaveConfirmationMessage: '{{ $component->translate('text.page-content-changed') }}',
         };
     </script>
 

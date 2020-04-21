@@ -130,6 +130,7 @@ return [
         'image-primary' => 'Hlavný obrázok',
         'uploaded-image' => 'Obrázok bol nahratý',
         'more-permissions' => 'Viac',
+        'page-content-changed' => 'Na stránke sú neuložené zmeny. Odchodom z aktuálnej stránky sa zmeny stratia. Naozaj chcete odísť zo stránky?',
     ],
     'permissions' => [
         'full' => 'Plné práva',
