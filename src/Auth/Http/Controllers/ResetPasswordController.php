@@ -34,7 +34,7 @@ class ResetPasswordController extends AbstractAuthController
      *
      * @var \Softworx\RocXolid\Admin\Components\Dashboard\ResetPasswordDashboard
      */
-    protected static $dashboard_class = ResetPasswordDashboard::class;
+    protected static $dashboard_type = ResetPasswordDashboard::class;
 
     /**
      * Form type mapping.

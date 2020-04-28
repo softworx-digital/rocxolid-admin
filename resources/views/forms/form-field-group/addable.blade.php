@@ -1,4 +1,4 @@
-<div id="{{ $component->getDomId($component->getFormFieldGroup()->getName()) }}">
+<div id="{{ $component->getDomId($component->getFormFieldGroup()->getName()) }}" class="form-field-group form-field-group-addable">
 @if ($component->getFormFields())
     <fieldset {!! $component->getHtmlAttributes('wrapper') !!}>
     @if ($component->getOption('wrapper.legend', false))

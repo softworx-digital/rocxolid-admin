@@ -35,7 +35,7 @@ class ForgotPasswordController extends AbstractAuthController
      *
      * @var \Softworx\RocXolid\Admin\Components\Dashboard\ForgotPassword
      */
-    protected static $dashboard_class = ForgotPasswordDashboard::class;
+    protected static $dashboard_type = ForgotPasswordDashboard::class;
 
     /**
      * Form type mapping.

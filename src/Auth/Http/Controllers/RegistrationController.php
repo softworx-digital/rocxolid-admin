@@ -32,7 +32,7 @@ class RegistrationController extends AbstractAuthController
      *
      * @var \Softworx\RocXolid\Admin\Components\Dashboard\Registration
      */
-    protected static $dashboard_class = RegistrationDashboard::class;
+    protected static $dashboard_type = RegistrationDashboard::class;
 
     /**
      * Form type mapping.

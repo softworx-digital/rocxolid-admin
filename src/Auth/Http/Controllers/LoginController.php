@@ -39,7 +39,7 @@ class LoginController extends AbstractController implements Dashboardable
         sendLoginResponse as parentSendLoginResponse;
     }
 
-    protected static $dashboard_class = LoginDashboard::class;
+    protected static $dashboard_type = LoginDashboard::class;
 
     protected $translation_param = 'login';
 
