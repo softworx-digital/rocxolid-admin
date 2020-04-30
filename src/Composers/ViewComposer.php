@@ -2,12 +2,12 @@
 
 namespace Softworx\RocXolid\Admin\Composers;
 
-use Auth;
-use Carbon\Carbon;
 use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\Auth\Guard;
+// rocXolid services
 use Softworx\RocXolid\Services\RouteService;
-use Softworx\RocXolid\Composers\Contracts\Composer as ComposerContract;
+// rocXolid composer contracts
+use Softworx\RocXolid\Composers\Contracts\Composer;
 
 /**
  * Default Admin package composer.
@@ -16,7 +16,7 @@ use Softworx\RocXolid\Composers\Contracts\Composer as ComposerContract;
  * @package Softworx\RocXolid
  * @version 1.0.0
  */
-class ViewComposer implements ComposerContract
+class ViewComposer implements Composer
 {
     /**
      * Route service to detect current route.
@@ -48,7 +48,7 @@ class ViewComposer implements ComposerContract
     /**
      * {@inheritdoc}
      */
-    public function compose(View $view): ComposerContract
+    public function compose(View $view): Composer
     {
         // dump($view->getName());
 
