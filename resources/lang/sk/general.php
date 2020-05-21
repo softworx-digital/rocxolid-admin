@@ -89,6 +89,7 @@ return [
         'upload' => 'Nahrať',
         'upload-image' => 'Nahrať obrázok',
         'delete-image' => 'Vymazať obrázok',
+        'settings' => 'Nastavenia',
         'submit' => 'Odoslať',
         'submit-back' => 'Uložiť a späť na zoznam',
         'submit-edit' => 'Uložiť a upraviť',
