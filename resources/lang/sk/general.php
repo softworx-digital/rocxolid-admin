@@ -27,6 +27,8 @@ return [
         'created_by' => 'Vytvoril používateľ',
         'updated_by' => 'Aktualizoval používateľ',
         'deleted_by' => 'Vymazal používateľ',
+        '_custom-value' => 'Vlastná hodnota',
+        '_add' => 'Pridať',
     ],
     'column' => [
         'id' => 'ID',
@@ -131,6 +133,7 @@ return [
         'image-primary' => 'Hlavný obrázok',
         'uploaded-image' => 'Obrázok bol nahratý',
         'more-permissions' => 'Viac',
+        'custom-value' => 'Vlastná hodnota',
         'page-content-changed' => 'Na stránke sú neuložené zmeny. Odchodom z aktuálnej stránky sa zmeny stratia. Naozaj chcete odísť zo stránky?',
     ],
     'permissions' => [
