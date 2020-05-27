@@ -16,7 +16,7 @@
         {{ Form::hidden('_data[model_id]', collect(request()->get('_data'))->get('model_id')) }}
     @endif
         <div class="x_content">
-            <p class="text-center">{{ $component->translate('text.destroy-confirmation') }} {!! $component->getModel()->getTitle() !!}?</p>
+            {!! $component->render('include.destroy-confirm-question') !!}
         </div>
 
         <div class="x_footer">
