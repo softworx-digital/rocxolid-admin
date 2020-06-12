@@ -1,5 +1,5 @@
 @can ('view', [ $related, $attribute ])
-<div id="{{ $component->getDomId() }}" class="panel panel-default">
+<div id="{{ $component->getDomId($relation, $attribute) }}" class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">
             {{ $component->translate('model.title.singular') }}

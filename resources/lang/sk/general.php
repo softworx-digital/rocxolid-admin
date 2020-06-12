@@ -130,7 +130,7 @@ return [
         'updated' => 'Údaje boli aktualizované',
         'destroyed' => 'Údaje boli odstránené',
         'form-error' => 'Vyskytli sa chyby v údajoch formuláru',
-        'image-primary' => 'Hlavný obrázok',
+        'image-primary' => 'Titulný obrázok',
         'uploaded-image' => 'Obrázok bol nahratý',
         'more-permissions' => 'Viac',
         'custom-value' => 'Vlastná hodnota',

@@ -1,21 +1,17 @@
-<div class="control-group row ajax-overlay">
-    {!! $component->render('include.files') !!}
-    <div class="col-xs-12 row">
-        <div class="col-xxl-3 col-xs-4">
-            <span class="btn btn-primary fileinput-button col-xs-12">
-                <i class="fa fa-upload fa-2x"></i>
-            @if ($component->getFormField()->isArray())
-                <input type="file" name="{{ $component->getFormField()->getFieldName($index) }}[]" data-upload-url="{{ $component->getFormField()->getForm()->getModel()->getControllerRoute('fileUpload') }}" @if ($component->getOption('attributes.multiple', false)) multiple="multiple" @endif>
-            @else
-                <input type="file" name="{{ $component->getFormField()->getFieldName() }}[]" data-upload-url="{{ $component->getFormField()->getForm()->getModel()->getControllerRoute('fileUpload') }}" @if ($component->getOption('attributes.multiple', false)) multiple="multiple" @endif>
-            @endif
-            </span>
-        </div>
-        <div class="col-xxl-9 col-xs-8">
-            <div class="progress progress-file">
-                <div class="progress-bar progress-bar-success"></div>
-            </div>
-        </div>
-        <div class="files"></div>
-    </div>
+<div class="control-group">
+    {{ Form::file($component->getFormField()->isArray() ? $component->getFormField()->getFieldName($index) : $component->getFormField()->getFieldName(), collect([
+        'data-browse-on-zone-click' => 'true',
+        'data-show-close' => 'false',
+        'data-show-caption' => 'false',
+        'data-show-browse' => 'false',
+        'data-show-remove' => 'false',
+        'data-show-upload' => 'false',
+        'data-show-cancel' => 'false',
+        // 'data-upload-async' => 'false', // turns off async upload
+        // 'data-complete-url' => $component->getFormField()->getForm()->getModel()->getControllerRoute('create'),
+        'data-allowed-file-types' => $component->getOption('attributes.accept', false) ? sprintf('[%s]', collect($component->getOption('attributes.accept'))->join(',')) : null,
+        'accept' => $component->getOption('attributes.accept', false) ? sprintf('%s/*', collect($component->getOption('attributes.accept'))->join('/*,')) : null,
+        'multiple' => $component->getOption('attributes.multiple', false) ? 'multiple' : null,
+    ])->filter()->toArray()) }}
 </div>
+{{-- data-upload-url="{{ $component->getFormField()->getForm()->getModel()->getControllerRoute('fileUpload') }}" --}}
