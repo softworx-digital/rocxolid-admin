@@ -1,6 +1,6 @@
 <div class="control-group row">
 @if ($component->getFormField()->isArray())
-    <div class="btn-group btn-group-justified col-xs-12" data-toggle="buttons" {!! $component->getHtmlAttributes() !!}>
+    <div class="btn-group @if ($component->getOption('justified')) btn-group-justified @endif col-xs-12" data-toggle="buttons" {!! $component->getHtmlAttributes() !!}>
     @foreach ($component->getFormField()->getCollection()->all() as $value => $item)
         @if (is_scalar($value))
         <label class="btn btn-default text-wrap col-md-4 col-xs-12 @if ($component->getFormField()->isFieldValue($value, $index)) active @endif">
@@ -15,7 +15,7 @@
     @endforeach
     </div>
 @else
-    <div class="btn-group btn-group-justified col-xs-12" data-toggle="buttons" {!! $component->getHtmlAttributes() !!}>
+    <div class="btn-group @if ($component->getOption('justified')) btn-group-justified @endif col-xs-12" data-toggle="buttons" {!! $component->getHtmlAttributes() !!}>
     @foreach ($component->getFormField()->getCollection()->all() as $value => $item)
         @if (is_scalar($item))
         <label class="btn btn-default text-wrap @if ($component->getFormField()->isFieldValue($value)) active @endif">

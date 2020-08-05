@@ -8,7 +8,16 @@
 @endif
 @if ($component->getOption('label', false) && $component->getOption('label.after', false))
     <label {!! $component->getHtmlAttributes('label') !!}>
-        <span>{{ $component->translate($component->getOption('label.title')) }}</span>
+    @if ($component->hasOption('label.title-translated'))
+        {{ $component->getOption('label.title-translated') }}
+    @else
+        {{ $component->translate($component->getOption('label.title')) }}
+    @endif
+    @if ($component->getOption('label.hint-translated', false))
+        <i class="fa fa-question-circle text-success" title="{{ $component->getOption('label.hint-translated') }}"></i>
+    @elseif ($component->getOption('label.hint', false))
+        <i class="fa fa-question-circle text-success" title="{{ $component->translate($component->getOption('label.hint')) }}"></i>
+    @endif
     </label>
 @endif
 </div>

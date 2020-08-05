@@ -2,14 +2,14 @@
     <ul id="{{ $component->getDomId('append-custom-value-target', $component->getFormField()->getName()) }}" class="list-group btn-group-vertical col-xs-12" data-toggle="buttons">
     @foreach ($component->getFormField()->getCollection() as $id => $title)
         <label class="list-group-item btn text-wrap text-left @if ($component->getFormField()->isFieldValue($id)) active @endif">
-            {!! Form::checkbox($component->getFormField()->getFieldName(), $id, $component->getFormField()->isFieldValue($id), $component->getOption('attributes')) !!}
+            {!! Form::radio($component->getFormField()->getFieldName(), $id, $component->getFormField()->isFieldValue($id), $component->getOption('attributes')) !!}
             <span class="margin-left-5 title">{{ $title }}</span>
         </label>
     @endforeach
 @if ($component->getOption('enable-custom-values'))
     @foreach ($component->getFormField()->getCustomValues() as $title)
         <label class="list-group-item btn text-wrap text-left @if ($component->getFormField()->isFieldValue($title)) active @endif">
-            {!! Form::checkbox($component->getFormField()->getFieldName(), $title, $component->getFormField()->isFieldValue($title), $component->getOption('attributes')) !!}
+            {!! Form::radio($component->getFormField()->getFieldName(), $title, $component->getFormField()->isFieldValue($title), $component->getOption('attributes')) !!}
             <div class="row">
                 <div class="col-xs-11">
                     <span class="margin-left-5 title">{{ $title }}</span>
@@ -21,7 +21,7 @@
         </label>
     @endforeach
         <label class="list-group-item btn text-wrap text-left append-template hidden">
-            {!! Form::checkbox($component->getFormField()->getFieldName(), null, true, $component->getOption('attributes') + [ 'disabled' => true ]) !!}
+            {!! Form::radio($component->getFormField()->getFieldName(), null, false, $component->getOption('attributes')) !!}
             <div class="row">
                 <div class="col-xs-11">
                     <span class="margin-left-5 title"></span>
