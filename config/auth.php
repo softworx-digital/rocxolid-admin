@@ -79,6 +79,10 @@ return [
         ],
     ],
     /**
+     * Ping timeout in seconds.
+     */
+    'ping_timeout' => 1800, // 30 minues
+    /**
      * @todo: "hotfixed"
      */
     'admin_role_id' => 1,

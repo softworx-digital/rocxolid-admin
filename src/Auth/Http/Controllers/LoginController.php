@@ -161,7 +161,7 @@ class LoginController extends AbstractController implements Dashboardable
     {
         app('debugbar')->disable();
 
-        return response()->json(['ping' => time()]);
+        return response()->json([ 'ping' => (time() + config('rocXolid.admin.auth.ping_timeout', 0)) ]);
     }
 
     /**
