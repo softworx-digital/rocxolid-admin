@@ -12,9 +12,9 @@
         @endif
         @if ($component->getFormField()->isRequired())<sup class="text-danger"><i class="fa fa-asterisk"></i></sup>@endif
         @if ($component->getOption('label.hint-translated', false))
-            <i class="fa fa-question-circle text-success" title="{{ $component->getOption('label.hint-translated') }}"></i>
+            <i class="fa fa-question-circle text-info" title="{{ $component->getOption('label.hint-translated') }}"></i>
         @elseif ($component->getOption('label.hint', false))
-            <i class="fa fa-question-circle text-success" title="{{ $component->translate($component->getOption('label.hint')) }}"></i>
+            <i class="fa fa-question-circle text-info" title="{{ $component->translate($component->getOption('label.hint')) }}"></i>
         @endif
     </label>
     @endif
