@@ -2,12 +2,12 @@
 
 namespace Softworx\RocXolid\Admin\Auth\Http\Middleware;
 
-use App;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Factory as Auth;
 use Illuminate\Auth\Middleware\Authenticate as BaseAuthenticate;
 use Illuminate\Auth\AuthenticationException as BaseAuthenticationException;
+// rocXolid admin auth exceptions
 use Softworx\RocXolid\Admin\Auth\Exceptions\AuthenticationException;
 
 /**
@@ -57,7 +57,7 @@ class Authenticate extends BaseAuthenticate
 
                 $user->save();
 
-                App::setLocale($user->language->iso_639_1);
+                app()->setLocale($user->language->iso_639_1);
                 */
             }
         } catch (BaseAuthenticationException $e) {
