@@ -9,7 +9,7 @@
     <p class="alert alert-danger"><strong>{{ $errors->first('password') }}</strong></p>
 @endif
     <div class="ajax-overlay">
-        <form id="login-form" method="post" action="{{ route('rocXolid.auth.login') }}">
+        <form id="login-form" method="post" action="{{ route('rocXolid.auth.login') }}" class="ajaxify">
             {{ csrf_field() }}
 
             <div class="form-group">
