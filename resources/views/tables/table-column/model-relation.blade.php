@@ -12,7 +12,7 @@
 </button>
 <div id="{{ $component->getDomId($component->getTableColumn()->getName()) }}" class="collapse">
 @endif
-@foreach ($component->getTableColumn()->getRelationItems($component->getOption('model')) as $item)
+@forelse ($component->getTableColumn()->getRelationItems($component->getOption('model')) as $item)
     @if ($user->can('view', $item) || $user->can('update', $item) || $user->can('assign', [ $component->getOption('model'), $component->getTableColumn()->getOption('relation.name') ]))
         @can ('update', $item)
             <a
@@ -39,7 +39,9 @@
             </span>
         @endcan
     @endcan
-@endforeach
+@empty
+    <i class="fa fa-circle-o"></i>
+@endforelse
 @if ($component->getTableColumn()->getRelationItems($component->getOption('model'))->count() > $component->getTableColumn()->getOption('relation.max-count', 5))
 </div>
 @endif
