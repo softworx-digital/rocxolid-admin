@@ -14,6 +14,6 @@
         </span>
     @endif
 @empty
-<i class="fa fa-exclamation-triangle text-danger" title="{{ __('rocXolid::general.text.undefined') }}"></i>
+<i class="fa fa-exclamation-triangle text-danger" title="@lang('rocXolid::general.text.undefined')"></i>
 @endforelse
 @endif

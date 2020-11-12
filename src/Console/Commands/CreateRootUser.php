@@ -1,6 +1,6 @@
 <?php
 
-namespace Softworx\RocXolid\Admin\Commands;
+namespace Softworx\RocXolid\Admin\Console\Commands;
 
 use Hash;
 use Illuminate\Console\Command;

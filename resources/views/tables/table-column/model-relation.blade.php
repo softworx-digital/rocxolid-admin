@@ -13,7 +13,21 @@
 <div id="{{ $component->getDomId($component->getTableColumn()->getName()) }}" class="collapse">
 @endif
 @forelse ($component->getTableColumn()->getRelationItems($component->getOption('model')) as $item)
-    @if ($user->can('view', $item) || $user->can('update', $item) || $user->can('assign', [ $component->getOption('model'), $component->getTableColumn()->getOption('relation.name') ]))
+    @if ($item->trashed())
+        <span
+            class="label label-default @if ($component->getTableColumn()->canUseCountryFlag($item)) has-image @endif"
+            @if (isset($item->is_label_with_color) && $item->is_label_with_color && $item->color) style="background: {{ $item->color }};" @endif>
+        @if ($component->getTableColumn()->canUseCountryFlag($item))
+            {{ Html::image(sprintf('vendor/softworx/rocXolid/images/flags/%s', $item->country->flag), $item->country->flag, [ 'class' => 'country-flag' ]) }}
+        @endif
+        @if (!isset($item->is_label_with_name) || $item->is_label_with_name)
+            {!! $item->getTitle() !!}
+            @if ($component->getTableColumn()->getOption('relation.pivot', false))
+                - {{ $component->getOption('model')->getPivot($item)->{$component->getTableColumn()->getOption('relation.pivot.attribute')} }}
+            @endif
+        @endif
+        </span>
+    @elseif ($user->can('view', $item) || $user->can('update', $item) || $user->can('assign', [ $component->getOption('model'), $component->getTableColumn()->getOption('relation.name') ]))
         @can ('update', $item)
             <a
                 class="label label-info @if ($component->getTableColumn()->canUseCountryFlag($item)) has-image @endif"

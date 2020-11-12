@@ -137,6 +137,7 @@ return [
         'more-permissions' => 'Viac',
         'custom-value' => 'Vlastná hodnota',
         'page-content-changed' => 'Na stránke sú neuložené zmeny. Odchodom z aktuálnej stránky sa zmeny stratia. Naozaj chcete odísť zo stránky?',
+        'days' => '{0} dní|{1} deň|[2,4] dni|[5,*] dní',
     ],
     'permissions' => [
         'full' => 'Plné práva',

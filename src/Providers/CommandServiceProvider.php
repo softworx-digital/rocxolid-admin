@@ -3,8 +3,8 @@
 namespace Softworx\RocXolid\Admin\Providers;
 
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
-use Illuminate\Console\Command;
-use Softworx\RocXolid\Admin\Commands\CreateRootUser;
+// rocXolid admin commands
+use Softworx\RocXolid\Admin\Console\Commands;
 
 /**
  * rocXolid CLI commands service provider.
@@ -35,7 +35,7 @@ class CommandServiceProvider extends IlluminateServiceProvider
      */
     private function setCommads(): IlluminateServiceProvider
     {
-        $this->commands(CreateRootUser::class);
+        $this->commands(Commands\CreateRootUser::class);
 
         return $this;
     }
