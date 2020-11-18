@@ -12,7 +12,7 @@
                     {!! $column->render('table-head') !!}
                 @endforeach
                 @if ($component->getTableButtonsComponents()->count() > 0)
-                    <th class="column-title no-link last">&nbsp;</th>
+                    <th class="column-title no-link last" style="width: {{ ($component->getTableButtonsComponents()->count() * 34) + 20 }}px;">&nbsp;</th>
                 @endif
                 {{-- <th class="bulk-actions" colspan="7"><a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a></th>--}}
                 </tr>

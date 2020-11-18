@@ -8,7 +8,7 @@
         <div class="btn-group">
     @foreach ($component->getTableButtonsComponents($model) as $button)
         @can ($button->getOption('policy-ability'), $model)
-            @if ($button->hasOption('action') || $button->hasOption('related-action') || $button->hasOption('foreign-action'))
+            @if ($button->hasOption('action') || $button->hasOption('related-action') || $button->hasOption('foreign-action') || $button->hasOption('method-action'))
                 {!! $button->setPreRenderProperties($component, $model)->render($button->getOption('type-template')) !!}
             @elseif ($button->hasOption('tel'))
                 @if ($model->{$button->getOption('tel')})
@@ -22,8 +22,10 @@
                 @else
                     {!! $button->render('disabled') !!}
                 @endif
+            @else
+                -UNDEFINED ACTION- @todo
             @endif
-        @endif
+        @endcan
     @endforeach
         </div>
     </td>
