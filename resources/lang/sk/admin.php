@@ -52,6 +52,42 @@ return [
                     ],
                 ],
             ],
+            'commerce' => [
+                'heading' => 'Obchod',
+                'items' => [
+                    'crm-order-management' => [
+                        'heading' => 'CRM & Objednávky',
+                        'items' => [
+                            'orders' => [
+                                'heading' => 'Objednávky',
+                            ],
+                            'customers' => [
+                                'heading' => 'Zákazníci',
+                            ],
+                        ],
+                    ],
+                    'product-management' => [
+                        'heading' => 'Ponuka',
+                        'items' => [
+                            'manufacturers' => [
+                                'heading' => 'Výrobcovia',
+                            ],
+                            'product-categories' => [
+                                'heading' => 'Kategórie produktov',
+                            ],
+                            'products' => [
+                                'heading' => 'Produkty',
+                            ],
+                            'warehouses' => [
+                                'heading' => 'Sklady',
+                            ],
+                            'attribute-groups' => [
+                                'heading' => 'Atribúty',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
             'cms' => [
                 'heading' => 'CMS',
                 'items' => [
