@@ -120,6 +120,8 @@ return [
     'text' => [
         'show' => 'Ukázať',
         'attributes' => 'Atribúty',
+        'delay' => 'omeškanie',
+        'now' => 'dnes',
         'or' => 'alebo',
         'base-data' => 'Základné údaje',
         'destroy-confirmation' => 'Naozaj vymazať',
@@ -137,6 +139,7 @@ return [
         'more-permissions' => 'Viac',
         'custom-value' => 'Vlastná hodnota',
         'page-content-changed' => 'Na stránke sú neuložené zmeny. Odchodom z aktuálnej stránky sa zmeny stratia. Naozaj chcete odísť zo stránky?',
+        'remaining' => 'zostáva',
         'days' => '{0} dní|{1} deň|[2,4] dni|[5,*] dní',
     ],
     'permissions' => [
