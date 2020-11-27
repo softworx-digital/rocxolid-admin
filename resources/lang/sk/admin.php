@@ -86,6 +86,32 @@ return [
                             ],
                         ],
                     ],
+                    'settings' => [
+                        'heading' => 'Nastavenia',
+                        'items' => [
+                            'shops' => [
+                                'heading' => 'Prevádzky',
+                            ],
+                            'delivery-methods' => [
+                                'heading' => 'Doručovacie metódy',
+                            ],
+                            'payment-methods' => [
+                                'heading' => 'Platobné metódy',
+                            ],
+                            'post-offices' => [
+                                'heading' => 'Poštové úrady',
+                            ],
+                            'balikomat-addresses' => [
+                                'heading' => 'Výdajné miesta Balíkomat',
+                            ],
+                            'sps-parcelshop-addresses' => [
+                                'heading' => 'Výdajné miesta SPS Parcelshop',
+                            ],
+                            'invoice-template' => [
+                                'heading' => 'Šablóny faktúr',
+                            ],
+                        ],
+                    ],
                 ],
             ],
             'cms' => [
