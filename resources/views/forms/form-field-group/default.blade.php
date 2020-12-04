@@ -5,7 +5,13 @@
     @endif
 
     @if ($component->getOption('wrapper.legend', false))
-        <legend>{!! $component->translate($component->getOption('wrapper.legend.title')) !!}</legend>
+        <legend>
+        @if ($component->hasOption('wrapper.legend.title-translated'))
+            {{ $component->getOption('wrapper.legend.title-translated') }}
+        @else
+            {{ $component->translate($component->getOption('wrapper.legend.title')) }}
+        @endif
+        </legend>
     @endif
 
         <div {!! $component->getHtmlAttributes() !!}>

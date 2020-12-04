@@ -2,7 +2,13 @@
 @if ($component->getFormFields())
     <fieldset {!! $component->getHtmlAttributes('wrapper') !!}>
     @if ($component->getOption('wrapper.legend', false))
-        <legend>{!! $component->translate($component->getOption('wrapper.legend.title')) !!}</legend>
+        <legend>
+        @if ($component->hasOption('wrapper.legend.title-translated'))
+            {{ $component->getOption('wrapper.legend.title-translated') }}
+        @else
+            {{ $component->translate($component->getOption('wrapper.legend.title')) }}
+        @endif
+        </legend>
     @endif
         <div class="sortable" data-sortable-group="{{ $component->getFormFieldGroup()->getName() }}" data-reindex-item=".form-field-group-addable">
         @for ($i = 0; $i < $component->getFormFieldGroup()->getGroupCount(); $i++)

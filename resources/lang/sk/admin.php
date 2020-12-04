@@ -75,6 +75,12 @@ return [
                             'product-categories' => [
                                 'heading' => 'Kategórie produktov',
                             ],
+                            'product-variants' => [
+                                'heading' => 'Varianty produktov',
+                            ],
+                            'product-sizes' => [
+                                'heading' => 'Veľkosti produktov',
+                            ],
                             'products' => [
                                 'heading' => 'Produkty',
                             ],
