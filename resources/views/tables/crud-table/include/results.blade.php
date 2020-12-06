@@ -4,7 +4,7 @@
 @endif
 
     <div class="table-responsive">
-        <table class="table table-crud table-striped jambo_table bulk_action">
+        <table class="table table-crud table-striped jambo_table bulk_action @if (isset($no_margin)) margin-bottom-0 @endif">
             <thead>
                 <tr class="headings">
                 {{-- <th class="check"><input type="checkbox" id="check-all" class="flat"></th> --}}

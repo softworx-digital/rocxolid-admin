@@ -11,7 +11,7 @@
     </div>
 
     <div class="modal-footer">
-        {!! $component->render('include.footer') !!}
+        {!! $component->render(sprintf('modal.footer.%s', $component->getOption('modal-footer-template', 'update'))) !!}
     </div>
 {{ Form::close() }}
 
