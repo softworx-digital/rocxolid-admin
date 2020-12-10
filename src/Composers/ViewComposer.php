@@ -50,18 +50,10 @@ class ViewComposer implements Composer
      */
     public function compose(View $view): Composer
     {
-        // dump($view->getName());
-
         $view
             ->with('user', $this->auth->user())
             ->with('route_method', $this->route_service->getMethod())
             ->with('view_name', $view->getName());
-        // @todo: - needed? it's not used in blade templates right now
-        /*
-            ->with('crudroute', function ($action, $params = null) {
-                return $this->route_service->getRoute($action, $params);
-            });
-        */
 
         return $this;
     }

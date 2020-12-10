@@ -14,17 +14,21 @@
                 <hr />
             @endif
             @foreach ($component->getModel()->getCloneRelationshipMethods() as $clone_relationship_method)
-                {!! Form::checkbox('_data[with_relations][]', $clone_relationship_method, true, [
-                    'data-toggle' => 'toggle',
-                    'data-size' => 'small',
-                    'data-width' => '60',
-                    'data-style' => 'round',
-                    'data-on' => '<i class="fa fa-check"></i>',
-                    'data-off' => '<i class="fa fa-close"></i>',
-                ]) !!}
-                <label class="label-fit-height margin-left-10 margin-right-5">
-                    <span>{{ $component->translate('text.clone') }} {{ $component->translate(sprintf('field.%s', $clone_relationship_method)) }}</span>
-                </label>
+                <div class="row margin-bottom-10">
+                    <div class="col-xs-12">
+                        {!! Form::checkbox('_data[with_relations][]', $clone_relationship_method, true, [
+                            'data-toggle' => 'toggle',
+                            'data-size' => 'small',
+                            'data-width' => '60',
+                            'data-style' => 'round',
+                            'data-on' => '<i class="fa fa-check"></i>',
+                            'data-off' => '<i class="fa fa-close"></i>',
+                        ]) !!}
+                        <label class="label-fit-height margin-left-10 margin-right-5">
+                            <span>{{ $component->translate('text.clone') }} {{ $component->translate(sprintf('field.%s', $clone_relationship_method)) }}</span>
+                        </label>
+                    </div>
+                </div>
             @endforeach
             </div>
 

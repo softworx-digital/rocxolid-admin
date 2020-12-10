@@ -19,7 +19,7 @@
                 @endforeach
                 </div>
                 <div class="col-md-2 col-sm-3 col-xs-4">
-                    <div class="btn-group margin-top-24" role="group">
+                    <div class="btn-group margin-top-24 pull-right" role="group">
                         <span class="btn btn-default drag-handle"><i class="fa fa-arrows"></i></span>
                     @if ($i == 0)
                         @if ($component->getOption('button-add', false))
