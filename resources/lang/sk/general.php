@@ -67,6 +67,10 @@ return [
     'hint' => [
         'is_visible' => 'Príznak, či sa element zobrazí na frontpage',
     ],
+    'tab' => [
+        'home' => 'Domov',
+        'gallery' => 'Obrázky',
+    ],
     'placeholder' => [
         'select' => 'Vyberte',
         'no-value' => 'Neurčené',
