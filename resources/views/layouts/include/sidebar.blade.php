@@ -12,7 +12,7 @@
 
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
         @foreach ($sections as $section)
-            {!! $section->render('section') !!}
+            {!! $section->render('section', [ 'section_loop' => $loop ]) !!}
         @endforeach
         </div>
 
