@@ -1,4 +1,4 @@
-<div id="login-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+<div id="login-modal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-md">
         <div class="modal-content ajax-overlay">
             <form id="login-modal-form" method="POST" action="{{ route('rocXolid.auth.login') }}">

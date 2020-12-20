@@ -18,9 +18,9 @@
 
         <div class="sidebar-footer hidden-small">
         @if (false)
-            <a title="Settings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
-            <a title="FullScreen"><span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span></a>
-            <a title="Lock"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></a>
+            <a title="Settings"><span class="glyphicon glyphicon-cog"></span></a>
+            <a title="FullScreen"><span class="glyphicon glyphicon-fullscreen"></span></a>
+            <a title="Lock"><span class="glyphicon glyphicon-eye-close"></span></a>
         @endif
         @if ($user)
             <a title="{{ $component->translate('auth.logout') }}" href="{{ route('rocXolid.auth.logout') }}" class="width-100"><i class="fa fa-power-off"></i></a>

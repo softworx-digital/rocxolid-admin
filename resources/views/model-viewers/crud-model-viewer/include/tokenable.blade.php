@@ -14,6 +14,6 @@
     @endif
         </ul>
     @else
-        <div class="alert alert-danger text-center"><i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i></div>
+        <div class="alert alert-danger text-center"><i class="fa fa-exclamation-triangle fa-2x"></i></div>
     @endif
 </div>
