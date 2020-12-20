@@ -23,7 +23,7 @@
             <a title="Lock"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></a>
         @endif
         @if ($user)
-            <a title="{{ $component->translate('auth.logout') }}" href="{{ route('rocXolid.auth.logout') }}" style="width: 100%;"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+            <a title="{{ $component->translate('auth.logout') }}" href="{{ route('rocXolid.auth.logout') }}" class="width-100"><i class="fa fa-power-off"></i></a>
         @endif
         </div>
     </div>
