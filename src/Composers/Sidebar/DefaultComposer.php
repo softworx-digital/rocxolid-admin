@@ -23,7 +23,7 @@ use Softworx\RocXolid\Components\Exceptions\InvalidItemImplementationException;
  * @author softworx <hello@softworx.digital>
  * @package Softworx\RocXolid
  * @version 1.0.0
- * @todo: $config to collection
+ * @todo $config to collection
  */
 class DefaultComposer extends AbstractComposer
 {

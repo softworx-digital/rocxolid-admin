@@ -9,7 +9,7 @@
 
 <input id="programme" name="asdas"/>
 
-{{-- @todo: what's this? --}}
+{{-- @todo what's this? --}}
 @push('script')
 <script type="text/javascript">
 $(function() {

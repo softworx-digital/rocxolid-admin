@@ -8,7 +8,7 @@
 return [
     /**
      * Flag for the authentification requirement.
-     * @todo: not working currently
+     * @todo not working currently
      */
     'authentication_required' => true,
     /**
@@ -83,7 +83,7 @@ return [
      */
     'ping_timeout' => 1800, // 30 minues
     /**
-     * @todo: "hotfixed"
+     * @todo "hotfixed"
      */
     'admin_role_id' => 1,
 ];

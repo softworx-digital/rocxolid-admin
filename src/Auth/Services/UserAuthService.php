@@ -26,7 +26,7 @@ class UserAuthService
      *
      * @param \Illuminate\Http\Request $request
      * @return \Softworx\RocXolid\UserManagement\Models\User
-     * @todo: prettify
+     * @todo prettify
      */
     public function registerUser(Request $request): User
     {
@@ -44,7 +44,7 @@ class UserAuthService
             'email' => $data['email'],
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
-            'birthdate' => Carbon::parse($data['birthdate'])->format('Y-m-d'), // @todo: "hotfixed"
+            'birthdate' => Carbon::parse($data['birthdate'])->format('Y-m-d'), // @todo "hotfixed"
         ]);
 
         event(new UserRegistered($user));

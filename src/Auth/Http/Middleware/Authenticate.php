@@ -34,7 +34,7 @@ class Authenticate extends BaseAuthenticate
     /**
      * {@inheritdoc}
      * @throws \Softworx\RocXolid\Admin\Auth\Exceptions\AuthenticationException
-     * @todo: revise
+     * @todo revise
      */
     protected function authenticate($request, array $guards)
     {

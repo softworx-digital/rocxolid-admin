@@ -18,7 +18,7 @@
     </dd>
 @endforeach
 @foreach ($component->getModel()->getRelationshipMethods() as $method)
-{{-- @todo: ugly, extend blade --}}
+{{-- @todo ugly, extend blade --}}
 @if ((isset($relation) && ($user->can('view', [ $component->getModel()->$relation()->getRelated(), $attribute ]) || $user->can('assign', [ $component->getModel()->$relation()->getRelated(), $attribute ])))
     || $user->can('view', [ $component->getModel(), $method ])
     || $user->can('update', [ $component->getModel(), $method ])
