@@ -1,1 +1,0 @@
-{!! Form::select($component->getTableFilter()->getFieldName(), $component->getTableFilter()->getCollection(), $component->getTableFilter()->getValue(), $component->getOption('attributes')) !!}

@@ -6,23 +6,20 @@ use Illuminate\Support\Str;
 // rocXolid utils
 use Softworx\RocXolid\Http\Responses\Contracts\AjaxResponse;
 use Softworx\RocXolid\Http\Requests\CrudRequest;
+// rocXolid contracts
+use Softworx\RocXolid\Contracts\Repositoryable;
+use Softworx\RocXolid\Contracts\Modellable;
+// rocXolid traits
+use Softworx\RocXolid\Traits;
 // rocXolid controllers
 use Softworx\RocXolid\Http\Controllers\AbstractController;
-// rocXolid dashboardable
+// rocXolid controller contracts
 use Softworx\RocXolid\Http\Controllers\Contracts\Dashboardable;
-use Softworx\RocXolid\Http\Controllers\Traits\Dashboardable as DashboardableTrait;
-// rocXolid repositoryable
-use Softworx\RocXolid\Contracts\Repositoryable;
-use Softworx\RocXolid\Traits\Repositoryable as RepositoryableTrait;
-// rocXolid formable
+// rocXolid controller traits
+use Softworx\RocXolid\Http\Controllers\Traits as ControllerTraits;
+// rocXolid form contracts
 use Softworx\RocXolid\Forms\Contracts\Formable;
-use Softworx\RocXolid\Http\Controllers\Traits\Formable as FormableTrait;
-// rocXolid modellable
-use Softworx\RocXolid\Contracts\Modellable;
-use Softworx\RocXolid\Traits\Modellable as ModellableTrait;
-// rocXolid componentable
-use Softworx\RocXolid\Http\Controllers\Traits\Components\FormComponentable;
-// rocXolid services
+// rocXolid form services
 use Softworx\RocXolid\Forms\Services\Contracts\FormService;
 // rocXolid repository contracts
 use Softworx\RocXolid\Repositories\Contracts\Repository;
@@ -42,11 +39,11 @@ use Softworx\RocXolid\UserManagement\Models\User;
  */
 abstract class AbstractAuthController extends AbstractController implements Dashboardable, Repositoryable, Formable, Modellable
 {
-    use DashboardableTrait;
-    use RepositoryableTrait;
-    use FormableTrait;
-    use ModellableTrait;
-    use FormComponentable;
+    use Traits\Repositoryable;
+    use Traits\Modellable;
+    use ControllerTraits\Dashboardable;
+    use ControllerTraits\Forms\HasForms;
+    use ControllerTraits\Components\FormComponentable;
 
     /**
      * {@inheritDoc}

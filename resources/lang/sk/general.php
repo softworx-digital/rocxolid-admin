@@ -64,6 +64,14 @@ return [
         'updated_by' => 'Aktualizoval používateľ',
         'deleted_by' => 'Vymazal používateľ',
     ],
+    'filter' => [
+        'web_id' => 'Web',
+        'web' => 'Web',
+        'language_id' => 'Jazyk',
+        'language' => 'Jazyk',
+        'localization_id' => 'Lokalizácia',
+        'localization' => 'Lokalizácia',
+    ],
     'hint' => [
         'is_visible' => 'Príznak, či sa element zobrazí na frontpage',
     ],
@@ -114,8 +122,6 @@ return [
         'submit-new' => 'Uložiť a vytvoriť nový',
         'step_next' => 'Ďalší krok<i class="fa fa-forward margin-left-10"></i>',
         'step_previous' => '<i class="fa fa-backward margin-right-10"></i>Predchádzajúci krok',
-    ],
-    'filter' => [
     ],
     'filter-button' => [
         'filter' => 'Filtrovať',

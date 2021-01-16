@@ -15,7 +15,7 @@
     @endforeach
     </div>
 @else
-    <div class="btn-group btn-group-vertical @if ($component->getOption('justified')) btn-group-justified @endif col-xs-12" data-toggle="buttons" {!! $component->getHtmlAttributes() !!}>
+    <div class="btn-group @if ($component->getFormField()->getCollection()->count() > 3) btn-group-vertical @endif @if ($component->getOption('justified')) btn-group-justified @endif col-xs-12" data-toggle="buttons" {!! $component->getHtmlAttributes() !!}>
     @foreach ($component->getFormField()->getCollection()->all() as $value => $item)
         @if (is_scalar($item))
         <label class="btn btn-default text-wrap @if ($component->getFormField()->isFieldValue($value)) active @endif">

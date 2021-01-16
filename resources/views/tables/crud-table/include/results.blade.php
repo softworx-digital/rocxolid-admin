@@ -1,8 +1,9 @@
 <div id="{{ $component->getDomId('results') }}">
 @if ($component->getTableFiltersComponents()->count())
-    {!! $component->render('include.filter') !!}
+    <div class="table-filter">
+        {!! $component->render('include.filter') !!}
+    </div>
 @endif
-
     <div class="table-responsive">
         <table class="table table-crud table-striped jambo_table bulk_action @if (isset($no_margin)) margin-bottom-0 @endif">
             <thead>
