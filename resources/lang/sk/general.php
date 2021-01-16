@@ -4,6 +4,7 @@ return [
     'app' => 'Aplikácia',
     'field' => [
         'id' => 'ID',
+        'position' => 'Pozícia',
         'title' => 'Názov',
         'name' => 'Meno',
         'code' => 'Kód',
@@ -97,6 +98,8 @@ return [
         'yes' => 'Áno',
         'no' => 'Nie',
         'back' => 'Späť',
+        'back-to' => 'Späť na',
+        'back-index' => 'Späť na zoznam',
         'continue' => 'Pokračovať',
         'close' => 'Zavrieť',
         'confirm' => 'Áno',
