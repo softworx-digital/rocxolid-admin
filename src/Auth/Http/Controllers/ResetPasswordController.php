@@ -22,7 +22,7 @@ use Softworx\RocXolid\UserManagement\Models\Forms\User\ResetPassword as ResetPas
  * Guest controller to handle password reset request.
  *
  * @author softworx <hello@softworx.digital>
- * @package Softworx\RocXolid
+ * @package Softworx\RocXolid\Admin
  * @version 1.0.0
  */
 class ResetPasswordController extends AbstractAuthController

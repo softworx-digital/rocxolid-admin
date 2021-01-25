@@ -34,7 +34,7 @@ use Softworx\RocXolid\UserManagement\Models\User;
  * Base abstract rocXolid controller for authentication related operations.
  *
  * @author softworx <hello@softworx.digital>
- * @package Softworx\RocXolid
+ * @package Softworx\RocXolid\Admin
  * @version 1.0.0
  */
 abstract class AbstractAuthController extends AbstractController implements Dashboardable, Repositoryable, Formable, Modellable

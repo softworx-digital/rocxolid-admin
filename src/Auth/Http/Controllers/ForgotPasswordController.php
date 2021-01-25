@@ -23,7 +23,7 @@ use Softworx\RocXolid\UserManagement\Models\Forms\User\ForgotPassword as ForgotP
  * Guest controller to handle password retrieval request.
  *
  * @author softworx <hello@softworx.digital>
- * @package Softworx\RocXolid
+ * @package Softworx\RocXolid\Admin
  * @version 1.0.0
  */
 class ForgotPasswordController extends AbstractAuthController

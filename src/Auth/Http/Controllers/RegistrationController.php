@@ -20,7 +20,7 @@ use Softworx\RocXolid\Admin\Auth\Services\UserAuthService;
  * Guest controller to handle platform user registration.
  *
  * @author softworx <hello@softworx.digital>
- * @package Softworx\RocXolid
+ * @package Softworx\RocXolid\Admin
  * @version 1.0.0
  */
 class RegistrationController extends AbstractAuthController

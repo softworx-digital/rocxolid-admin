@@ -18,7 +18,7 @@ use Softworx\RocXolid\Admin\Components\AbstractActiveComponent;
  * General dashboard component for CRUDable resources.
  *
  * @author softworx <hello@softworx.digital>
- * @package Softworx\RocXolid
+ * @package Softworx\RocXolid\Admin
  * @version 1.0.0
  */
 class Crud extends AbstractActiveComponent implements AlertComponentable, TableComponentable, ModelViewerComponentable

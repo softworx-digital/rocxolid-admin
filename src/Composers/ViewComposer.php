@@ -13,7 +13,7 @@ use Softworx\RocXolid\Composers\Contracts\Composer;
  * Default Admin package composer.
  *
  * @author softworx <hello@softworx.digital>
- * @package Softworx\RocXolid
+ * @package Softworx\RocXolid\Admin
  * @version 1.0.0
  */
 class ViewComposer implements Composer

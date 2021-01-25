@@ -35,6 +35,7 @@ return [
         'deleted_by' => 'Vymazal používateľ',
         '_custom-value' => 'Vlastná hodnota',
         '_add' => 'Pridať',
+        '_clone_with_relations' => 'Klonovať tiež',
     ],
     'column' => [
         'id' => 'ID',
@@ -139,7 +140,7 @@ return [
         'update' => 'Úprava',
         'destroy' => 'Vymazanie',
         'destroyConfirm' => 'Potvrdenie vymazania',
-        'cloneConfirm' => 'Potvrdenie klonovania',
+        'duplicate' => 'Klonovanie',
     ],
     'text' => [
         'show' => 'Ukázať',
@@ -149,6 +150,7 @@ return [
         'or' => 'alebo',
         'base-data' => 'Základné údaje',
         'general-data' => 'Základné údaje',
+        'description-data' => 'Popisné údaje',
         'destroy-confirmation' => 'Naozaj vymazať',
         'clone' => 'Klonovať',
         'clone-confirmation' => 'Naozaj klonovať',

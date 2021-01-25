@@ -44,6 +44,8 @@ class RouteServiceProvider extends IlluminateServiceProvider
         ], function ($router) {
             // package dashboard
             $router->get('', 'Controller@index')->name('index');
+            $router->get('error', 'Controller@error')->name('error');
+            $router->get('not-found', 'Controller@notFound')->name('not-found');
         });
 
         return $this;

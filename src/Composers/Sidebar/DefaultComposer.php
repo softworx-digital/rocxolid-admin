@@ -21,7 +21,7 @@ use Softworx\RocXolid\Components\Exceptions\InvalidItemImplementationException;
  * Default sidebar composer.
  *
  * @author softworx <hello@softworx.digital>
- * @package Softworx\RocXolid
+ * @package Softworx\RocXolid\Admin
  * @version 1.0.0
  * @todo $config to collection
  */
