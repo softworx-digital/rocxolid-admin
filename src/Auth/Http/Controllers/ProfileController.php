@@ -7,11 +7,11 @@ use Auth;
 use Softworx\RocXolid\Http\Requests\CrudRequest;
 // rocXolid controllers
 use Softworx\RocXolid\Http\Controllers\AbstractController;
-// user management repositories
+// rocXolid user management repositories
 use Softworx\RocXolid\UserManagement\Repositories\User\Repository as UserRepository;
-// user management controllers
+// rocXolid user management controllers
 use Softworx\RocXolid\UserManagement\Http\Controllers\User\Controller as UserController;
-// user management models
+// rocXolid user management models
 use Softworx\RocXolid\UserManagement\Models\User;
 use Softworx\RocXolid\UserManagement\Models\UserProfile;
 

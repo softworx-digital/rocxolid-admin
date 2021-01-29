@@ -1,4 +1,4 @@
-<div class="col-md-3 left_col @if (config('rocXolid.admin.layout.sidebar.fixed')) menu_fixed @endif {{ config('rocXolid.admin.layout.sidebar.class') }}">
+<div class="col-md-3 left_col content-out @if (config('rocXolid.admin.layout.sidebar.fixed')) menu_fixed @endif {{ config('rocXolid.admin.layout.sidebar.class') }}">
     <div class="left_col">
         <div class="fixed-scroll">
             <div class="navbar nav_title text-center">

@@ -1,4 +1,4 @@
-<div class="top_nav @if (config('rocXolid.admin.layout.topbar.fixed')) navbar-static-top @endif {{ config('rocXolid.admin.layout.topbar.class') }}">
+<div class="top_nav content-out @if (config('rocXolid.admin.layout.topbar.fixed')) navbar-static-top @endif {{ config('rocXolid.admin.layout.topbar.class') }}">
     <div class="nav_menu">
         <nav>
             <div class="nav toggle visible-xs-block visible-sm-block">

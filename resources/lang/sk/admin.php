@@ -171,8 +171,13 @@ return [
                             'webs' => [
                                 'heading' => 'Weby',
                             ],
-                            'web-frontpage-settings' => [
-                                'heading' => 'Frontpage nastavenia',
+                        ],
+                    ],
+                    'logs' => [
+                        'heading' => 'Logy',
+                        'items' => [
+                            'command-log' => [
+                                'heading' => 'CLI Log',
                             ],
                         ],
                     ],
