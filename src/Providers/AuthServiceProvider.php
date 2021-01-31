@@ -48,8 +48,7 @@ class AuthServiceProvider extends IlluminateAuthServiceProvider
         // @todo does this actually work / is being executed??
         Auth::extend('rocXolid', function ($app, $name, array $config) {
             // Return an instance of Illuminate\Contracts\Auth\Guard...
-            dump(__METHOD__);
-            dd($config);
+            dd(__METHOD__, $config);
             return new Guard(Auth::createUserProvider($config['provider']));
         });
 
