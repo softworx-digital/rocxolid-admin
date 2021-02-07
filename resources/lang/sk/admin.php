@@ -82,7 +82,7 @@ return [
                                 'heading' => 'Varianty produktov',
                             ],
                             'product-parts' => [
-                                'heading' => 'Zložky produktov',
+                                'heading' => 'Ingrediencie',
                             ],
                             'product-sizes' => [
                                 'heading' => 'Veľkosti produktov',

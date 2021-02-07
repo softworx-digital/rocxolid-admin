@@ -10,6 +10,8 @@ return [
         'code' => 'Kód',
         'color' => 'Farba',
         'is_enabled' => 'Aktívne',
+        'is_featured' => 'Významné',
+        'is_filterable' => 'Filtrovateľné',
         'email' => 'e-mail',
         'web_id' => 'Web',
         'web' => 'Web',
@@ -44,6 +46,8 @@ return [
         'code' => 'Kód',
         'color' => 'Farba',
         'is_enabled' => 'Aktívne',
+        'is_featured' => 'Významné',
+        'is_filterable' => 'Filtrovateľné',
         'email' => 'e-mail',
         'web_id' => 'Web',
         'web' => 'Web',
@@ -59,6 +63,7 @@ return [
         'url' => 'URL',
         'image' => 'Obrázok',
         'address' => 'Adresa',
+        //
         'created_at' => 'Čas vytvorenia',
         'updated_at' => 'Čas poslednej aktualizácie',
         'deleted_at' => 'Čas vymazania',
@@ -73,6 +78,12 @@ return [
         'language' => 'Jazyk',
         'localization_id' => 'Lokalizácia',
         'localization' => 'Lokalizácia',
+        //
+        'title' => 'Názov',
+        'name' => 'Meno',
+        //
+        'is_enabled' => 'Aktívne',
+        'is_featured' => 'Významné',
     ],
     'hint' => [
         'is_visible' => 'Príznak, či sa element zobrazí na frontpage',
@@ -109,6 +120,7 @@ return [
         'edit' => 'Upraviť',
         'save' => 'Uložiť',
         'create' => 'Pridať',
+        'create-new' => 'Pridať a vytvoriť nový',
         'preview' => 'Náhľad',
         'compose' => 'Kompozícia',
         'clone' => 'Klonovať',
