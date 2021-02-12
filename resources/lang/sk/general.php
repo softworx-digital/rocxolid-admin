@@ -9,6 +9,7 @@ return [
         'name' => 'Meno',
         'code' => 'Kód',
         'color' => 'Farba',
+        'background_color' => 'Podfarbenie',
         'is_enabled' => 'Aktívne',
         'is_featured' => 'Významné',
         'is_filterable' => 'Filtrovateľné',
@@ -45,6 +46,7 @@ return [
         'name' => 'Meno',
         'code' => 'Kód',
         'color' => 'Farba',
+        'background_color' => 'Podfarbenie',
         'is_enabled' => 'Aktívne',
         'is_featured' => 'Významné',
         'is_filterable' => 'Filtrovateľné',
@@ -104,6 +106,7 @@ return [
         'compose' => 'Komponovať',
         'clone' => 'Klonovať',
         'clone-structure' => 'Klonovať štruktúru',
+        'upload-image' => 'Nahrať obrázok',
     ],
     'button' => [
         'actions' => 'Akcie',
