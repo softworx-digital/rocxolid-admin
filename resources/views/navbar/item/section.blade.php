@@ -1,4 +1,4 @@
-@if ($component->hasItems() || $component->hasSubItems())
+@if ($component->hasItems())
 <div class="menu-section">
     <h3 class="margin-0">{{ $component->translate($component->getTitle()) }}</h3>
     @if ($component->hasItems())
