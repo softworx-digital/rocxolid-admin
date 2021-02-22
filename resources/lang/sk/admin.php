@@ -50,6 +50,17 @@ return [
                             ],
                         ],
                     ],
+                    'console' => [
+                        'heading' => 'Konzola',
+                        'items' => [
+                            'commander' => [
+                                'heading' => 'Commander',
+                            ],
+                            'logs' => [
+                                'heading' => 'Logy',
+                            ],
+                        ],
+                    ],
                 ],
             ],
             'commerce' => [

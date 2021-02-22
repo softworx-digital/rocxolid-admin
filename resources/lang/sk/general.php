@@ -127,6 +127,7 @@ return [
         'preview' => 'Náhľad',
         'compose' => 'Kompozícia',
         'clone' => 'Klonovať',
+        'run' => 'Spustiť',
         'replace' => 'Nahradiť',
         'collapse-hidden' => 'Rozbaliť',
         'collapse-shown' => 'Zabaliť',
