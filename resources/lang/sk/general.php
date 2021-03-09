@@ -83,6 +83,7 @@ return [
         //
         'title' => 'Názov',
         'name' => 'Meno',
+        'code' => 'Kód',
         //
         'is_enabled' => 'Aktívne',
         'is_featured' => 'Významné',
