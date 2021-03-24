@@ -18,6 +18,26 @@
 @foreach (config('rocXolid.admin.general.stylesheets', []) as $path)
     <link rel="stylesheet" href="{{ asset($path) }}">
 @endforeach
+@if (config('onesignal.app_id', false))
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async="true"></script>
+    <script>
+        window.OneSignal = window.OneSignal || [];
+        OneSignal.push(function() {
+            OneSignal.init({
+                appId: "{{ config('onesignal.app_id') }}",
+                notifyButton: {
+                    enable: true,
+                },
+            });
+        });
+        OneSignal.push(function () {
+            OneSignal.SERVICE_WORKER_PARAM = { scope: '/assets/js/' };
+            OneSignal.SERVICE_WORKER_PATH = 'assets/js/OneSignalSDKWorker.js'
+            OneSignal.SERVICE_WORKER_UPDATER_PATH = 'assets/js/OneSignalSDKUpdaterWorker.js'
+            OneSignal.init(initConfig);
+        });
+    </script>
+@endif
     <script type="text/javascript">
         window.Laravel = {!! json_encode([ 'csrfToken' => csrf_token() ]); !!};
         window.CKEDITOR_BASEPATH = "{{ asset('vendor/softworx/rocXolid/plugins/ckeditor4/') }}/";

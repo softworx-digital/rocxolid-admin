@@ -45,6 +45,9 @@ return [
                             'email' => [
                                 'heading' => 'e-mail notifikácie',
                             ],
+                            'push' => [
+                                'heading' => 'Push notifikácie',
+                            ],
                             'sms' => [
                                 'heading' => 'SMS notifikácie',
                             ],
