@@ -133,6 +133,7 @@ return [
         'element-already-set' => 'Element is already set',
         'more-permissions' => 'More',
         'uploaded-image' => 'Image uploaded',
+        'page-content-changed' => 'You have unsaved changes. Do you really want to leave / reload the page?',
     ],
     'permissions' => [
         'full' => 'Full permissions',

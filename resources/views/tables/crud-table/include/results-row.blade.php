@@ -3,17 +3,13 @@
 @foreach ($component->getTableColumnsComponents() as $field => $column)
     {!! $column->setPreRenderProperties($component, $model)->setOption('model', $model)->render('table-cell') !!}
 @endforeach
-@if ($component->getTableButtonsComponents()->count() > 0)
+@if ($component->getTableButtonsComponents($model)->count() > 0)
     <td class="last text-right">
         <div class="btn-group">
-    @foreach ($component->getTableButtonsComponents() as $button)
+    @foreach ($component->getTableButtonsComponents($model) as $button)
         @can ($button->getOption('policy-ability'), $model)
-            @if ($button->hasOption('action'))
-                @if ($component->getRepository()->getController()->isModelActionAvailable($model, $button->getOption('action')))
-                    {!! $button->setPreRenderProperties($component, $model)->render($button->getOption('type-template')) !!}
-                @else
-                    {!! $button->render('disabled') !!}
-                @endif
+            @if ($button->hasOption('action') || $button->hasOption('related-action') || $button->hasOption('foreign-action') || $button->hasOption('method-action'))
+                {!! $button->setPreRenderProperties($component, $model)->render($button->getOption('type-template')) !!}
             @elseif ($button->hasOption('tel'))
                 @if ($model->{$button->getOption('tel')})
                     {!! $button->setPreRenderProperties($component, $model)->render($button->getOption('type-template')) !!}
@@ -26,8 +22,10 @@
                 @else
                     {!! $button->render('disabled') !!}
                 @endif
+            @else
+                -UNDEFINED ACTION- @todo
             @endif
-        @endif
+        @endcan
     @endforeach
         </div>
     </td>

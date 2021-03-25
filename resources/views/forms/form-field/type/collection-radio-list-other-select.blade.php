@@ -1,7 +1,7 @@
 <div class="row">
 @if ($component->getFormField()->isArray())
     <div class="btn-group col-xs-12" data-toggle="buttons">
-    {{-- @todo: unfinished --}}
+    {{-- @todo unfinished --}}
     - TODO -
     </div>
 @else
@@ -24,7 +24,7 @@
             {!! Form::radio($component->getFormField()->getFieldName(), '', $component->getFormField()->isFieldValue(null)) !!}
             <span>{!! $component->translate(sprintf('_other.%s', $component->getFormField()->getName())) !!}</span>
         </label>
-        <div class="btn btn-select animate slideInLeft" id="{{ $component->getDomId($component->getFormField()->getName(), 'other-options') }}">
+        <div class="btn btn-select animated zoomIn speed-50" id="{{ $component->getDomId($component->getFormField()->getName(), 'other-options') }}">
             {!! Form::select($component->getFormField()->getFieldName(), $component->getFormField()->getSelectCollection(), $component->getFormField()->getFieldValue(), $component->getOption('attributes')) !!}
         </div>
     @else
@@ -32,7 +32,7 @@
             {!! Form::radio($component->getFormField()->getFieldName(), '', $component->getFormField()->isFieldValue(null)) !!}
             <span>{!! $component->translate(sprintf('_other.%s', $component->getFormField()->getName())) !!}</span>
         </label>
-        <div class="btn btn-select animate slideInLeft hidden" id="{{ $component->getDomId($component->getFormField()->getName(), 'other-options') }}">
+        <div class="btn btn-select animated zoomIn hidden speed-50" id="{{ $component->getDomId($component->getFormField()->getName(), 'other-options') }}">
             {!! Form::select($component->getFormField()->getFieldName(), $component->getFormField()->getSelectCollection(), $component->getFormField()->getFieldValue(), $component->getOption('attributes') + ['disabled']) !!}
         </div>
     @endif

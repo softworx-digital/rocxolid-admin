@@ -17,13 +17,17 @@
     <script>
         let configuration = {
             loginUrl: '{{ route('rocXolid.auth.login') }}',
-            pingUrl: '{{ route('rocXolid.auth.ping') }}'
+            pingUrl: '{{ route('rocXolid.auth.ping') }}',
+            leaveConfirmationMessage: '{{ $component->translate('text.page-content-changed') }}',
         };
     </script>
 
 @foreach (config('rocXolid.admin.general.scripts', []) as $path)
     <script src="{{ asset($path) }}"></script>
 @endforeach
+
+    <script src="{{ asset(mix('js/manifest.js', 'vendor/softworx/rocXolid')) }}"></script>
+    <script src="{{ asset(mix('js/vendor.js', 'vendor/softworx/rocXolid')) }}"></script>
     <script src="{{ asset(mix('js/rocXolid.js', 'vendor/softworx/rocXolid')) }}"></script>
     @stack('script')
 </body>

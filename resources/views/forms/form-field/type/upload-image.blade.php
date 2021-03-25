@@ -8,7 +8,7 @@
         'data-show-upload' => 'false',
         'data-show-cancel' => 'false',
         // 'data-upload-async' => 'false', // turns off async upload
-        // 'data-complete-url' => $component->getFormField()->getForm()->getModel()->getControllerRoute('onUploadComplete'),
+        // 'data-complete-url' => $component->getFormField()->getForm()->getModel()->getControllerRoute('create'),
         'data-allowed-file-types' => $component->getOption('attributes.accept', false) ? sprintf('[%s]', collect($component->getOption('attributes.accept'))->join(',')) : null,
         'accept' => $component->getOption('attributes.accept', false) ? sprintf('%s/*', collect($component->getOption('attributes.accept'))->join('/*,')) : null,
         'multiple' => $component->getOption('attributes.multiple', false) ? 'multiple' : null,

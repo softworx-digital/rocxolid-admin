@@ -1,6 +1,7 @@
-{!! Form::open([ 'id' => $component->getDomId('modal-update') ] + $component->getOptions()->except(['scripts'])->toArray()) !!}
+{{ Form::open([ 'id' => $component->getDomId('modal-update') ] + $component->getOptions()->except(['scripts'])->toArray()) }}
     {{ Form::hidden('_method', 'PUT') }}
     {{ Form::hidden('_submit-action', null) }}
+    {{ Form::hidden('_param', $component->getForm()->getParam()) }}
     {{ Form::hidden('_section', $component->hasOption('section') ? $component->getOption('section') : null) }}
 
     {!! $component->render('include.output') !!}
@@ -10,8 +11,8 @@
     </div>
 
     <div class="modal-footer">
-        {!! $component->render('include.footer') !!}
+        {!! $component->render(sprintf('modal.footer.%s', $component->getOption('modal-footer-template', 'update'))) !!}
     </div>
-{!! Form::close() !!}
+{{ Form::close() }}
 
 {!! $component->render('snippet.scripts') !!}

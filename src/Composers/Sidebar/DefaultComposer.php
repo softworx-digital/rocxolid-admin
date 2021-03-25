@@ -21,9 +21,10 @@ use Softworx\RocXolid\Components\Exceptions\InvalidItemImplementationException;
  * Default sidebar composer.
  *
  * @author softworx <hello@softworx.digital>
- * @package Softworx\RocXolid
+ * @package Softworx\RocXolid\Admin
  * @version 1.0.0
- * @todo: $config to collection
+ * @todo refactor
+ * @todo $config to collection
  */
 class DefaultComposer extends AbstractComposer
 {
@@ -36,8 +37,7 @@ class DefaultComposer extends AbstractComposer
      */
     public function compose(View $view): Composer
     {
-        $view
-            ->with('sections', $this->parseConfig(config('rocXolid.admin.sidebar.sections')));
+        $view->with('sections', $this->parseConfig(config('rocXolid.admin.sidebar.sections')));
 
         return $this;
     }
@@ -51,14 +51,19 @@ class DefaultComposer extends AbstractComposer
     protected function parseConfig(array $config): array
     {
         $items = [];
+        $user = auth('rocXolid')->user();
 
         foreach ($config as $node) {
             if (!isset($node['item'])) {
                 throw new UndefinedItemException($node);
             }
 
-            if ($this->shouldMakeItem($node)) {
-                $items[] = $this->makeItem($node);
+            if ($this->shouldMakeItem($user, $node)) {
+                $item = $this->makeItem($node);
+
+                if ($item->hasItems() || ($item instanceof RoutableContract)) {
+                    $items[] = $item;
+                }
             }
         }
 
@@ -71,10 +76,17 @@ class DefaultComposer extends AbstractComposer
      * @param array $config
      * @return bool
      */
-    protected function shouldMakeItem(array $config): bool
+    protected function shouldMakeItem($user, array $config): bool
     {
+        // @todo hotfixed (or fine this way?)
         if (isset($config['controller']) && ($controller = app($config['controller'])) && ($controller instanceof Crudable)) {
-            return auth()->user()->can('viewAny', [ $controller->getModelClass(), $controller->getModelClass() ]);
+            if (isset($config['permission'])) {
+                return call_user_func($config['permission'], $user, $controller);
+            }
+
+            return $user->can('viewAny', [ $controller->getModelType(), $controller->getModelType() ]);
+        } elseif (isset($config['permission'])) {
+            return call_user_func($config['permission'], $user);
         }
 
         return true;
@@ -120,7 +132,16 @@ class DefaultComposer extends AbstractComposer
 
         if (isset($config['add'])) {
             foreach ([$config['add']] as $subnodes) {
-                $item->setItems($this->parseConfig($subnodes));
+                if ($parsed = $this->parseConfig($subnodes)) {
+// dump($parsed);
+                    $item->setItems($parsed);
+                }
+            }
+        }
+
+        if (isset($config['permission'])) {
+            if (!is_callable($config['permission'])) {
+                throw new \InvalidArgumentException(sprintf('The permission definition in [%s] is not callable', print_r($config, true)));
             }
         }
 

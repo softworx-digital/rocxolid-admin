@@ -1,3 +1,4 @@
+@dump('what is this - collection-tags.blade.php')
 <div class="control-group">
 @if ($component->getFormField()->isArray())
     {!! Form::text($component->getFormField()->getFieldName($index), $component->getFormField()->getFieldValue($index), $component->getOption('attributes')) !!}
@@ -8,6 +9,7 @@
 
 <input id="programme" name="asdas"/>
 
+{{-- @todo what's this? --}}
 @push('script')
 <script type="text/javascript">
 $(function() {
@@ -35,10 +37,6 @@ $(function() {
             source: bloodhounddata._{{ md5($component->getDomId($component->getFormField()->getFieldName())) }}.ttAdapter()
         }
     });
-
-
-
-console.log(bloodhounddata);
 });
 </script>
 @endpush

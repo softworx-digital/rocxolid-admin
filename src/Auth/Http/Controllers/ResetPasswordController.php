@@ -3,77 +3,70 @@
 namespace Softworx\RocXolid\Admin\Auth\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Password;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+// rocXolid admin auth controllers
+use Softworx\RocXolid\Admin\Auth\Http\Controllers\AbstractAuthController;
 // rocXolid utils
-use Softworx\RocXolid\Http\Requests\CrudRequest;
 use Softworx\RocXolid\Helpers\View as ViewHelper;
-use Softworx\RocXolid\Http\Responses\Contracts\AjaxResponse;
-// rocXolid contracts
-use Softworx\RocXolid\Contracts\Modellable;
-// rocXolid repository contracts
-use Softworx\RocXolid\Repositories\Contracts\Repository;
-// rocXolid http contracts
-use Softworx\RocXolid\Http\Controllers\Contracts\Dashboardable;
-use Softworx\RocXolid\Http\Controllers\Contracts\Repositoryable;
+use Softworx\RocXolid\Http\Requests\CrudRequest;
 // rocXolid forms
 use Softworx\RocXolid\Forms\AbstractCrudForm as AbstractCrudForm;
-// rocXolid controllers
-use Softworx\RocXolid\Http\Controllers\AbstractController;
-// rocXolid traits
-use Softworx\RocXolid\Traits\Modellable as ModellableTrait;
-// rocXolid controller traits
-use Softworx\RocXolid\Http\Controllers\Traits\Dashboardable as DashboardableTrait;
-use Softworx\RocXolid\Http\Controllers\Traits\Repositoryable as RepositoryableTrait;
 // rocXolid components
 use Softworx\RocXolid\Components\General\Message;
-use Softworx\RocXolid\Components\Forms\CrudForm as CrudFormComponent;
 // rocXolid admin components
 use Softworx\RocXolid\Admin\Components\Dashboard\ResetPassword as ResetPasswordDashboard;
-// rocXolid user management repositories
-use Softworx\RocXolid\UserManagement\Repositories\User\Repository as UserRepository;
-// rocXolid user management models
-use Softworx\RocXolid\UserManagement\Models\User;
+// rocXolid user management model forms
+use Softworx\RocXolid\UserManagement\Models\Forms\User\ResetPassword as ResetPasswordForm;
 
 /**
- * The controller is responsible for handling password reset requests.
+ * Guest controller to handle password reset request.
+ *
+ * @author softworx <hello@softworx.digital>
+ * @package Softworx\RocXolid\Admin
+ * @version 1.0.0
  */
-class ResetPasswordController extends AbstractController implements Dashboardable, Repositoryable, Modellable
+class ResetPasswordController extends AbstractAuthController
 {
-    use DashboardableTrait;
-    use RepositoryableTrait;
-    use ModellableTrait;
     use ResetsPasswords;
 
-    protected static $dashboard_class = ResetPasswordDashboard::class;
+    /**
+     * Dashboard type definition.
+     *
+     * @var \Softworx\RocXolid\Admin\Components\Dashboard\ResetPasswordDashboard
+     */
+    protected static $dashboard_type = ResetPasswordDashboard::class;
 
-    protected static $model_class = User::class;
+    /**
+     * Form type mapping.
+     *
+     * @var array
+     */
+    protected static $form_type = [
+        'reset-password' => ResetPasswordForm::class,
+    ];
 
-    protected static $repository_class = UserRepository::class;
-
-    protected $translation_package = 'rocXolid:admin';
-
+    /**
+     * {@inheritDoc}
+     */
     protected $translation_param = 'reset-password';
 
-    public function __construct(AjaxResponse $response)
-    {
-        $this->middleware('guest');
-
-        $this->response = $response;
-    }
-
+    /**
+     * Show reset password form.
+     *
+     * @param \Softworx\RocXolid\Http\Requests\CrudRequest $request
+     * @param string $token
+     */
     public function index(CrudRequest $request, string $token = null)
     {
-        $repository = $this->getRepository();
+        $form = $this->getForm(
+            $request,
+            $this->getRepository()->getModel(),
+            $this->getFormParam()
+        );
 
-        $this->setModel($repository->getModel());
-
-        $form = $repository->getForm('reset-password');
         $form->getFormField('token')->setValue($token);
 
-        $form_component = CrudFormComponent::build($this, $this)
-            ->setForm($form)
-            ->setRepository($repository);
+        $form_component = $this->getFormComponent($form);
 
         return $this
             ->getDashboard()
@@ -81,23 +74,30 @@ class ResetPasswordController extends AbstractController implements Dashboardabl
             ->render();
     }
 
+    /**
+     * Handle reset password form submit.
+     *
+     * @param \Softworx\RocXolid\Http\Requests\CrudRequest $request
+     */
     public function passwordReset(CrudRequest $request)
     {
-        $repository = $this->getRepository();
-
-        $this->setModel($repository->getModel());
-
-        $form = $repository->getForm('reset-password');
-        $form->submit();
+        $form = $this->getForm(
+            $request,
+            $this->getRepository()->getModel(),
+            $this->getFormParam()
+        )->submit();
 
         if ($form->isValid()) {
             return $this->reset($request);
         } else {
-            return $this->errorResponse($request, $repository, $form, 'passwordReset');
+            return $this->errorResponse($request, $form, $this->getFormComponent($form));
         }
     }
 
-    public function invalid(CrudRequest $request)
+    /**
+     * {@inheritDoc}
+     */
+    public function invalid(Request $request)
     {
         abort(404);
     }
@@ -118,7 +118,11 @@ class ResetPasswordController extends AbstractController implements Dashboardabl
      */
     protected function sendResetFailedResponse(Request $request, $response)
     {
-        $form = $this->getRepository()->getForm('reset-password');
+        $form = $this->getForm(
+            $request,
+            $this->getRepository()->getModel(),
+            $this->getFormParam()
+        );
 
         return $this->response
             ->replace(ViewHelper::domId($form, 'form'), Message::build($this, $this)->fetch('error', [ 'message' => $response ]))
@@ -160,33 +164,5 @@ class ResetPasswordController extends AbstractController implements Dashboardabl
     protected function rules()
     {
         return []; // already validated
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function broker()
-    {
-        return Password::broker('rocXolid');
-    }
-
-    public function getModelClass(): string
-    {
-        return static::$model_class;
-    }
-
-    protected function errorResponse(CrudRequest $request, Repository $repository, AbstractCrudForm $form, $action)
-    {
-        $form_component = CrudFormComponent::build($this, $this)
-            ->setForm($form)
-            ->setRepository($repository);
-
-        $assignments = [
-            'errors' => $form->getErrors()
-        ];
-
-        return $this->response
-            ->replace($form_component->getDomId('fieldset'), $form_component->fetch('include.fieldset'))
-            ->get();
     }
 }

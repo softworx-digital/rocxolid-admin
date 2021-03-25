@@ -1,0 +1,1 @@
+<span title="{{ $component->getModelValue() }}" class="c-help text-overflow d-block">{{ $component->translate(sprintf(sprintf('_%s.%s', $component->getTableColumn()->getName(), $component->getModelValue()))) }}</span>

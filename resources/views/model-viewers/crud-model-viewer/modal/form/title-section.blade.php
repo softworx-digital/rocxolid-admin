@@ -1,0 +1,1 @@
+{!! $component->translate(sprintf('action.%s-%s', $route_method, $component->getFormComponent()->getOption('section'))) !!}

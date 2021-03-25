@@ -4,7 +4,7 @@
 @else
     {!! Form::submit($component->translate($component->getOption('label.title')), $component->getOption('attributes')) !!}
 @endif
-    <button type="button" class="{{ $component->getOption('attributes.class') }} dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+    <button type="button" class="{{ $component->getOption('attributes.class') }} dropdown-toggle" data-toggle="dropdown">
         <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" role="menu">

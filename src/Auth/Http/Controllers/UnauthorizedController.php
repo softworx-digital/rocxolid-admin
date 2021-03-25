@@ -23,7 +23,7 @@ class UnauthorizedController extends AbstractController implements Dashboardable
 {
     use DashboardableTrait;
 
-    protected static $dashboard_class = AdminDashboard::class;
+    protected static $dashboard_type = AdminDashboard::class;
 
     protected $translation_param = 'admin';
 

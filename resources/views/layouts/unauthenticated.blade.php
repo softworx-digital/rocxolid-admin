@@ -12,6 +12,9 @@
     <script>
         let configuration = {};
     </script>
+
+    <script src="{{ asset(mix('js/manifest.js', 'vendor/softworx/rocXolid')) }}"></script>
+    <script src="{{ asset(mix('js/vendor.js', 'vendor/softworx/rocXolid')) }}"></script>
     <script src="{{ asset(mix('js/rocXolid.js', 'vendor/softworx/rocXolid')) }}"></script>
     @yield('script')
 </body>

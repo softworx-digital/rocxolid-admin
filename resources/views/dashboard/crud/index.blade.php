@@ -6,6 +6,6 @@
     {!! $alert->render($alert->getType()) !!}
 @endforeach
 
-{!! $component->getRepositoryComponent()->render() !!}
+{!! $component->getTableComponent()->render() !!}
 
 @endsection

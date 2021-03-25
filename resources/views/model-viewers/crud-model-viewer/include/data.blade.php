@@ -4,9 +4,9 @@
     <dd>
     @if ($component->getModel()->isBooleanAttribute($_attribute))
         @if ($component->getModel()->$_attribute)
-            <i class="fa fa-check"></i>
+            <i class="fa fa-check text-success"></i>
         @else
-            <i class="fa fa-close"></i>
+            <i class="fa fa-close text-danger"></i>
         @endif
     @elseif ($component->getModel()->isJsonAttribute($_attribute))
         JSON - // @todo
@@ -18,7 +18,7 @@
     </dd>
 @endforeach
 @foreach ($component->getModel()->getRelationshipMethods() as $method)
-{{-- @todo: ugly, extend blade --}}
+{{-- @todo ugly, extend blade --}}
 @if ((isset($relation) && ($user->can('view', [ $component->getModel()->$relation()->getRelated(), $attribute ]) || $user->can('assign', [ $component->getModel()->$relation()->getRelated(), $attribute ])))
     || $user->can('view', [ $component->getModel(), $method ])
     || $user->can('update', [ $component->getModel(), $method ])

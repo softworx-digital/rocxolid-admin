@@ -1,5 +1,5 @@
 @if (false)
-{!! Form::open($component->getOptions()->toArray()) !!}
+{{ Form::open($component->getOptions()->toArray()) }}
     @if (isset($errors) && $errors->count())
         <div class="alert alert-danger">
             <ul>
@@ -35,5 +35,5 @@
     @foreach ($component->getFormButtonsComponents() as $button)
         {!! $button->render($button->getOption('template', $button->getDefaultTemplateName())) !!}
     @endforeach
-{!! Form::close() !!}
+{{ Form::close() }}
 @endif

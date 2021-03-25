@@ -45,8 +45,96 @@ return [
                             'email' => [
                                 'heading' => 'e-mail notifikácie',
                             ],
+                            'push' => [
+                                'heading' => 'Push notifikácie',
+                            ],
                             'sms' => [
                                 'heading' => 'SMS notifikácie',
+                            ],
+                        ],
+                    ],
+                    'console' => [
+                        'heading' => 'Konzola',
+                        'items' => [
+                            'commander' => [
+                                'heading' => 'Commander',
+                            ],
+                            'logs' => [
+                                'heading' => 'Logy',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            'commerce' => [
+                'heading' => 'Obchod',
+                'items' => [
+                    'crm-order-management' => [
+                        'heading' => 'CRM & Objednávky',
+                        'items' => [
+                            'orders' => [
+                                'heading' => 'Objednávky',
+                            ],
+                            'customers' => [
+                                'heading' => 'Zákazníci',
+                            ],
+                        ],
+                    ],
+                    'product-management' => [
+                        'heading' => 'Ponuka',
+                        'items' => [
+                            'manufacturers' => [
+                                'heading' => 'Výrobcovia',
+                            ],
+                            'product-categories' => [
+                                'heading' => 'Kategórie produktov',
+                            ],
+                            'product-groups' => [
+                                'heading' => 'Skupiny produktov',
+                            ],
+                            'product-variants' => [
+                                'heading' => 'Varianty produktov',
+                            ],
+                            'product-parts' => [
+                                'heading' => 'Ingrediencie',
+                            ],
+                            'product-sizes' => [
+                                'heading' => 'Veľkosti produktov',
+                            ],
+                            'products' => [
+                                'heading' => 'Produkty',
+                            ],
+                            'warehouses' => [
+                                'heading' => 'Sklady',
+                            ],
+                            'attribute-groups' => [
+                                'heading' => 'Atribúty',
+                            ],
+                        ],
+                    ],
+                    'settings' => [
+                        'heading' => 'Nastavenia',
+                        'items' => [
+                            'shops' => [
+                                'heading' => 'Prevádzky',
+                            ],
+                            'delivery-methods' => [
+                                'heading' => 'Doručovacie metódy',
+                            ],
+                            'payment-methods' => [
+                                'heading' => 'Platobné metódy',
+                            ],
+                            'post-offices' => [
+                                'heading' => 'Poštové úrady',
+                            ],
+                            'balikomat-addresses' => [
+                                'heading' => 'Výdajné miesta Balíkomat',
+                            ],
+                            'sps-parcelshop-addresses' => [
+                                'heading' => 'Výdajné miesta SPS Parcelshop',
+                            ],
+                            'invoice-template' => [
+                                'heading' => 'Šablóny faktúr',
                             ],
                         ],
                     ],
@@ -55,36 +143,55 @@ return [
             'cms' => [
                 'heading' => 'CMS',
                 'items' => [
+                    'documents' => [
+                        'heading' => 'Dokumenty',
+                        'items' => [
+                            'document-types' => [
+                                'heading' => 'Kategórie dokumentov',
+                            ],
+                            'documents' => [
+                                'heading' => 'Dokumenty',
+                            ],
+                        ],
+                    ],
                     'content' => [
-                        'heading' => 'Content',
+                        'heading' => 'Obsah',
                         'items' => [
                             'articles' => [
-                                'heading' => 'Articles',
+                                'heading' => 'Články',
+                            ],
+                            'faqs' => [
+                                'heading' => 'FAQ',
                             ],
                         ],
                     ],
-                    'pages' => [
-                        'heading' => 'pages',
+                    'composition' => [
+                        'heading' => 'Kompozícia',
                         'items' => [
                             'pages' => [
-                                'heading' => 'Articles',
+                                'heading' => 'Stránky',
                             ],
                             'page-proxies' => [
-                                'heading' => 'Proxy pages',
+                                'heading' => 'Proxy stránky',
                             ],
                             'page-templates' => [
-                                'heading' => 'Page templates',
+                                'heading' => 'Šablóny stránok',
                             ],
                         ],
                     ],
-                    'content' => [
-                        'heading' => 'Content',
+                    'settings' => [
+                        'heading' => 'Nastavenia',
                         'items' => [
                             'webs' => [
-                                'heading' => 'Webs',
+                                'heading' => 'Weby',
                             ],
-                            'web-frontpage-settings' => [
-                                'heading' => 'Frontpage settings',
+                        ],
+                    ],
+                    'logs' => [
+                        'heading' => 'Logy',
+                        'items' => [
+                            'command-log' => [
+                                'heading' => 'CLI Log',
                             ],
                         ],
                     ],

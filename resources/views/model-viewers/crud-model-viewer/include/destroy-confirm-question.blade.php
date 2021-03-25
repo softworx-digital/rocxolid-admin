@@ -1,0 +1,1 @@
+<p class="text-center">{{ $component->translate('text.destroy-confirmation') }} {!! $component->getModel()->getTitle() !!}?</p>
