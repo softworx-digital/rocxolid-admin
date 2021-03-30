@@ -30,12 +30,16 @@ return [
         'image' => 'Obrázok',
         'images' => 'Galéria',
         'address' => 'Adresa',
+        'rating' => 'Hodnotenie',
+        'rating_count' => 'Počet hodnotení',
+        //
         'created_at' => 'Čas vytvorenia',
         'updated_at' => 'Čas poslednej aktualizácie',
         'deleted_at' => 'Čas vymazania',
         'created_by' => 'Vytvoril používateľ',
         'updated_by' => 'Aktualizoval používateľ',
         'deleted_by' => 'Vymazal používateľ',
+        //
         '_custom-value' => 'Vlastná hodnota',
         '_add' => 'Pridať',
         '_clone_with_relations' => 'Klonovať tiež',
@@ -65,6 +69,8 @@ return [
         'url' => 'URL',
         'image' => 'Obrázok',
         'address' => 'Adresa',
+        'rating' => 'Hodnotenie',
+        'rating_count' => 'Počet hodnotení',
         //
         'created_at' => 'Čas vytvorenia',
         'updated_at' => 'Čas poslednej aktualizácie',
@@ -167,6 +173,7 @@ return [
         'or' => 'alebo',
         'base-data' => 'Základné údaje',
         'general-data' => 'Základné údaje',
+        'rating-data' => 'Hodnotenie',
         'description-data' => 'Popisné údaje',
         'destroy-confirmation' => 'Naozaj vymazať',
         'clone' => 'Klonovať',
