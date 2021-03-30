@@ -11,7 +11,7 @@ return [
         'color' => 'Farba',
         'background_color' => 'Podfarbenie',
         'is_enabled' => 'Aktívne',
-        'is_featured' => 'Významné',
+        'is_featured' => 'Featured', //'Významné',
         'is_filterable' => 'Filtrovateľné',
         'email' => 'e-mail',
         'web_id' => 'Web',
@@ -48,7 +48,7 @@ return [
         'color' => 'Farba',
         'background_color' => 'Podfarbenie',
         'is_enabled' => 'Aktívne',
-        'is_featured' => 'Významné',
+        'is_featured' => 'Featured', //'Významné',
         'is_filterable' => 'Filtrovateľné',
         'email' => 'e-mail',
         'web_id' => 'Web',
@@ -86,7 +86,7 @@ return [
         'code' => 'Kód',
         //
         'is_enabled' => 'Aktívne',
-        'is_featured' => 'Významné',
+        'is_featured' => 'Featured', //'Významné',
     ],
     'hint' => [
         'is_visible' => 'Príznak, či sa element zobrazí na frontpage',
@@ -185,6 +185,7 @@ return [
         'page-content-changed' => 'Na stránke sú neuložené zmeny. Odchodom z aktuálnej stránky sa zmeny stratia. Naozaj chcete odísť zo stránky?',
         'remaining' => 'zostáva',
         'days' => '{0} dní|{1} deň|[2,4] dni|[5,*] dní',
+        'months' => '{0} mesiacov|{1} mesiac|[2,4] mesiace|[5,*] mesiacov',
     ],
     'permissions' => [
         'full' => 'Plné práva',

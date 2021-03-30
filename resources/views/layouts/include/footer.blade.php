@@ -10,7 +10,7 @@
     @endif
     </div>
     <div class="pull-right">
-        <b><a href="{{ route('rocXolid.admin.index') }}">{{ Html::image('vendor/softworx/rocXolid/images/branding/rocXolid-tiny.png', 'rocXolid') }}</a> &ndash; CMS & Commerce platform by <a href="https://softworx.digital/" target="_blank">{{ Html::image('vendor/softworx/rocXolid/images/branding/softworx-tiny.png', 'softworx') }}</a></b>
+        <b><a href="{{ route('rocXolid.admin.index') }}">{{ Html::image('vendor/softworx/rocXolid/images/branding/rocXolid-tiny.png', 'rocXolid') }}</a> <i class="fa fa-angle-right" aria-hidden="true"></i> web app platform by <a href="https://softworx.digital/" class="margin-left-5" target="_blank">{{ Html::image('vendor/softworx/rocXolid/images/branding/softworx-tiny.png', 'softworx') }}</a></b>
     </div>
     <div class="clearfix"></div>
 </footer>
