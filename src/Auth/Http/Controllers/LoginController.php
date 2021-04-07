@@ -171,7 +171,15 @@ class LoginController extends AbstractController implements Dashboardable
      */
     public function redirectPath(): string
     {
-        return route(config('rocXolid.admin.auth.login_redirect', 'rocXolid.admin.index'));
+        $user = $this->guard()->user();
+
+        $redirect = config('rocXolid.admin.auth.login_redirect', 'rocXolid.admin.index');
+
+        if (is_callable($redirect)) {
+            return route($redirect($user));
+        }
+
+        return route($redirect);
     }
 
     /**
