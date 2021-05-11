@@ -72,6 +72,9 @@ return [
         'rating' => 'Hodnotenie',
         'rating_count' => 'Počet hodnotení',
         //
+        'collapse-hidden' => 'Položky',
+        'collapse-shown' => 'Položky',
+        //
         'created_at' => 'Čas vytvorenia',
         'updated_at' => 'Čas poslednej aktualizácie',
         'deleted_at' => 'Čas vymazania',

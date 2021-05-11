@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 // rocXolid communication event contracts
 use Softworx\RocXolid\Communication\Events\Contracts\Sendable;
 // rocXolid common models
+use Softworx\RocXolid\Common\Models\Language;
+// rocXolid common models
 use Softworx\RocXolid\Common\Models\Error as ErrorModel;
 use Softworx\RocXolid\Common\Models\Web;
 
@@ -68,5 +70,10 @@ class Error implements Sendable
     public function getSendingModel(): Model
     {
         return $this->error;
+    }
+
+    public function getLanguage(): ?Language
+    {
+        return null;
     }
 }
