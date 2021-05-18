@@ -6,6 +6,8 @@ use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 // rocXolid communication event contracts
 use Softworx\RocXolid\Communication\Events\Contracts\Sendable;
+// rocXolid communication models
+use Softworx\RocXolid\Communication\Models\EmailNotification;
 // rocXolid common models
 use Softworx\RocXolid\Common\Models\Language;
 // rocXolid user management models
@@ -19,6 +21,13 @@ class UserForgotPassword implements Sendable
     public function __construct(User $user)
     {
         $this->user = $user;
+    }
+
+    public static function getNotificationTypes(): Collection
+    {
+        return collect([
+            EmailNotification::class,
+        ]);
     }
 
     public function getUser()
