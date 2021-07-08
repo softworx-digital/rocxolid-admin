@@ -4,9 +4,9 @@
     <span class="input-group-addon">{!! $component->getOption('prefix') !!}</span>
 @endif
 @if ($component->getFormField()->isArray())
-    {!! Form::text($component->getFormField()->getFieldName($index), $component->getFormField()->getFieldValue($index), $component->getOption('attributes')) !!}
+    {!! Form::text($component->getFormField()->getFieldName($index), \Carbon\Carbon::parse($component->getFormField()->getFieldValue($index))->format('H:i'), $component->getOption('attributes')) !!}
 @else
-    {!! Form::text($component->getFormField()->getFieldName(), $component->getFormField()->getFieldValue(), $component->getOption('attributes')) !!}
+    {!! Form::text($component->getFormField()->getFieldName(), \Carbon\Carbon::parse($component->getFormField()->getFieldValue())->format('H:i'), $component->getOption('attributes')) !!}
 @endif
 @if ($component->hasOption('units'))
     <span class="input-group-addon">{!! $component->getOption('units') !!}</span>

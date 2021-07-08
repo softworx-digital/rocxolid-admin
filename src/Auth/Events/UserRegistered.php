@@ -6,6 +6,8 @@ use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 // rocXolid communication event contracts
 use Softworx\RocXolid\Communication\Events\Contracts\Sendable;
+// rocXolid communication model contracts
+use Softworx\RocXolid\Communication\Models\Contracts\Sendable as Notification;
 // rocXolid communication models
 use Softworx\RocXolid\Communication\Models\EmailNotification;
 // rocXolid common models
@@ -58,7 +60,7 @@ class UserRegistered implements Sendable
     /**
      * {@inheritDoc}
      */
-    public function getRecipients(): Collection
+    public function getRecipients(Notification $notification): Collection
     {
         return collect($this->user->email);
     }
