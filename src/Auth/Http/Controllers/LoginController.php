@@ -3,7 +3,6 @@
 namespace Softworx\RocXolid\Admin\Auth\Http\Controllers;
 
 use Symfony\Component\HttpFoundation\Response;
-use Illuminate\View\View as IlluminateView;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Validation\ValidationException;
