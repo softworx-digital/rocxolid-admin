@@ -46,38 +46,6 @@ class ServiceProvider extends RocXolidAbstractServiceProvider
     }
 
     /**
-     * Expose config files and resources to be published.
-     *
-     * @return \Softworx\RocXolid\AbstractServiceProvider
-     */
-    private function publish(): RocXolidAbstractServiceProvider
-    {
-        // config files
-        // php artisan vendor:publish --provider="Softworx\RocXolid\Admin\ServiceProvider" --tag="config" (--force to overwrite)
-        $this->publishes([
-            __DIR__ . '/../config/general.php' => config_path('rocXolid/admin/general.php'),
-            __DIR__ . '/../config/auth.php' => config_path('rocXolid/admin/auth.php'),
-            __DIR__ . '/../config/layout.php' => config_path('rocXolid/admin/layout.php'),
-            __DIR__ . '/../config/sidebar.php' => config_path('rocXolid/admin/sidebar.php'),
-        ], 'config');
-
-        // lang files
-        // php artisan vendor:publish --provider="Softworx\RocXolid\Admin\ServiceProvider" --tag="lang" (--force to overwrite)
-        $this->publishes([
-            //__DIR__ . '/../resources/lang' => resource_path('lang/vendor/softworx/rocXolid/admin'),
-            __DIR__ . '/../resources/lang' => resource_path('lang/vendor/rocXolid:admin'), // used by laravel's FileLoaded::loadNamespaceOverrides()
-        ], 'lang');
-
-        // views files
-        // php artisan vendor:publish --provider="Softworx\RocXolid\Admin\ServiceProvider" --tag="views" (--force to overwrite)
-        $this->publishes([
-            __DIR__ . '/../resources/views' => resource_path('views/vendor/softworx/rocXolid/admin'),
-        ], 'views');
-
-        return $this;
-    }
-
-    /**
      * Bind contracts / facades, so they don't have to be added to config/app.php.
      *
      * Usage:

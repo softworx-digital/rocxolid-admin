@@ -28,7 +28,7 @@ use Softworx\RocXolid\Components\Exceptions\InvalidItemImplementationException;
  */
 class DefaultComposer extends AbstractComposer
 {
-    protected $translation_package = 'rocXolid:admin';
+    protected $translation_package = 'rocXolid-admin';
 
     protected $translation_param = 'admin';
 

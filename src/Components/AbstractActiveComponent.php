@@ -6,7 +6,7 @@ use Softworx\RocXolid\Components\AbstractActiveComponent as RocXolidAbstractActi
 
 abstract class AbstractActiveComponent extends RocXolidAbstractActiveComponent
 {
-    protected $translation_package = 'rocXolid:admin';
+    protected $translation_package = 'rocXolid-admin';
 
     protected $translation_param = 'admin';
 }

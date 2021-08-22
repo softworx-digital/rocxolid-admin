@@ -28,7 +28,7 @@ class Controller extends AbstractController implements Dashboardable
 
     protected static $dashboard_type = AdminDashboard::class;
 
-    protected $translation_param = 'admin';
+    // protected $translation_param = 'rocXolid-admin';
 
     public function index(Request $request)
     {
