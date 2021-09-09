@@ -8,6 +8,8 @@
         @else
             <i class="fa fa-close text-danger"></i>
         @endif
+    @elseif ($component->getModel()->isJsonArrayAttribute($_attribute))
+        JSON array - // @todo
     @elseif ($component->getModel()->isJsonAttribute($_attribute))
         JSON - // @todo
     @elseif ($component->getModel()->isColorAttribute($_attribute))

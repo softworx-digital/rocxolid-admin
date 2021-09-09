@@ -5,6 +5,6 @@
     @endif
 <div class="placeholder" data-image-src="{{ $image->getControllerRoute('get', [ 'size' => $component->getOption('size') ]) }}">
     <img src="{{ $image->base64($component->getOption('size')) }}" alt="{{ $image->alt }}" class="img-blur loaded"/>
-    <div style="padding-bottom: 66.6%;"></div>
+    <div style="padding-bottom: {{ 100 / $image->getWidthHeightRatio($component->getOption('size')) }}%;"></div>
 </div>
 @endforeach

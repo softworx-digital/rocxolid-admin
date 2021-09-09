@@ -150,6 +150,7 @@ return [
         'submit-show' => 'Uložiť a zobraziť',
         'submit-edit' => 'Uložiť a upraviť',
         'submit-new' => 'Uložiť a vytvoriť nový',
+        'submit-reload' => 'Uložiť a načítať zmeny',
         'step_next' => 'Ďalší krok<i class="fa fa-forward margin-left-10"></i>',
         'step_previous' => '<i class="fa fa-backward margin-right-10"></i>Predchádzajúci krok',
     ],
