@@ -3,7 +3,7 @@
         <div class="fixed-scroll">
             <div class="navbar nav_title text-center">
             @if (config('app.sidebar-logo', false))
-                <a href="{{ route('rocXolid.admin.index') }}" class="site_title">{{ Html::image(config('app.sidebar-logo'), 'Admin', [ 'style' => 'height: 30px;' ]) }}</a>
+                <a href="{{ route('rocXolid.admin.index') }}" class="site_title">{{ Html::image(config('app.sidebar-logo'), 'Admin', [ /*'style' => 'height: 30px;'*/ ]) }}</a>
             @else
                 <a href="{{ route('rocXolid.admin.index') }}" class="site_title">{{ Html::image('vendor/softworx/rocXolid/images/branding/rocXolid-white.png', 'rocXolid') }}</a>
             @endif
@@ -12,9 +12,11 @@
             @endif
             </div>
             <div class="clearfix"></div>
-        @if (config('rocXolid.admin.layout.sidebar.profile') && $user)
-            {!! $user->getModelViewerComponent()->render('wrapped.sidebar', [ 'wrapper' => $component ]) !!}
-        @endif
+            <div class="margin-top-20">
+            @if (config('rocXolid.admin.layout.sidebar.profile') && $user)
+                {!! $user->getModelViewerComponent()->render('wrapped.sidebar', [ 'wrapper' => $component ]) !!}
+            @endif
+            </div>
         </div>
 
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu margin-top-20">
