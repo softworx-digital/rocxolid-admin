@@ -1,0 +1,3 @@
+@can ('view', [ $related, $attribute ])
+    <a class="btn btn-{{ $color ?? 'primary' }} btn-{{ $display ?? 'block' }} btn-{{ $size ?? 'lg' }} margin-0" data-ajax-url="{{ $component->getModel()->getControllerRoute('show', $component->getModel()->getRouteRelationParam($attribute, $relation, $related) + ($params ?? [])) }}"><i class="fa fa-eye margin-right-10"></i>{{ $component->translate('button.show') }}</a>
+@endcan

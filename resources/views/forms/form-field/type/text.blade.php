@@ -1,5 +1,4 @@
-<div class="@if ($component->hasOption('prefix') || $component->hasOption('units')) input-group margin-0 @else control-group @endif width-100">
-{{-- @todo "hotfixed", use prefix and suffix instead --}}
+<div class="@if ($component->hasOption('prefix') || $component->hasOption('suffix')) input-group margin-0 @else control-group @endif width-100">
 @if ($component->hasOption('prefix'))
     <span class="input-group-addon">{!! $component->getOption('prefix') !!}</span>
 @endif
@@ -8,7 +7,7 @@
 @else
     {!! Form::text($component->getFormField()->getFieldName(), $component->getFormField()->getFieldValue(), $component->getOption('attributes')) !!}
 @endif
-@if ($component->hasOption('units'))
-    <span class="input-group-addon">{!! $component->getOption('units') !!}</span>
+@if ($component->hasOption('suffix'))
+    <span class="input-group-addon">{!! $component->getOption('suffix') !!}</span>
 @endif
 </div>

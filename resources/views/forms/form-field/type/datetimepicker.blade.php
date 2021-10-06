@@ -1,7 +1,4 @@
-<div class="control-group row">
-    <div class="col-xs-12 xdisplay_inputx form-group has-feedback">
-        <input class="form-control has-feedback-left datetimepicker" name="{{ $component->getFormField()->getFieldName() }}" placeholder="{{ $component->getFormField()->getFieldValue() }}">
-        <span class="fa fa-calendar-o form-control-feedback left"></span>
-        <span class="sr-only">(success)</span>
-    </div>
+<div class="input-group">
+    <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+    <input class="form-control datetimepicker" name="{{ $component->getFormField()->getFieldName() }}" value="{{ $component->getFormField()->getFieldValue() ? Carbon\Carbon::parse($component->getFormField()->getFieldValue())->format('j.n.Y H:i') : '' }}" @if ($component->hasOption('attributes.placeholder')) placeholder="{{ $component->getOption('attributes.placeholder') }}" @endif>
 </div>

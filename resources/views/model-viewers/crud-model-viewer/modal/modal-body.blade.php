@@ -1,0 +1,1 @@
+{!! $component->render('include.data') !!}
