@@ -20,6 +20,7 @@ return [
         'text' => 'Text',
         'description' => 'Popis',
         'note' => 'Poznámka',
+        'path' => 'Cesta',
         'url' => 'URL',
         'upload' => 'Nahrávaný súbor',
         'image' => 'Obrázok',
@@ -87,6 +88,7 @@ return [
         'text' => 'Text',
         'description' => 'Popis',
         'note' => 'Poznámka',
+        'path' => 'Cesta',
         'url' => 'URL',
         'address' => 'Adresa',
         'rating' => 'Hodnotenie',
@@ -147,7 +149,30 @@ return [
         'default' => 'Info',
         'home' => 'Domov',
         'gallery' => 'Obrázky',
+        'settings' => 'Nastavenia',
         'preferences' => 'Preferencie',
+    ],
+    'panel' => [
+        'data' => [
+            'general' => [
+                'heading' => 'Základné údaje',
+            ],
+            'description' => [
+                'heading' => 'Popis',
+            ],
+            'note' => [
+                'heading' => 'Poznámka',
+            ],
+            'localization' => [
+                'heading' => 'Nastavenie lokalizácie',
+            ],
+            'label' => [
+                'heading' => 'Nastavenie štítku',
+            ],
+            'meta' => [
+                'heading' => 'Meta údaje',
+            ],
+        ],
     ],
     'placeholder' => [
         'select' => 'Vyberte',

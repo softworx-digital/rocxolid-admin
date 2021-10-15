@@ -1,5 +1,5 @@
 @can ('view', [ $component->getModel()->$relation()->getRelated(), $attribute ])
-<div id="{{ $component->getDomId($relation, $attribute) }}" class="panel panel-default">
+<div id="{{ $component->getDomId($component->getModel()->getKey(), $relation, $attribute) }}" class="panel panel-default">
     {!! $component->render('related.include.panel-heading', [
         'relation' => $relation,
         'attribute' => $attribute,

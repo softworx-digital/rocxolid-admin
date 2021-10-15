@@ -3,13 +3,19 @@
     <dt>{{ $component->translate(sprintf('field.%s', $attribute)) }}</dt>
     <dd>
     @if ($component->getModel()->isRelationAttribute($attribute))
-        @if ($component->getModel()->$attribute)
+        @if ($component->getModel()->$attribute instanceof \Traversable)
+            <ul class="list-inline margin-0">
+            @foreach ($component->getModel()->$attribute as $item)
+                <li class="padding-0">{!! $item->getModelViewerComponent()->render('snippet.label') !!}</li>
+            @endforeach
+            </ul>
+        @elseif ($component->getModel()->$attribute)
             {!! optional($component->getModel()->getRelationAttributeModel($attribute))->getModelViewerComponent()->render('snippet.label') !!}
         @else
             <i class="fa fa-circle-o"></i>
         @endif
     @elseif ($component->getModel()->isBooleanAttribute($attribute))
-        {!! $component->getModel()->$attribute ? '<i class="fa fa-check"></i>' : '<i class="fa fa-close"></i>' !!}
+        <i class="fa {{ $component->getModel()->$attribute ? 'fa-check text-success' : 'fa-close text-danger' }}"></i>
     @elseif ($component->getModel()->isJsonArrayAttribute($attribute))
         @foreach (($component->getModel()->$attribute ?? []) as $value)
             <span class="label label-default">{{ $value }}</span>
