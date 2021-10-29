@@ -6,6 +6,12 @@ use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 // rocXolid communication event contracts
 use Softworx\RocXolid\Communication\Events\Contracts\Sendable;
+// rocXolid communication model contracts
+use Softworx\RocXolid\Communication\Models\Contracts\Sendable as Notification;
+// rocXolid communication models
+use Softworx\RocXolid\Communication\Models\EmailNotification;
+// rocXolid common models
+use Softworx\RocXolid\Common\Models\Language;
 // rocXolid user management models
 use Softworx\RocXolid\UserManagement\Models\User;
 
@@ -32,6 +38,16 @@ class UserRegistered implements Sendable
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public static function getNotificationTypes(): Collection
+    {
+        return collect([
+            EmailNotification::class,
+        ]);
+    }
+
+    /**
      * Retrieve the user instance (being used for sending).
      *
      * @return \Softworx\RocXolid\UserManagement\Models\User
@@ -44,7 +60,7 @@ class UserRegistered implements Sendable
     /**
      * {@inheritDoc}
      */
-    public function getRecipients(): Collection
+    public function getRecipients(Notification $notification): Collection
     {
         return collect($this->user->email);
     }
@@ -63,5 +79,10 @@ class UserRegistered implements Sendable
     public function getSendingModel(): Model
     {
         return $this->user;
+    }
+
+    public function getLanguage(): ?Language
+    {
+        return null;
     }
 }

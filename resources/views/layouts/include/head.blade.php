@@ -7,7 +7,7 @@
     <meta name="description" content="@hasSection('meta-description')@yield('meta-description')@endif"/>
     <meta name="keywords" content="@hasSection('meta-keywords')@yield('meta-keywords')@endif"/>
 
-    <title>@hasSection('title')@yield('title') | @endif{{ config('app.name', '-- undefined--') }} | Admin</title>
+    <title>@hasSection('title')@yield('title') | @endif{{ config('app.name', '-- undefined--') }} | {{ config('app.admin-name', 'Admin') }}</title>
 
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('vendor/softworx/rocXolid/images/favicon/favicon-32x32.png') }}"/>
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('vendor/softworx/rocXolid/images/favicon/favicon-16x16.png') }}"/>
@@ -18,18 +18,18 @@
 @foreach (config('rocXolid.admin.general.stylesheets', []) as $path)
     <link rel="stylesheet" href="{{ asset($path) }}">
 @endforeach
-@if (config('onesignal.app_id', false))
+@if (config('onesignal.default.app_id', false))
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async="true"></script>
     <script>
         window.OneSignal = window.OneSignal || [];
-        OneSignal.push(function() {
-            OneSignal.init({
-                appId: "{{ config('onesignal.app_id') }}",
-                notifyButton: {
-                    enable: true,
-                },
-            });
-        });
+
+        var initConfig = {
+            appId: "{{ config('onesignal.default.app_id') }}",
+            notifyButton: {
+                enable: true,
+            },
+        };
+
         OneSignal.push(function () {
             OneSignal.SERVICE_WORKER_PARAM = { scope: '/assets/js/' };
             OneSignal.SERVICE_WORKER_PATH = 'assets/js/OneSignalSDKWorker.js'

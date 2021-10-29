@@ -1,5 +1,5 @@
 <div class="x_panel ajax-overlay">
-    {!! $component->render('include.header-panel') !!}
+    {!! $component->render('include.header') !!}
 
     {{ Form::open([ 'url' => $component->getController()->getRoute('destroy', $component->getModel()) ]) }}
         {{ Form::hidden('_method', 'DELETE') }}

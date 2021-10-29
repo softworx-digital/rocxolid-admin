@@ -8,6 +8,10 @@
         @else
             <i class="fa fa-close text-danger"></i>
         @endif
+    @elseif ($component->getModel()->isJsonArrayAttribute($_attribute))
+        @foreach (($component->getModel()->$_attribute ?? []) as $value)
+            <span class="label label-default">{{ $value }}</span>
+        @endforeach
     @elseif ($component->getModel()->isJsonAttribute($_attribute))
         JSON - // @todo
     @elseif ($component->getModel()->isColorAttribute($_attribute))

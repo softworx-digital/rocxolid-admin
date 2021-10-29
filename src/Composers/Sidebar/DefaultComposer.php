@@ -28,7 +28,7 @@ use Softworx\RocXolid\Components\Exceptions\InvalidItemImplementationException;
  */
 class DefaultComposer extends AbstractComposer
 {
-    protected $translation_package = 'rocXolid:admin';
+    protected $translation_package = 'rocXolid-admin';
 
     protected $translation_param = 'admin';
 
@@ -114,6 +114,10 @@ class DefaultComposer extends AbstractComposer
             $item->setIcon($config['icon']);
         }
 
+        if (isset($config['open-routes'])) {
+            $item->setOpenOnRoutes($config['open-routes']);
+        }
+
         if ($item instanceof ControllableContract) {
             $item->setController(app($config['controller']));
         }
@@ -133,7 +137,6 @@ class DefaultComposer extends AbstractComposer
         if (isset($config['add'])) {
             foreach ([$config['add']] as $subnodes) {
                 if ($parsed = $this->parseConfig($subnodes)) {
-// dump($parsed);
                     $item->setItems($parsed);
                 }
             }

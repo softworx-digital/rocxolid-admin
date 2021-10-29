@@ -12,9 +12,7 @@
     }],
 	"license": "MIT",
     "require": {
-		"php": "~7.2",
-        "laravel/framework": "^6.0|^8.0",
-        "softworx/rocxolid": "*",
+		"softworx/rocxolid": "*",
         "softworx/rocxolid-ui": "*"
 	},
     "autoload": {

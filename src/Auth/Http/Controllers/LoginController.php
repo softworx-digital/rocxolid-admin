@@ -3,7 +3,6 @@
 namespace Softworx\RocXolid\Admin\Auth\Http\Controllers;
 
 use Symfony\Component\HttpFoundation\Response;
-use Illuminate\View\View as IlluminateView;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Validation\ValidationException;
@@ -171,7 +170,15 @@ class LoginController extends AbstractController implements Dashboardable
      */
     public function redirectPath(): string
     {
-        return route(config('rocXolid.admin.auth.login_redirect', 'rocXolid.admin.index'));
+        $user = $this->guard()->user();
+
+        $redirect = config('rocXolid.admin.auth.login_redirect', 'rocXolid.admin.index');
+
+        if (is_callable($redirect)) {
+            return route($redirect($user));
+        }
+
+        return route($redirect);
     }
 
     /**

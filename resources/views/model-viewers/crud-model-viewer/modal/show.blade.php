@@ -4,7 +4,7 @@
             {!! $component->render('modal.modal-header') !!}
 
             <div class="modal-body">
-                {!! $component->render('include.data') !!}
+                {!! $component->render('modal.modal-body') !!}
             </div>
 
             {!! $component->render('modal.modal-footer') !!}

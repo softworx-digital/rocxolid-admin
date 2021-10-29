@@ -1,0 +1,1 @@
+{{ $component->getModel()->getTitle() }}

@@ -6,6 +6,12 @@ use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 // rocXolid communication event contracts
 use Softworx\RocXolid\Communication\Events\Contracts\Sendable;
+// rocXolid communication model contracts
+use Softworx\RocXolid\Communication\Models\Contracts\Sendable as Notification;
+// rocXolid communication models
+use Softworx\RocXolid\Communication\Models\EmailNotification;
+// rocXolid common models
+use Softworx\RocXolid\Common\Models\Language;
 // rocXolid common models
 use Softworx\RocXolid\Common\Models\Error as ErrorModel;
 use Softworx\RocXolid\Common\Models\Web;
@@ -49,7 +55,17 @@ class Error implements Sendable
     /**
      * {@inheritDoc}
      */
-    public function getRecipients(): Collection
+    public static function getNotificationTypes(): Collection
+    {
+        return collect([
+            EmailNotification::class,
+        ]);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRecipients(Notification $notification): Collection
     {
         return collect();
     }
@@ -68,5 +84,10 @@ class Error implements Sendable
     public function getSendingModel(): Model
     {
         return $this->error;
+    }
+
+    public function getLanguage(): ?Language
+    {
+        return null;
     }
 }

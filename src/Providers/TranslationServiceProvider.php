@@ -3,6 +3,8 @@
 namespace Softworx\RocXolid\Admin\Providers;
 
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
+// rocXolid admin package provider
+use Softworx\RocXolid\Admin\ServiceProvider as PackageServiceProvider;
 
 /**
  * rocXolid translation service provider.
@@ -33,7 +35,7 @@ class TranslationServiceProvider extends IlluminateServiceProvider
      */
     private function load()
     {
-        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'rocXolid:admin');
+        $this->loadTranslationsFrom(PackageServiceProvider::translationsSourcePath(dirname(dirname(__DIR__))), 'rocXolid-admin');
 
         return $this;
     }

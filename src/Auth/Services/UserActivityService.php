@@ -35,7 +35,7 @@ class UserActivityService
         $activity = $activity_class::make(
             Carbon::now(),
             $request->ip(),
-            $request->url(),
+            $request->url()
         );
 
         Cache::forever($this->getUserActivityCacheKey($user), $activity);

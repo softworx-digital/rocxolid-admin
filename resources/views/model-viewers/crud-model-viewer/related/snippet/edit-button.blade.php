@@ -1,0 +1,3 @@
+@can ('update', [ $related, $attribute ])
+    <a class="btn btn-{{ $color ?? 'primary' }} btn-{{ $display ?? 'block' }} btn-{{ $size ?? 'lg' }}" data-ajax-url="{{ $component->getModel()->getControllerRoute('edit', $component->getModel()->getRouteRelationParam($attribute, $relation, $related) + ($params ?? [])) }}"><i class="fa fa-pencil margin-right-10"></i>{{ $component->translate('model.title.singular') }}</a>
+@endcan

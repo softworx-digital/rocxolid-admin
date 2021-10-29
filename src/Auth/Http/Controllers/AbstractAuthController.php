@@ -62,7 +62,7 @@ abstract class AbstractAuthController extends AbstractController implements Dash
     /**
      * {@inheritDoc}
      */
-    protected $translation_package = 'rocXolid:admin';
+    protected $translation_package = 'rocXolid-admin';
 
     /**
      * Constructor.

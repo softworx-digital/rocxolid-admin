@@ -10,8 +10,7 @@
 @endif
     <div class="ajax-overlay">
         <form id="login-form" method="post" action="{{ route('rocXolid.auth.login') }}" class="ajaxify">
-            {{ csrf_field() }}
-
+            @csrf
             <div class="form-group">
                 <input type="text" name="email" class="form-control" placeholder="{{ $component->translate('field.username') }}" required="required"/>
             </div>
@@ -30,8 +29,12 @@
 @if (config('rocXolid.admin.auth.registration_enabled', false) || config('rocXolid.admin.auth.forgot_password_enabled', false))
     <p class="margin-bottom-5">{{ $component->translate('text.or') }}</p>
     <div class="btn-group col-xs-12" role="group">
-        <a type="button" class="btn btn-success col-xs-6" href="{{ route('rocXolid.auth.registration') }}">{{ $component->translate('text.register') }}</a>
-        <a type="button" class="btn btn-warning col-xs-6" href="{{ route('rocXolid.auth.forgot-password') }}">{{ $component->translate('text.forgot-password') }}</a>
+    @if (config('rocXolid.admin.auth.registration_enabled', false))
+        <a type="button" class="btn btn-success @if (config('rocXolid.admin.auth.forgot_password_enabled', false)) col-xs-6 @else col-xs-12 @endif" href="{{ route('rocXolid.auth.registration') }}">{{ $component->translate('text.register') }}</a>
+    @endif
+    @if (config('rocXolid.admin.auth.forgot_password_enabled', false))
+        <a type="button" class="btn btn-warning @if (config('rocXolid.admin.auth.registration_enabled', false)) col-xs-6 @else col-xs-12 @endif" href="{{ route('rocXolid.auth.forgot-password') }}">{{ $component->translate('text.forgot-password') }}</a>
+    @endif
     </div>
 @endif
 </section>
